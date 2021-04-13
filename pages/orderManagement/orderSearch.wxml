@@ -1,0 +1,56 @@
+<view>
+	<view class="row"><text class="title">订单号</text><input wx:if="{{inputShow}}" class="input" bindinput="getorderNo" value="{{orderNo}}" placeholder="请输入订单号"></input></view>
+	<view class="row"><text class="title">客户名称</text> <input wx:if="{{inputShow}}" class="input" wx:show="{{!hideShare}}" data-biaos="getKhname" bindtap='chooseShare' value="{{getKhname}}" placeholder=" 请选择客户"></input>
+	</view>
+	<view wx:if="{{hideShare}}" style='position:fixed;top:0;bottom:0;right:0;left:0;background-color:#333333d1;display:flex;align-items:flex-end;align-content:center;'>
+		<scroll-view class="khName" style="padding: 20rpx" scroll-y="true" bindscrolltolower="catchtouch">
+			<!-- 获取客户姓名 -->
+			<view wx:if="{{biaos=='getKhname'}}" style="  display:flex;">
+				<view style="flex:8;border-bottom:1rpx solid gray">
+					<input bindinput="getKhname" style="color:black" value="{{getKhname}}" placeholder="输入关键字"></input>
+				</view>
+				<view style="flex:2">
+					<button bindtap="serchKhname" style="width: 120rpx;height: 50rpx;font-size: 22rpx;line-height:50rpx;color:#F08C50;padding:0rpx">搜索</button>
+				</view>
+			</view>
+			<view style="padding:10rpx 20rpx 10rpx 20rpx;border-bottom:1rpx solid gray" wx:if="{{biaos=='getKhname'}}" bindtap='chooseSharee' wx:for="{{nameData}}" wx:key="index">
+				<text bindtap="confirmKhname" data-index="{{item.name}}"  data-Khnameid="{{item.id}}" style="color:black;display:block">{{item.name}}</text>
+				<text bindtap="confirmKhname" data-index="{{item.name}}"  data-Khnameid="{{item.id}}" style="color:black;display:block;font-size: 25rpx;overflow: hidden;text-overflow: ellipsis;white-space: nowrap;">{{item.receiveaddr}}</text>
+			</view>
+			<!-- 获取业务员姓名 -->
+			<view wx:if="{{biaos=='ywyName'}}" style="display:flex;padding:30rpx;">
+				<view style="flex:8;border-bottom:1rpx solid gray">
+					<input bindinput="getywyName" style="color:black" placeholder="输入关键字"></input>
+				</view>
+				<view style="flex:2">
+					<button bindtap="serchKhname" style="width: 120rpx;height: 50rpx;font-size: 22rpx;line-height:50rpx;color:#F08C50;padding:0rpx">搜索</button>
+				</view>
+			</view>
+			<view wx:if="{{biaos=='ywyName'}}" bindtap='chooseSharee' wx:for="{{ywynameData}}" wx:key="index" style="padding: 10rpx 30rpx 10rpx 30rpx;border-bottom:1rpx solid gray">
+				<text bindtap="confirmKhname" data-index="{{item.name}}" data-ywyNameid="{{item.id}}" style="color:black;display: block;">{{item.name}}</text>
+			</view>
+		</scroll-view>
+	</view>
+	<view class="row"><text class="title">业务员</text><input wx:if="{{inputShow}}" class="input" value="{{getywyNamee}}" data-biaos="ywyName" bindtap='chooseShare' placeholder="请选择业务员"></input></view>
+	<view class="row">
+		<text class="title">开始时间</text>
+		<picker class="input" mode="date" value="{{enddate}}" start="1900-01-01" end="2100-01-01" bindchange="bindstaDateChange">
+			<view class="picker">
+				{{enddate}}
+			</view>
+		</picker>
+	</view>
+	<view class="row">
+		<text class="title">结束时间</text>
+		<picker class="input" mode="date" value="{{stadate}}" start="{{enddate}}" end="2100-01-01" bindchange="bindendDateChange">
+			<view class="picker">
+				{{stadate}}
+			</view>
+		</picker>
+	</view>
+	<view wx:if="{{inputShow}}" class="row">
+		<view style="flex:1;text-align:center"><button style="  width: 140rpx;" class="btn" bindtap="remove">重置</button></view>
+		<view style="flex:1;text-align:center"><button style="  width: 140rpx;" class="btn" bindtap="searchBtn">搜索</button></view>
+	</view>
+</view>
+<tabBar></tabBar>

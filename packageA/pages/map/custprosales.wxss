@@ -1,0 +1,5 @@
+/* packageA/pages/map/custprosales.wxss */
+ 
+page{
+  padding-bottom: 30rpx;
+}

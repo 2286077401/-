@@ -1,0 +1,3 @@
+<view class="box" >
+ <ec-canvas force-use-old-canvas="true"  id="mychart-dom-map" canvas-id="mychart-map" ec="{{ ec }}"></ec-canvas>
+</view>

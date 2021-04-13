@@ -1,0 +1,40 @@
+<view class="container">
+	<!-- tab导航栏 -->
+	<!-- scroll-left属性可以控制滚动条位置 -->
+	<!-- scroll-with-animation滚动添加动画过渡 -->
+	<scroll-view scroll-y="true" class="nav" scroll-top="{{navScrollLeft}}" scroll-with-animation="{{true}}">
+		<block wx:for="{{navData}}" wx:for-index="idx" wx:for-item="navItem" wx:key="idx">
+			<view class="nav-item {{currentTab == idx ?'active':''}}" data-current="{{idx}}" bindtap="switchNav">{{navItem.text}}</view>
+		</block>
+	</scroll-view>
+	<!-- 页面内容 -->
+	<swiper class="tab-box" current="{{currentTab}}" duration="300" bindchange="switchTab">
+		<swiper-item class="tab-content">
+			1
+		</swiper-item>
+		<swiper-item class="tab-content">
+			222
+		</swiper-item>
+		<swiper-item class="tab-content">
+			3
+		</swiper-item>
+		<swiper-item class="tab-content">
+			4
+		</swiper-item>
+		<swiper-item class="tab-content">
+			5
+		</swiper-item>
+		<swiper-item class="tab-content">
+			6
+		</swiper-item>
+		<swiper-item class="tab-content">
+			7
+		</swiper-item>
+		<swiper-item class="tab-content">
+			8
+		</swiper-item>
+		<swiper-item class="tab-content">
+			999
+		</swiper-item>
+	</swiper>
+</view>

@@ -1,0 +1,105 @@
+<view class="tr bb1">
+	<view class="mr3" bindtap="submitbf">提交</view>
+</view>
+<view class="drawer_screen" bindtap="powerDrawer" data-statu="close" wx:if="{{showModalStatus}}"></view>
+<view>
+	<view class="center">
+		<view class="title"><text >客户名称*</text></view>
+		<view wx:if="{{modify=='false'}}" class="input"><input bindinput="khName" disabled="{{isDetail}}" bindtap="powerDrawer" data-statu="open" data-biaos="khname" value="{{khname}}"></input></view>
+		<view wx:if="{{modify=='true'}}" class="input"><input bindinput="khName" disabled="{{isDetail}}" bindtap="powerDrawer" data-statu="open" data-biaos="xgkhname" value="{{transmitdata.custname}}"></input></view>
+	</view>
+	<view class="center">
+		<view class="title"><text>联系人</text></view>
+		<view wx:if="{{modify=='true'}}" class="input" style="line-height: 60rpx;"><text>{{transmitdata.custname}}</text><text style="color:gray">|</text><text>{{transmitdata.cellno}}</text></view>
+		<view wx:if="{{modify=='false'}}" class="input" style="line-height: 60rpx;"><text>{{getlxr[0].linker}}</text><text style="color:gray">|</text><text>{{getlxr[0].cellno}}</text></view>
+	</view>
+	<view class="center">
+		<view class="title">客户地址</view>
+		<view wx:if="{{modify=='false'}}" class="input"><input bindinput="khaddress" value="{{lxrmsg[0].receiveaddr}}"></input></view>
+		<view wx:if="{{modify=='true'}}" class="input"><input bindinput="khaddress" value="{{transmitdata.address}}"></input></view>
+	</view>
+	<view class="center">
+		<view class="title">拜访日期</view>
+		<view class="section" wx:if="{{modify=='false'}}">
+			<picker mode="date" value="{{date}}" start="2015-09-01" end="2021-12-31" bindchange="bindDateChange">
+				<view class="picker">
+					{{date}}
+				</view>
+			</picker>
+		</view>
+		<view class="section" wx:if="{{modify=='true'}}">
+			<picker mode="date" value="{{date}}" start="2015-09-01" end="2017-09-01" bindchange="bindDateChange">
+				<view class="picker">
+					{{transmitdata.visitedate}}
+				</view>
+			</picker>
+		</view>
+	</view>
+	<view class="center">
+		<view class="title">客户状态</view>
+		<view wx:if="{{modify=='false'}}" class="input"><input bindinput="khZt" disabled="{{isDetail}}" bindtap="powerDrawer" data-statu="open" data-biaos="khzt" value="{{khzt}}"></input></view>
+		<view wx:if="{{modify=='true'}}" class="input"><input disabled="{{isDetail}}" bindtap="powerDrawer" data-statu="open" data-biaos="xgkhzt" value="{{transmitdata.tracelevel}}"></input> </view>
+	</view>
+	<view class="center" wx:if="{{modify=='false'}}">
+		<view class="title">预期成交金额*</view>
+		<view class="input df"><input bindinput="yqcjmoney" class="f1"></input><text class="f1">万</text></view>
+	</view>
+	<view class="center" wx:if="{{modify=='true'}}">
+		<view class="title">预期成交金额*</view>
+		<!-- value="{{transmitdata.forecastmoney}}" -->
+		<view class="input df"><input bindinput="yqcjmoney" class="f1" value="{{transmitdata.forecastmoney}}"></input><text class="f1">万</text></view>
+	</view>
+	<view class="center">
+		<view class="title">拜访目的*</view>
+		<!-- value="{{transmitdata.purpose}}" -->
+		<view class="input"><input bindinput="visitgoal"  placeholder="请输入目的(必填)"></input></view>
+	</view>
+	<view class="center">
+		<view class="title">洽谈情况说明*</view>
+		<!-- value="{{transmitdata.visitecontent}}" -->
+		<view class="input"><input bindinput="conversation"  placeholder="请输入情况(必填)"></input></view>
+	</view>
+	<view class="center">
+		<view class="title">下次拜访时间</view>
+		<view class="input">
+			<picker mode="date" value="{{datelast}}"  bindchange="bindDateChangelast">
+				<view class="picker">
+					{{datelast}}
+				</view>
+			</picker>
+		</view>
+	</view>
+	<view class="center">
+		<view class="title">下次拜访目的</view>
+		<!-- value="{{transmitdata.nextvisitepurpose}}"  -->
+		<view class="input"><input bindinput="nexttime" ></input></view>
+	</view>
+	<view class="center">
+		<view class="title">备注</view>
+		<!-- value="{{transmitdata.note}}" -->
+		<view class="input"><input bindinput="note"></input></view>
+	</view>
+</view>
+
+<!-- 蒙版层 -->
+<view animation="{{animationData}}" class="drawer_box" wx:if="{{showModalStatus}}">
+	<!--drawer content-->
+	<scroll-view bindscrolltolower="next" scroll-y="true" catchtouchmove="catchtouchmove" class="drawer_content" style="width: 420rpx;">
+		<view wx:if="{{biaos=='khname'}}" wx:for="{{getkhnamedata}}" wx:key="index" style="margin: 20rpx 0 20rpx 0;">
+			<view bindtap="getchoosekhname" data-statu="close" data-khnameid="{{item.id}}" data-name="{{item.name}}">{{item.name}}</view>
+			<view></view>
+		</view>
+		<view wx:if="{{biaos=='xgkhname'}}" wx:for="{{getkhnamedata}}" wx:key="index" style="margin: 20rpx 0 20rpx 0;">
+			<view bindtap="getchoosekhname" data-statu="close" data-khnameid="{{item.id}}" data-name="{{item.name}}">{{item.name}}</view>
+			<view></view>
+		</view>
+		<view wx:if="{{biaos=='khzt'}}" wx:for="{{getkhztdata}}" wx:key="index" style="margin: 20rpx 0 20rpx 0;">
+			<view bindtap="getchoosekhzt" data-statu="close" data-khnameid="{{item.id}}" data-name="{{item.name}}">{{item.name}}</view>
+			<view></view>
+		</view>
+		<view wx:if="{{biaos=='xgkhzt'}}" wx:for="{{getkhztdata}}" wx:key="index" style="margin: 20rpx 0 20rpx 0;">
+			<view bindtap="getchoosekhzt" data-statu="close" data-khnameid="{{item.id}}" data-name="{{item.name}}">{{item.name}}</view>
+			<view></view>
+		</view>
+	</scroll-view>
+</view>

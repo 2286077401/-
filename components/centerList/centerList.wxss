@@ -1,0 +1,44 @@
+.swiper-tab {
+  display: flex;
+  background-color: white;
+  height: 80rpx;
+  text-align: center;
+  padding-top: 30rpx;
+  border-top-left-radius: 20rpx;
+  border-top-right-radius: 20rpx;
+  font-size: 25rpx;
+}
+ 
+.swichNav{
+  font-size: 25rpx;
+  transition: all 2s;
+}
+
+.swiper-tab-list {
+  flex: 1;
+}
+
+.on {
+  color: #D5941E;
+  font-size: 30rpx !important;
+  transition: all 1s;
+}
+.nav_top{
+height: 100%;
+width: 70%;
+margin: 0 auto;
+font-size: 26rpx;
+}
+.gylBox{
+  display: flex;
+  flex-wrap: wrap;
+}
+.gylBoxlist{
+  text-align: center;
+  flex:0 0 33.333%;
+  margin-bottom: 50rpx;
+  font-size: 28rpx;
+}
+.gylTs :nth-child(2) .imag{
+  margin-top: -13rpx;
+}

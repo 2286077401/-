@@ -1,0 +1,26 @@
+<view class="upload-box box-class">
+  <view class="upload-box-row">
+    <block wx:for="{{paths}}" wx:key="idx" wx:for-index="idx" wx:for-item="item">
+      <view data-current="{{item}}" catchtap="{{del?'previewImage':'chooseImage'}}"
+        style="background-image:url({{item}})" class="upload-box-row-item item-class">
+        <image data-index="{{idx}}" catchtap="delImg" wx:if="{{!disabled}}" class="upload-box-row-item-del"
+          src="{{delicon}}"></image>
+      </view>
+    </block>
+    <block wx:for="{{temps}}" wx:key="idx" wx:for-index="idx" wx:for-item="item">
+      <view data-current="{{item}}" catchtap="{{del?'previewImage':'chooseImage'}}"
+        style="background-image:url({{item}})" class="upload-box-row-item item-class">
+        <view class="upload-box-row-item-loading">
+          <image class="loading-icon" src="{{loadingicon}}"></image>
+        </view>
+      </view>
+    </block>
+    <block wx:if="{{((paths.length+temps.length)<max)&&!disabled}}">
+      <view catchtap="chooseImage" class="upload-box-row-item item-class"
+        style="border: 1rpx dashed rgba(153, 153, 153, 1);">
+        <image wx:if="{{icon}}" class="upload-box-row-item-icon icon-class" src="{{icon}}"></image>
+        <image wx:else class="upload-box-row-item-icon icon-class" src="{{icondef}}"></image>
+      </view>
+    </block>
+  </view>
+</view>

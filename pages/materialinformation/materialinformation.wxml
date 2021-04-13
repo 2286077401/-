@@ -1,0 +1,12 @@
+<view>
+<view style="width:100%;height:60rpx"><view style="width:60rpx;float:right;"><image style="width:50rpx;height:50rpx" bindtap="goserch" src="/pages/images/serch.png"></image></view></view>
+  <view style="display:flex;height: 200rpx;margin-top:20rpx;border-bottom:1rpx solid #B2B2B2" wx:for="{{listdate}}" wx:key="index">
+   <view style="flex:3;text-align: center;" ><image style="max-height: 175rpx;width:150rpx;margin: 0 auto;display: block;position: relative;top: 55%; transform: translateY(-50%);" bindtap="bigimage" data-index="{{index}}" data-imgu="{{imgUrl}}/{{imgarr[index][0].imgpath}}" mode="widthFix" src="{{imgUrl}}/{{imgarr[index][0].imgpath}}"></image></view>
+   <view style="display:flex; flex-direction:column;flex:7" bindtap="godetail" data-item="{{item}}">
+      <view style=" flex: 1 1 auto;">名称:{{item.proname}}</view>
+      <view style=" flex: 1 1 auto;font-size: 25rpx;color: gray;">规格:{{item.specification}}</view>
+      <view style=" flex: 1 1 auto;font-size: 25rpx;color: gray;">单价:{{item.saleprice}}</view>
+   </view>
+  </view>
+  <tabBar></tabBar>
+</view>

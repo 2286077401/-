@@ -1,0 +1,73 @@
+/**index.wxss**/
+page {
+  height: 100%;
+}
+.bg_box{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100%;
+}
+.bg_box>image{
+  width: 100%;
+  height: 100%;
+}
+
+
+.userinfo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.userinfo-avatar {
+  width: 128rpx;
+  height: 128rpx;
+  margin: 20rpx;
+  border-radius: 50%;
+}
+
+.userinfo-nickname {
+  color: #aaa;
+}
+
+.usermotto {
+  margin-top: 200px;
+}
+/* ============ */
+page{
+  background: gray;
+}
+.icon{
+  width: 50rpx;
+  height: 50rpx;
+}
+.inputBox{
+  background-color: white;
+  padding: 20rpx;
+ 
+}
+.bottomBox{
+  padding: 50rpx;
+}
+.topInputbox{
+  border-bottom: 1rpx solid #DBDBDB;
+}
+.topInputbox,.topInputbotm{
+  display: flex;
+  padding: 20rpx;
+  height: 50rpx;
+
+}
+.chooseJ{
+  margin: 50rpx 0 50rpx 0;
+  display: flex;
+}
+ .topBox{
+ width:100%;
+  text-align:center;
+  margin-top: 100rpx;
+  margin-bottom: 100rpx;
+ }
+ 

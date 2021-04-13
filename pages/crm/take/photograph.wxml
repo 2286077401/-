@@ -1,0 +1,47 @@
+<!--pages/crm/take/photograph.wxml-->
+<!-- <upload-img></upload-img> -->
+<view>
+	<view style="text-align:right;margin-right:30rpx" bindtap="uploadall">上传</view>
+</view>
+<view class="weui-uploader" style="border-bottom:1rpx solid #CCCCCC">
+	<view class="img-v weui-uploader__bd">
+		<view class='pic' wx:for="{{imgs}}" wx:for-item="item" wx:key="*this">
+			<image class='weui-uploader__img ' src="{{item}}" data-index="{{index}}" mode="aspectFill" bindtap="previewImg">
+				<icon type='cancel' class="delete-btn" data-index="{{index}}" catchtap="deleteImg"></icon>
+			</image>
+		</view>
+		<view class="weui-uploader__input-box pic" bindtap="chooseImg"> </view>
+	</view>
+	<!-- <button class="upload-img-btn" bindtap="chooseImg" type='primary'>拍照  / 上传</button> -->
+</view>
+<view class="container">
+	<view class="lineHeight" type="text">
+		<view style="display:flex;border-bottom:1rpx solid #CCCCCC">
+			<view style="flex:1">客户/活动</view>
+			<view style="flex:1;padding-top: 10rpx;"><input style="height:100%" bindinput="getkh" value="{{inputkhname}}"></input></view>
+			<view style="flex:1;text-align:center;margin-top:10rpx">
+				<image style="width:50rpx;height:50rpx" bindtap="powerDrawer" data-statu="open" data-biaos="khName" src="/pages/images/user.png"></image>
+			</view>
+		</view>
+		<picker style="border-bottom:1rpx solid #CCCCCC" bindchange="bindPickerChange" value="{{index}}" range="{{array}}" bindtap='clearFont'>
+			照片类型
+			<text class='select' >{{placeholder}} {{array[index]}}</text>
+		</picker>
+		<view style="display:flex;border-bottom:1rpx solid #CCCCCC">
+			<view style="flex:3">照片描述</view>
+			<view style="flex:7;padding-top: 10rpx;"><input style="height: 100%;" bindinput="picmiaoshu"></input></view>
+		</view>
+	</view>
+</view>
+
+
+<view class="drawer_screen" bindtap="powerDrawer" data-statu="close" wx:if="{{showModalStatus}}"></view>
+<view animation="{{animationData}}" class="drawer_box" wx:if="{{showModalStatus}}">
+	<!--drawer content-->
+	<scroll-view scroll-y='true' bindscrolltolower='next' class="drawer_content">
+		<view wx:if="{{biaos=='khName'}}" wx:for="{{khnamelist}}" wx:key="index" style="margin: 20rpx 0 20rpx 0;">
+			<view bindtap="getkhName" data-statu="close" data-khNameid="{{item.id}}" data-khName="{{item.name}}">{{item.name}}</view>
+			<view></view>
+		</view>
+	</scroll-view>
+</view>

@@ -1,0 +1,61 @@
+<view>
+<!-- bindtap="open" -->
+	<view class="top" bindtap="open">照片</view>
+  <!-- <view class="windo" style='display:{{displa}}'>
+    <view bindtap="showview"   class="winTxt" style="border-bottom:1rpx solid #999"><text>状态</text></view>
+    <view bindtap="orderClose" class="winTxt"><text>关闭</text></view>
+  </view> -->
+
+ 
+<view class="bg" bindtap='hideview' style='display:{{display}}'></view>
+<view class="show"  style='display:{{display}}'>
+<view class='text' data-text="{{danhao}}" bindtap="kuaidiyibai">{{danhao}}</view>
+</view>
+
+
+
+	<view class="orderdetail">
+		<view class="txtBox" style="padding-top:50rpx">
+			<text class="f1">退货单号</text>
+			<text class="f1 order" style="font-size: 20rpx;line-height: 35rpx;">{{itemData.returnno}}</text>
+			<text class="f1">创建时间</text>
+			<text class="f1 order" style="text-align: center;">{{itemData.applytime}}</text>
+		</view>
+		<view class="txtBox">
+			<text class="f1">客户名称</text>
+			<text class="f1 g">{{itemData.custname}}</text>
+			<text class="f1">退货金额</text>
+			<text class="f1 g">{{itemData.salesmoney}}</text>
+		</view>
+		<!-- <view class="txtBox">
+			<text class="f1">是否代收</text>
+			<text class="f1 g">{{daidai}}</text>
+			<text class="f1">{{daidai=='是'?'代收金额':''}}</text>
+			<text class="f1 g">{{itemData.daishoumoney}}</text>
+		</view> -->
+		<view class="txtBox">
+			<text class="f1">业务员</text>
+			<text class="f1 g">{{itemData.saler}}</text>
+			<text class="f1">审批状态</text>
+			<text class="f1 g">{{itemData.spnodename}}</text>
+		</view>
+		<view class="txtBox">
+			<text style="flex:2">退货原因</text>
+			<text style="flex:8">{{itemData.returnreason}}</text>
+		</view>
+		<view class="txtBox">
+			<text style="flex:2">退货备注</text>
+			<text style="flex:8">{{itemData.note==''?'空':itemData.note}}</text>
+		</view>
+	</view>
+	<view class="bottom" wx:for="{{proMag}}" wx:key="index">
+		<view class="title" style="padding: 20rpx 0 20rpx 0;border-bottom: 1rpx solid gray;"><text class="f1" decode="{{true}}">&nbsp;商品信息</text></view>
+		<view class="txt"><text class="f1" decode="{{true}}">&nbsp;产品名称</text><text class="f1">{{item.proname}}</text></view>
+		<view class="txt"><text class="f1" decode="{{true}}">&nbsp;规格</text><text class="f1">{{item.specification}}</text></view>
+		<view class="txt"><text class="f1" decode="{{true}}">&nbsp;数量</text><text class="f1">{{item.maincount}}{{item.prounitname}}</text></view>
+		<view class="txt"><text class="f1">【单价】</text><text class="f1">{{item.singleprice}}</text></view>
+		<view class="txt"><text class="f1" decode="{{true}}">&nbsp;金额</text><text class="f1">{{item.goodsmoney}}</text></view>
+ 
+	</view>
+</view>
+<tabBar></tabBar>

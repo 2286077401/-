@@ -1,0 +1,7 @@
+<!--pages/msg/video/player.wxml-->
+<!-- <text>pages/msg/video/player.wxml</text> -->
+<view style="width:100%;height:100%;background:black">
+	<video show-fullscreen-btn="true"  controls="true" style="width: 100%;height: 550rpx;display: inline-block;line-height: 0;overflow: hidden;position: relative;z-index: 0;top: 50%;margin-top: -275rpx;" autoplay="true" objectFit='cover' src="{{url}}uploadfile/{{videdata}}"></video>
+</view>
+
+<!-- <text>{{url}}/{{videdata}}</text> -->

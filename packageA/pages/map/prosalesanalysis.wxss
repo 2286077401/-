@@ -1,0 +1,4 @@
+/* packageA/pages/map/prosalesanalysis.wxss */
+page{
+  padding-bottom: 30rpx;
+}

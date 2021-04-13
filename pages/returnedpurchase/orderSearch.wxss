@@ -1,0 +1,43 @@
+/* pages/orderManagement/orderSearch.wxss */
+@import "/pages/orderManagement/orderManagement.wxss";
+page {
+  background-color: #F1F1F1;
+  padding-bottom: 120rpx;
+}
+
+.row {
+  display: flex;
+  text-align: center;
+  margin: 50rpx 20rpx 0rpx 20rpx;
+}
+.khName{
+  height: 60%;
+  overflow: scroll;
+}
+.title {
+  flex: 3;
+  line-height: 80rpx;
+}
+
+.input {
+  flex: 7;
+  text-align: left;
+  background-color: white;
+  padding: 20rpx;
+  border-radius: 20rpx;
+
+}
+
+.btn {
+
+  font-size: 25rpx;
+  padding: 15rpx;
+  background-color: #D5941E;
+  color: white
+}
+
+.picker {
+  width: 100%;
+  height: 40rpx;
+
+}

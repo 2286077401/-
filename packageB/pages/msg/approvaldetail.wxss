@@ -1,0 +1,9 @@
+/* packageA/pages/msg/approvaldetail.wxss */
+:not(not){
+  width: 97%;
+  margin: 10rpx;
+}
+
+page{
+ width:100%
+}

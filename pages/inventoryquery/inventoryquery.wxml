@@ -1,0 +1,20 @@
+<view>
+	<view style="width:100%;height:50rpx">
+		<view style="width:60rpx;float:right;">
+			<image style="width:50rpx;height:50rpx" bindtap="goserch" src="/pages/images/serch.png"></image>
+		</view>
+		<!-- <view style="color:#D5941E;width:300rpx;float:right; ">库存总金额:{{kucundate}} 0.00</view> -->
+
+	</view>
+	<view style="display:flex;height: 200rpx; margin-top:20rpx;border-bottom:1rpx solid #B2B2B2" wx:for="{{listdate}}" wx:key="index">
+		<view style="flex:3;text-align: center; position: relative;height: 150rpx;width:200rpx;">
+			<image style="width:150rpx;height:200rpx;position: absolute;top: 50%;left: 50%;transform: translate(-50%,-50%); " bindtap="bigimage" data-index="{{index}}" data-imgu="{{imgUrl}}/{{item.imgpath}}{{item.autoname}}" mode="widthFix" src="{{imgUrl}}/{{item.imgpath}}{{item.autoname}}"></image>
+		</view>
+		<view style="display:flex; flex-direction:column;flex:7;" bindtap="goudetail" data-item="{{item}}">
+			<view style=" flex: 1 1 auto;">名称:{{item.proname}}</view>
+			<view style=" flex: 1 1 auto;font-size: 25rpx;color: gray;">规格:{{item.specification}}</view>
+			<view style=" flex: 1 1 auto;font-size: 25rpx;color: gray;">单价:{{item.saleprice}}</view>
+		</view>
+	</view>
+</view>
+<tabBar></tabBar>

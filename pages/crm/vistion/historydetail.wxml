@@ -1,0 +1,21 @@
+<view>
+	<view wx:for="{{listdata}}" wx:key="index" style="width:90%;margin:0 auto;line-height: 60rpx;border-bottom: 1rpx solid #CCCCCC;">
+		<view style="display:flex">
+			<view style="flex:3">拜访目的</view>
+			<view style="flex:7">{{item.purpose}}</view>
+		</view>
+		<view style="display:flex">
+			<view style="flex:3">洽谈情况</view>
+			<view style="flex:7">{{item.visitecontent}}</view>
+		</view>
+		<view style="display:flex">
+			<view style="flex:3">下次拜访目的</view>
+			<view style="flex:7">{{item.nextvisitepurpose}}</view>
+		</view>
+		<view style="display:flex">
+			<view style="flex:3">拜访时间</view>
+			<view style="flex:7">{{item.nextvisitetime}}</view>
+		</view>
+	</view>
+	<view style="width:100%;text-align:center" wx:if="{{listdata==''}}"><view style="width:50%;margin:0 auto;margin-top:100rpx">暂无数据</view></view>
+</view>

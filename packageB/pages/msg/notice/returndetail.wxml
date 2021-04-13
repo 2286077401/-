@@ -1,0 +1,90 @@
+<view>
+<!-- bindtap="open" -->
+	<view class="top" bindtap="open">照片</view>
+  <!-- <view class="windo" style='display:{{displa}}'>
+    <view bindtap="showview"   class="winTxt" style="border-bottom:1rpx solid #999"><text>状态</text></view>
+    <view bindtap="orderClose" class="winTxt"><text>关闭</text></view>
+  </view> -->
+
+ 
+<view class="bg" bindtap='hideview' style='display:{{display}}'></view>
+<view class="show"  style='display:{{display}}'>
+<view class='text' data-text="{{danhao}}" bindtap="kuaidiyibai">{{danhao}}</view>
+</view>
+
+
+
+	<view class="orderdetail">
+		<view class="txtBox" style="padding-top:50rpx">
+			<text class="f1">退货单号</text>
+			<text class="f1 order" style="font-size: 20rpx;line-height: 35rpx;">{{itemData.returnno}}</text>
+			<text class="f1">创建时间</text>
+			<text class="f1 order" style="text-align: center;">{{itemData.applytime}}</text>
+		</view>
+		<view class="txtBox">
+			<text class="f1">客户名称</text>
+			<text class="f1 g">{{itemData.custname}}</text>
+			<text class="f1">退货金额</text>
+			<text class="f1 g">{{itemData.salesmoney}}</text>
+		</view>
+		<!-- <view class="txtBox">
+			<text class="f1">是否代收</text>
+			<text class="f1 g">{{daidai}}</text>
+			<text class="f1">{{daidai=='是'?'代收金额':''}}</text>
+			<text class="f1 g">{{itemData.daishoumoney}}</text>
+		</view> -->
+		<view class="txtBox">
+			<text class="f1">业务员</text>
+			<text class="f1 g">{{itemData.saler}}</text>
+			<text class="f1">审批状态</text>
+			<text class="f1 g">{{itemData.spnodename}}</text>
+		</view>
+		<view class="txtBox">
+			<text style="flex:2">退货原因</text>
+			<text style="flex:8">{{itemData.returnreason}}</text>
+		</view>
+		<view class="txtBox">
+			<text style="flex:2">退货备注</text>
+			<text style="flex:8">{{itemData.note==''?'空':itemData.note}}</text>
+		</view>
+	</view>
+	<view class="bottom" wx:for="{{proMag}}" wx:key="index">
+		<view class="title" style="padding: 20rpx 0 20rpx 0;border-bottom: 1rpx solid gray;"><text class="f1" decode="{{true}}">&nbsp;商品信息</text></view>
+		<view class="txt"><text class="f1" decode="{{true}}">&nbsp;产品名称</text><text class="f1">{{item.proname}}</text></view>
+		<view class="txt"><text class="f1" decode="{{true}}">&nbsp;规格</text><text class="f1">{{item.specification}}</text></view>
+		<view class="txt"><text class="f1" decode="{{true}}">&nbsp;数量</text><text class="f1">{{item.maincount}}{{item.prounitname}}</text></view>
+		<view class="txt"><text class="f1">【单价】</text><text class="f1">{{item.singleprice}}</text></view>
+		<view class="txt"><text class="f1" decode="{{true}}">&nbsp;金额</text><text class="f1">{{item.goodsmoney}}</text></view>
+ 
+	</view>
+</view>
+<view  style="background-color:white;width:100%;margin-top:20rpx;position: relative;padding-bottom:20rpx">
+	<view style="width:100%;text-align:center;color:#D5941E">审批</view>
+	<view style="padding:20rpx;border-bottom:1rpx solid #CDCFCC">批复历史<text style="padding-left:30rpx">{{danhao}}</text></view>	<!-- {{pfhistory}}  -->
+	<view style="padding:20rpx;border-bottom:1rpx solid #CDCFCC;display:flex"><text>批复内容</text><input wx:if="{{!approvalstatushow}}" style="padding-left:50rpx" bindinput="repcontent" value="{{replycontent}}"></input></view>
+		<view style="padding:20rpx;border-bottom:1rpx solid #CDCFCC">批复状态<text style="font-size:30rpx;color:back;padding-left:30rpx;margin-left: 50rpx;" bindtap="approvalstatus">{{pifustat}}</text><text style="margin-left:200rpx" bindtap="speciallshow">{{speciallyname}}</text></view>
+	<view style="width:100%; ">
+		<view style="display:flex;text-align:center;padding-top:20rpx">
+			<view style="flex:1;"><button style="background:#D5941E;color:white;padding:0;padding: 10rpx 20rpx 10rpx 20rpx;width:50%" bindtap="submitreply">确定</button></view>
+			<view style="flex:1;"><button style="background:#D5941E;color:white;padding:0;padding: 10rpx 20rpx 10rpx 20rpx;width:50%" bindtap="resetreplycontent">重置</button></view>
+		</view>
+	</view>
+
+	<view wx:if="{{approvalstatushow&&!speciallyapproved}}" style="width:200rpx;box-shadow:0 0 9px 3px #999;background:white;position: absolute;bottom: 175rpx;margin-left: 50%;left: -100rpx;">
+		<view style="border-bottom:1rpx solid #CDCFCC;text-align:center" bindtap="choosapprovalstatus" data-statu="审批通过">审批通过</view>
+		<view style="border-bottom:1rpx solid #CDCFCC;text-align:center" bindtap="choosapprovalstatus" data-statu="审批拒绝">审批拒绝</view>
+		<view style="border-bottom:1rpx solid #CDCFCC;text-align:center" bindtap="choosapprovalstatus" data-statu="转特批">转特批</view>
+	</view>
+
+	<view wx:if="{{speciallyapprovedshow}}" style="width:200rpx;box-shadow:0 0 9px 3px #999;background:white;position: absolute;bottom: 280rpx;margin-left: 40%;left: -100rpx;">
+		<view style="border-bottom:1rpx solid #CDCFCC;text-align:center;padding:10rpx" bindtap="choosapprovalstatus" data-statu="特批通过返回">特批通过返回</view>
+		<view style="border-bottom:1rpx solid #CDCFCC;text-align:center;padding:10rpx" bindtap="choosapprovalstatus" data-statu="转特批">转特批</view>
+		<view style="border-bottom:1rpx solid #CDCFCC;text-align:center;padding:10rpx" bindtap="choosapprovalstatus" data-statu="特批结束审批">特批结束审批</view>
+		<view style="border-bottom:1rpx solid #CDCFCC;text-align:center;padding:10rpx" bindtap="choosapprovalstatus" data-statu="特批拒绝">特批拒绝</view>
+	</view>
+	
+	<view wx:if="{{speciallyshow}}" style="overflow-y: scroll; height: 300rpx;box-shadow:0 0 9px 3px #999;width:250rpx;background:white;position: absolute;bottom: 280rpx;margin-left: 75%;left: -100rpx;">
+		<view wx:for="{{speciallylist}}" wx:key='index' style="border-bottom:1rpx solid #CDCFCC;text-align:center;padding:10rpx" ><view bindtap="choosespecially" data-speciallyid="{{item.id}}" data-speciallyname="{{item.name}}">{{item.name}}</view></view>
+	</view>
+</view>
+<tabBar></tabBar>

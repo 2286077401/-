@@ -1,0 +1,13 @@
+<view style="font-size: 30rpx;display:flex;padding:30rpx;height:150rpx;background-color:white;margin-bottom:15rpx" wx:for="{{listdate}}" wx:key="index">
+  <view style="flex:1;font-size: 30rpx;">
+    <view>{{item.proname}}</view>
+    <view>规格 : {{item.specification}}</view>
+    <view>数量 : {{item.totalcount}}</view>
+    <view>批次 : {{item.probatch}}</view>
+  </view>
+  <view style="flex:1;color:#D5941E;line-height:150rpx;text-align: center;`" bindtap="godetaillist" data-item="{{item}}">查看详情>></view>
+</view>
+
+<view wx:if="{{listdate==''}}" style="width:100%"><view style="width:300rpx;margin:0 auto;margin-top:300rpx;text-align:center">暂无数据</view></view>
+
+<tabBar></tabBar>

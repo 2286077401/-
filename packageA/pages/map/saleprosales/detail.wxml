@@ -1,0 +1,25 @@
+<view style="margin-top: 40rpx;">
+	<view style="width:100%;height:100rpx;display:flex;line-height:100rpx">
+		<view style="flex:1;text-align:center;border:1rpx solid #F5F5F5" wx:if="{{totalcountall1!=undefined}}">
+			{{'总数量:'+totalcountall1}}</view>
+		<view style="flex:1;text-align:center;border:1rpx solid #F5F5F5" wx:if="{{totalcountall1!=undefined}}">
+			{{'总金额:'+totalmoneyall1}}</view>
+	</view>
+	<view style="position: absolute;top:0;display:flex;right: 0;margin-bottom:20rpx">
+		<view style="padding-right:10rpx" bindtap="ranking">排名</view>
+		<view style="padding-left:10rpx" bindtap="serch" data-type="客户产品销售分析数据统计详情搜索">搜索</view>
+	</view>
+	<view bindtap="bardetail" data-baritem="{{item}}"
+		style="padding:10rpx;border-bottom:1rpx solid #F5F5F5;border-top:1rpx solid #F5F5F5;line-height: 50rpx;font-size: 24rpx;"
+		wx:for="{{listdata}}" wx:key="index">
+		<view style="font-size:28rpx">产品名称 : {{item.proname}}</view>
+		<view style="display:flex">
+			<view style="flex:7;margin-left:20rpx">规格: {{item.specification}}</view>
+			<view style="flex:3;text-align:center">数量: {{item.evercount}}</view>
+		</view>
+		<view style="display:flex">
+			<view style="flex:7;margin-left:20rpx">单价: {{item.singleprice}}</view>
+			<view style="flex:3;text-align:center">金额: {{item.evermoney}}</view>
+		</view>
+	</view>
+</view>

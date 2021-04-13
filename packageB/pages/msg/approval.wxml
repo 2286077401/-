@@ -1,0 +1,19 @@
+
+<view style="display:flex;;border-bottom: 1rpx solid #707070;padding:10rpx;height: 170rpx;" wx:for="{{listdata}}" wx:key="index">
+  <view style="flex:3;text-align: center; position: relative;height: 150rpx;width:200rpx;overflow: hidden;"><image style="width:150rpx;height:200rpx;position: absolute;top: 50%;left: 50%;transform: translate(-50%,-50%);" bindtap="bigimg" data-bigimg="{{imgUrl}}/{{item.folder}}{{item.autoname}}"  src="{{imgUrl}}/{{item.folder}}{{item.autoname}}"  mode="widthFix" ></image></view>
+  <view style="flex:7" bindtap="godetail" data-id="{{item.id}}" data-isvisited="{{item.isvisited}}"  data-content="{{item.content}}">
+    <view style="color:#707070"><text style="margin-bottom:20rpx;display:-webkit-box;-webkit-line-clamp:1; overflow:hidden;text-overflow:ellipsis;-webkit-box-orient:vertical;word-break:break-all;">{{item.title}}</text></view>
+    <view style="display:flex;color:#707070">
+      <view style="flex:4;font-size: 25rpx;display: flex;">
+         <image style="width:30rpx;height:30rpx;display: block;" src="/pages/images/smuser.png"></image>
+         <text style="display:-webkit-box;-webkit-line-clamp:1; overflow:hidden;text-overflow:ellipsis;-webkit-box-orient:vertical;word-break:break-all;">{{item.publisher}}</text>
+      </view>
+      <view style="flex:6;font-size: 25rpx;display: flex;">
+         <image style="width:30rpx;height:30rpx;display: block;" src="/pages/images/clock.png"></image>
+         <text>{{item.publishtime}}</text>
+      </view>
+    </view>
+       <view wx:if="{{item.isvisited=='1'}}"  style="margin-top:20rpx;"><text style="background-color: #D5941E;font-size: 25rpx;padding: 5rpx 20rpx 5rpx 20rpx;border-radius: 10rpx;color: white;">已读</text></view>
+    <view wx:if="{{item.isvisited=='0'}}" style="margin-top:20rpx;" ><text style="margin-top:30rpx;background-color: red;font-size: 25rpx;padding: 5rpx 20rpx 5rpx 20rpx;border-radius: 10rpx;color: white;">未读</text></view>
+  </view>
+</view>

@@ -1,0 +1,14 @@
+<view bindtap="godetail" data-id="{{item.id}}" data-item="{{item}}"  wx:for="{{listdata}}" wx:key="index" wx:if="{{item.spnodename!='审批结束'}}" style="padding:20rpx;border-top:1rpx solid #F5F5F5;font-size: 30rpx;line-height: 60rpx;background:white;margin-bottom:20rpx">
+   <view style="display:flex" wx:if="{{item.spnodename!='审批结束'}}">
+      <view style="flex:5;text-align:left;font-weight: bolder;">订单编号: <text style="font-size: 25rpx;">{{item.returnno}}</text></view>
+      <view style="flex:5;text-align:center;font-weight: bolder;color:#D5941E"> {{item.spnodename}}</view>
+   </view>
+   <view   style="border-top:1rpx solid #F5F5F5">{{item.creator}}<text style="font-weight: bolder;"> | </text>业务员:{{item.saler}}</view>
+   <view  >创建人:{{item.saler}}</view>
+   <view >创建时间:{{item.applytime}}</view>
+   <!-- <view style="font-weight: bolder;">发货状态:{{}}</view> -->
+</view>
+<view wx:if="{{listdata.length==0}}" style="width:100%;height:100%;background:white;text-align:center">
+	<text style="padding-top:300rpx;display:block;">暂无数据</text>
+</view>
+ 

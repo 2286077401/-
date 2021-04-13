@@ -1,0 +1,4 @@
+/* packageA/pages/map/compcusdsales.wxss */
+page{
+  padding-bottom: 30rpx;
+}

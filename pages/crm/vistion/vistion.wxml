@@ -1,0 +1,47 @@
+<view class="more">
+	<view bindtap="submit">更多</view>
+</view>
+<view class="mask" bindtap="close" catchtouchmove="preventTouchMove" wx:if="{{showModal}}"></view>
+<view class="modalDlg" wx:if="{{showModal}}">
+	<!-- <view class='close_mask' bindtap="close_mask">X</view> -->
+	<view class="choosewin">
+		<view bindtap="close_mask" data-biaos="周边">周边</view>
+		<view bindtap="close_mask" data-biaos="搜索">搜索</view>
+		<view bindtap="close_mask" data-biaos="拜访">拜访</view>
+	</view>
+</view>
+<view class="navbar">
+	<text wx:for="{{navbar}}" data-idx="{{index}}" class="item {{currentTab==index ? 'active' : ''}}" wx:key="unique" bindtap="navbarTap">{{item}}</text>
+</view>
+
+<!--浏览-->
+<view hidden="{{currentTab!==0}}">
+	<view wx:for="{{listdata}}" wx:key="index" class="p3 all">
+		<view class="df">
+			<view class="f1 fb" bindtap="gohistory" data-pifu="false" data-index="{{index}}"><text>{{item.custname}}</text></view>
+			<!-- {{item.spstatus==0?'未批复':'已批复'}} -->
+			<view wx:if="{{item.spstatus==0}}" class="f1 tr mr3 pf"><text>未批复</text></view>
+			<view wx:if="{{item.spstatus==1}}" class="f1 tr mr3 pf"><text style="color:#D5941E">已批复</text></view>
+		</view>
+		<view class="df">
+			<view class="f7" bindtap="gohistory" data-pifu="false" data-index="{{index}}"><text class="cgray mr3">{{item.visitor}}</text><text class="cgray ">{{item.visitedate}}</text></view>
+			<view class="f3 tr mr3 cgray" bindtap="calltel" data-phone="{{item.telno}}"><text>打电话</text></view>
+		</view>
+	</view>
+</view>
+
+<!--批复 -->
+<view hidden="{{currentTab!==1}}">
+	<view wx:if="{{pflistdata==''}}" class="center">暂无数据</view>
+		<view wx:for="{{pflistdata}}" wx:key="index" class="p3 all">
+		<view class="df">
+			<view class="f1 fb" bindtap="gohistory" data-pifu="true" data-index="{{index}}"><text>{{item.custname}}</text></view>
+			<view wx:if="{{item.spstatus==0}}" class="f1 tr mr3 pf"><text>未批复</text></view>
+			<view wx:if="{{item.spstatus==1}}" class="f1 tr mr3 pf"><text style="color:#D5941E">已批复</text></view>
+		</view>
+		<view class="df">
+			<view class="f7" bindtap="gohistory" data-index="{{index}}" data-pifu="true"><text class="cgray mr3">{{item.visitor}}</text><text class="cgray ">{{item.visitedate}}</text></view>
+			<view bindtap="calltel" data-phone="{{item.telno}}" class="f3 tr mr3 cgray"><text>打电话</text></view>
+		</view>
+	</view>
+</view>

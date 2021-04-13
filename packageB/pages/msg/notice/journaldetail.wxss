@@ -1,0 +1,4 @@
+/* packageA/pages/msg/notice/journaldetail.wxss */
+page{
+  height:100%
+}

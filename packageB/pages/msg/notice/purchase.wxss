@@ -1,0 +1,6 @@
+/* packageA/pages/msg/notice/order.wxss */
+page{
+  height: 100%;
+ background-color: #F1F1F1;
+ padding-top: 30rpx;
+}

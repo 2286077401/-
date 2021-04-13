@@ -1,0 +1,48 @@
+<view>
+	<view style="background-color:white; border-radius:20rpx ;padding:10rpx;width:95%;margin:20rpx auto;">
+		<view style="border-bottom:1rpx solid #F5F5F5;display:flex;line-height:80rpx;padding: 0 20rpx 0 20rpx;">
+			<view style="flex:1"><text>头像</text></view>
+			<view style="flex:1;text-align: right;">
+				<image src="/pages/images/user.png" style="width:80rpx;height:80rpx;"></image>
+			</view>
+		</view>
+		<view style="display:flex;height:80rpx;line-height:80rpx;border-bottom:1rpx solid #F5F5F5;padding: 0 20rpx 0 20rpx;">
+			<view style="flex:1;text-align:left">姓名</view>
+			<view style="flex:1;text-align:right">{{usermsg[0].name}}</view>
+		</view>
+		<view style="display:flex;height:80rpx;line-height:80rpx;border-bottom:1rpx solid #F5F5F5;padding: 0 20rpx 0 20rpx;">
+			<view style="flex:1;text-align:left">性别</view>
+			<view style="flex:1;text-align:right">{{usermsg[0].sex=='1' ? '男' : '女'}}</view>
+		</view>
+		<view style="display:flex;height:80rpx;line-height:80rpx;border-bottom:1rpx solid #F5F5F5;padding: 0 20rpx 0 20rpx;">
+			<view style="flex:1;text-align:left">年龄</view>
+			<view style="flex:1;text-align:right">{{usermsg[0].age}}</view>
+		</view>
+		<view style="display:flex;height:80rpx;line-height:80rpx;border-bottom:1rpx solid #F5F5F5;padding: 0 20rpx 0 20rpx;">
+			<view style="flex:1;text-align:left">个性签名</view>
+			<view style="flex:1;text-align:right">空</view>
+		</view>
+		<view style="display:flex;height:80rpx;line-height:80rpx;border-bottom:1rpx solid #F5F5F5;padding: 0 20rpx 0 20rpx;">
+			<view style="flex:1;text-align:left">说明</view>
+			<view style="flex:1;text-align:right">空</view>
+		</view>
+	</view>
+	<view style="background-color:white; border-radius:20rpx ;padding:10rpx;width:95%;margin:20rpx auto">
+		<view style="display:flex;height:80rpx;line-height:80rpx;border-bottom:1rpx solid #F5F5F5;padding: 0 20rpx 0 20rpx;">
+			<view style="flex:1;text-align:left">部门</view>
+			<view style="flex:1;text-align:right">{{usermsg[0].departname}}</view>
+		</view>
+		<view style="display:flex;height:80rpx;line-height:80rpx;border-bottom:1rpx solid #F5F5F5;padding: 0 20rpx 0 20rpx;">
+			<view style="flex:1;text-align:left">手机</view>
+			<view style="flex:1;text-align:right">{{usermsg[0].cellno}}</view>
+		</view>
+		<view style="display:flex;height:80rpx;line-height:80rpx;border-bottom:1rpx solid #F5F5F5;padding: 0 20rpx 0 20rpx;">
+			<view style="flex:1;text-align:left">固话</view>
+			<view style="flex:1;text-align:right">{{usermsg[0].telno}}</view>
+		</view>
+		<view style="display:flex;height:80rpx;ling-height:80rpx;border-bottom:1rpx solid #F5F5F5;padding: 0 20rpx 0 20rpx;">
+			<view style="flex:1;text-align:left">邮箱</view>
+			<view style="flex:1;text-align:right">{{usermsg[0].email}}</view>
+		</view>
+	</view>
+</view>

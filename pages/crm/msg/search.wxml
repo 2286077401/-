@@ -1,0 +1,73 @@
+<view>
+	<view class="content">
+		<view class="tittle">客户名称</view>
+		<view class="input" bindtap="powerDrawer" data-statu="open" data-biaos="khName"><input value='{{getkhName}}' ></input></view>
+	</view>
+	<view class="content">
+		<view class="tittle">业务员</view>
+		<view class="input" bindtap="powerDrawer" data-statu="open" data-biaos="ywyName"><input value='{{getywyName}}' ></input></view>
+	</view>
+	<view class="content">
+		<view class="tittle">客户分类</view>
+		<view class="input" bindtap="powerDrawer" data-statu="open" data-biaos="khClass"><input value='{{getkhClass}}' ></input></view>
+	</view>
+	<view class="content">
+		<view class="tittle">客户状态</view>
+		<view class="input" bindtap="powerDrawer" data-statu="open" data-biaos="khState"><input value='{{getkhState}}' ></input></view>
+	</view>
+	<view class="content">
+		<view class="tittle">省</view>
+		<view class="input" bindtap="powerDrawer" data-statu="open" data-biaos="province"><input value='{{provincename}}' ></input></view>
+	</view>
+	<view class="content">
+		<view class="tittle">市</view>
+		<view class="input" bindtap="powerDrawer" data-statu="open" data-biaos="city"><input value='{{cityname}}' ></input></view>
+	</view>
+	<view class="content">
+		<view class="tittle">县</view>
+		<view class="input" bindtap="powerDrawer" data-statu="open" data-biaos="county"><input value='{{countiesname}}' ></input></view>
+	</view>
+	<view class="content">
+		<view class="bttn" bindtap="submit"><button style="font-size: 26rpx ;">搜索</button></view>
+		<view class="bttn" bindtap="clern"><button style="font-size: 26rpx ;">重置 </button></view>
+	</view>
+</view>
+
+<view class="drawer_screen" bindtap="powerDrawer" data-statu="close" wx:if="{{showModalStatus}}"></view>
+<view animation="{{animationData}}" class="drawer_box" wx:if="{{showModalStatus}}">
+	<!--drawer content-->
+	<scroll-view scroll-y='true' bindscrolltolower='next' class="drawer_content">
+		<view class="tccontent">
+			<view class="tctop"> <input style="font-size: 25rpx;height: 60rpx;" placeholder="请输入关键字" value='{{get}}' bindinput="serchinput" ></input> </view>
+			<view class="serchbtnbox" style="box-shadow:0 0 9px 3px #999;"><button style="height: 60rpx;padding: 0;background-color: white;color: gray;font-size:20rpx;line-height:60rpx">搜索</button></view>
+		</view>
+		<view wx:if="{{biaos=='khName'}}" wx:for="{{khNamelistdata}}" wx:key="index" style="margin: 20rpx 0 20rpx 0;">
+			<view bindtap="getkhName" data-statu="close" data-khNameid="{{item.id}}" data-khName="{{item.name}}">{{item.name}}</view>
+			<view></view>
+		</view>
+		<view wx:if="{{biaos=='ywyName'}}" wx:for="{{ywynamelistdata}}" wx:key="index" style="margin: 20rpx 0 20rpx 0;">
+			<view bindtap="getywyName" data-statu="close" data-ywyNameid="{{item.id}}" data-ywyName="{{item.name}}">{{item.name}}</view>
+			<view></view>
+		</view>
+		<view wx:if="{{biaos=='khClass'}}" wx:for="{{khclassnamelistdata}}" wx:key="index" style="margin: 20rpx 0 20rpx 0;">
+			<view bindtap="getkhclassName" data-statu="close" data-khclassNameid="{{item.id}}" data-khclassName="{{item.name}}">{{item.name}}</view>
+			<view></view>
+		</view>
+		<view wx:if="{{biaos=='khState'}}" wx:for="{{khstatenamelistdata}}" wx:key="index" style="margin: 20rpx 0 20rpx 0;">
+			<view bindtap="getkhstateName" data-statu="close" data-khstateNameid="{{item.id}}" data-khstateName="{{item.name}}">{{item.name}}</view>
+			<view></view>
+		</view>
+		<view wx:if="{{biaos=='province'}}" wx:for="{{provincedata}}" wx:key="index" style="margin: 20rpx 0 20rpx 0;">
+			<view data-statu="close" bindtap="getprovince" data-provincename="{{item.name}}" data-provinceid="{{item.placeid}}">{{item.name}}</view>
+			<view></view>
+		</view>
+		<view wx:if="{{biaos=='city'}}" wx:for="{{citydata}}" wx:key="index" style="margin: 20rpx 0 20rpx 0;">
+			<view data-statu="close" bindtap="getcity" data-cityname="{{item.name}}" data-cityid="{{item.placeid}}">{{item.name}}</view>
+			<view></view>
+		</view>
+		<view wx:if="{{biaos=='county'}}" wx:for="{{countiesdata}}" wx:key="index" style="margin: 20rpx 0 20rpx 0;">
+			<view data-statu="close" bindtap="getcounty" data-countyname="{{item.name}}" data-countyid="{{item.placeid}}">{{item.name}}</view>
+			<view></view>
+		</view>
+	</scroll-view>
+</view>

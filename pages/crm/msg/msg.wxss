@@ -1,0 +1,69 @@
+/* pages/crm/msg/msg.wxss */
+page {
+  background-color: #E9E9E9;
+}
+
+.content {
+  width: 85%;
+  margin: 20rpx auto 20rpx auto;
+  padding: 30rpx;
+  background-color: white;
+  border-radius: 10rpx;
+  line-height: 60rpx;
+  font-size: 32rpx;
+}
+
+.topbar {
+  width: 100%;
+  position: fixed;
+  background-color: white;
+  height: 50rpx;
+  top: 0rpx;
+}
+
+.more {
+  width: 15%;
+  float: right;
+}
+
+
+
+/* 图层蒙版 */
+
+
+.mask {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 70rpx;
+  left: 0;
+  background: #000;
+  z-index: 9000;
+  opacity: 0.7;
+}
+
+.modalDlg {
+  width: 130rpx;
+  height: 120rpx;
+  position: fixed;
+  z-index: 9999;
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 25rpx;
+  font-size: 25rpx;
+  top: 90rpx;
+  right: 20rpx;
+  line-height: 60rpx;
+}
+
+.close_mask {
+  color: #000;
+  position: relative;
+  left: 40%;
+  /* top: -82%; */
+  font-size: 32rpx;
+}
+
+/*弹窗结束  */

@@ -1,0 +1,64 @@
+<view style="padding:30rpx;font-size:28rpx">
+	<view style="display:flex;padding: 20rpx 0 20rpx 0;border-bottom:1rpx solid #F7F7F7">
+		<view style="flex:3">类型</view>
+		<view style="flex:7">日报</view>
+	</view>
+	<view style="display:flex;padding: 20rpx 0 20rpx 0;border-bottom:1rpx solid #F7F7F7">
+		<view style="flex:3">上报人</view>
+		<view style="flex:7;color:gray">{{lastdatalist.creator}}</view>
+	</view>
+	<view style="display:flex;padding: 20rpx 0 20rpx 0;border-bottom:1rpx solid #F7F7F7">
+		<view style="flex:3">上报时间</view>
+		<view style="flex:7;color:gray">{{lastdatalist.createtime}}</view>
+	</view>
+	<view style="display:flex;padding: 20rpx 0 20rpx 0;border-bottom:1rpx solid #F7F7F7">
+		<view style="flex:3">上报地点</view>
+		<view style="flex:7;color:gray">联祥</view>
+	</view>
+	<view style="padding: 20rpx 0 20rpx 0;" wx:for="{{detaillistdata}}" wx:key="index" >
+		<view style="">{{item.reporttitle}}</view>
+		<view style="color:gray">{{item.reportcontent}}</view>
+	</view>
+ 
+	<view style="display:flex;padding: 20rpx 0 20rpx 0;border-bottom:1rpx solid #F7F7F7">
+		<view style="flex:3">完成情况</view>
+		<view style="flex:7;display:flex">
+			<view style="display:flex">
+				<image bindtap="completion" data-completiontype="0" style="width:50rpx;height:50rpx" src="{{completiontype=='0'?'/pages/images/cholseactive.png':'/pages/images/cholse.png'}}"></image>
+				<view>未完成</view>
+			</view>
+			<view style="display:flex">
+				<image bindtap="completion" data-completiontype="1" style="width:50rpx;height:50rpx" src="{{completiontype=='1'?'/pages/images/cholseactive.png':'/pages/images/cholse.png'}}"></image>
+				<view>完成</view>
+			</view>
+		</view>
+	</view>
+	<view style="display:flex;padding: 20rpx 0 20rpx 0;border-bottom:1rpx solid #F7F7F7">
+		<view style="flex:3">完成质量</view>
+		<view style="flex:7;display:flex">
+			<view style="display:flex">
+				<image bindtap="quality" data-qualitytype="0" style="width:50rpx;height:50rpx" src="{{qualitytype=='0'?'/pages/images/cholseactive.png':'/pages/images/cholse.png'}}"></image>
+				<view>较差</view>
+			</view>
+			<view style="display:flex">
+				<image bindtap="quality" data-qualitytype="1" style="width:50rpx;height:50rpx" src="{{qualitytype=='1'?'/pages/images/cholseactive.png':'/pages/images/cholse.png'}}"></image>
+				<view>一般</view>
+			</view>
+			<view style="display:flex">
+				<image bindtap="quality" data-qualitytype="2" style="width:50rpx;height:50rpx" src="{{qualitytype=='2'?'/pages/images/cholseactive.png':'/pages/images/cholse.png'}}"></image>
+				<view>较好</view>
+			</view>
+		</view>
+	</view>
+	<view style="display:flex;padding: 20rpx 0 20rpx 0;border-bottom:1rpx solid #F7F7F7">
+		<view style="flex:3">上报图片</view>
+		<view style="flex:7">{{}}</view>
+	</view>
+	<view style="display:flex;padding: 20rpx 0 20rpx 0;border-bottom:1rpx solid #F7F7F7">
+		<view style="flex:2;display:flex">批复</view>
+		<input style="flex:5" value="{{pfcontent}}" bindinput="getpfcontent"></input>
+		<view style="flex:3;text-align:right"><button bindtap="submitpf" style="float: right;width:70%;font-size: 28rpx;color:white;background:#D5941E;padding: 10rpx;">批复</button></view>
+	</view>
+
+
+</view>

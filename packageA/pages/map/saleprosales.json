@@ -1,0 +1,5 @@
+{
+  "usingComponents": {
+    "salprosalBar-canvas": "../../../packageA/pages/salprosalBar/salprosalBar"
+  }
+}

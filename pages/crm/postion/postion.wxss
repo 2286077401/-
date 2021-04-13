@@ -1,0 +1,6 @@
+/* pages/crm/postion/postion.wxss */
+page{
+  height:100%;
+  width: 100%;
+
+}

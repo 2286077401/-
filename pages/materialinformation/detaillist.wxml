@@ -1,0 +1,17 @@
+<wxs module="filters" src="../../utils/util.wxs"></wxs>
+
+<view>
+<view style="display:flex;height:80rpx;width:100%"><view style="flex:4;height:80rpx;color: gray;margin-left:30rpx">物料分类</view><view style="flex:6;height:80rpx;color:gray">{{itemlist.typename}}</view></view>
+<view style="display:flex;height:80rpx;width:100%"><view style="flex:4;height:80rpx;color: gray;margin-left:30rpx">物料名称</view><view style="flex:6;height:80rpx;color:gray">{{itemlist.name}}</view></view>
+<view style="display:flex;height:80rpx;width:100%"><view style="flex:4;height:80rpx;color: gray;margin-left:30rpx">供应商</view><view style="flex:6;height:80rpx;color:gray">{{itemlist.suppliername}}</view></view>
+<view style="display:flex;height:80rpx;width:100%"><view style="flex:4;height:80rpx;color: gray;margin-left:30rpx">标签编码</view><view style="flex:6;height:80rpx;color:gray">{{itemlist.labelno=='' ? '空' : itemlist.labelno}}</view></view>
+<view style="display:flex;height:80rpx;width:100%"><view style="flex:4;height:80rpx;color: gray;margin-left:30rpx">物料规格</view><view style="flex:6;height:80rpx;color:gray">{{itemlist.size}}</view></view>
+<view style="display:flex;height:80rpx;width:100%"><view style="flex:4;height:80rpx;color: gray;margin-left:30rpx">助记码</view><view style="flex:6;height:80rpx;color:gray">{{itemlist.helpno}}</view></view>
+<view style="display:flex;height:80rpx;width:100%"><view style="flex:4;height:80rpx;color: gray;margin-left:30rpx">物料简称</view><view style="flex:6;height:80rpx;color:gray">{{itemlist.shortname}}</view></view>
+
+<view style="display:flex;height:80rpx;width:100%"><view style="flex:4;height:80rpx;color: gray;margin-left:30rpx">物料价格</view><view style="flex:6;height:80rpx;color:gray">{{itemlist.price}}</view></view>
+<view style="display:flex;height:80rpx;width:100%"><view style="flex:4;height:80rpx;color: gray;margin-left:30rpx">计量单位</view><view style="flex:6;height:80rpx;color:gray">{{itemlist.measureunit}}</view></view>
+<view style="display:flex;height:80rpx;width:100%"><view style="flex:4;height:80rpx;color: gray;margin-left:30rpx">备注</view><view style="flex:6;height:80rpx;color:gray">{{itemlist.note=='' ? '空' : itemlist.note}}</view></view>
+
+</view>
+<tabBar></tabBar>

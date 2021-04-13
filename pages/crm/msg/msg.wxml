@@ -1,0 +1,23 @@
+<view style="margin-top: 70rpx;">
+	<view class="topbar">
+		<view class="more" bindtap="submit"> <text>更多</text></view>
+	</view>
+	<view wx:for="{{khMsgdata}}" wx:key="index" style="border-bottom:1rpx solid #B2B2B2">
+		<view class="content" bindtap="godetail" data-item="{{item}}">
+			<view>客户名称:{{item.name}}</view>
+			<view>负责人:{{item.saler}}</view>
+			<view>客户状态:{{item.tracelevel==''?'状态未知':item.tracelevel}}</view>
+			<view>客户类型:{{item.classname}}</view>
+			<view>下单数量:{{item.ordercount}}</view>
+			<view>客户地址:{{item.receiveaddr}}</view>
+		</view>
+	</view>
+	<view class="modalDlg" wx:if="{{showModal}}">
+		<!-- <view class='close_mask' bindtap="close_mask">X</view> -->
+		<view class="choosewin">
+			<view bindtap="close_mask" data-biaos="serch">搜索</view>
+			<view bindtap="close_mask" data-biaos="add">添加</view>
+		</view>
+	</view>
+	<view class="mask" catchtouchmove="preventTouchMove" bindtap="closemask" wx:if="{{showModal}}"></view>
+</view>

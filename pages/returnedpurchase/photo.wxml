@@ -1,0 +1,8 @@
+<view style="width:100%" wx:if="{{imgdata==''}}">
+   <view style="width:50%;margin:0 auto;text-align: center;padding-top: 300rpx;">暂无数据</view>
+</view>
+<view style="display:flex;border-bottom:1rpx solid #CDCFCC" wx:for="{{imglist}}" wx:key="index">
+   <view style=""><image bindtap="bigimg" data-img="{{imgUrl}}{{item.fileid}}" src="{{imgUrl}}{{item.fileid}}" style="width:150rpx;height:150rpx" ></image></view>
+   <view style="display:inline;padding-right:30rpx"><text style="line-height: 150rpx;overflow:hidden;text-overflow:ellipsis;white-space:nowrap; ">{{item.filename}}</text></view>
+</view>
+<tabBar></tabBar>

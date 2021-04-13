@@ -1,0 +1,20 @@
+<view style="display:flex;;border-bottom: 1rpx solid #707070;padding:10rpx;height:160rpx" wx:for="{{listdata}}" wx:key="index" >
+  <view style="flex:3;height:100rpx;"><image style="max-height: 250rpx;width:150rpx;margin: 0 auto;display: block;position: relative;top: 100%; transform: translateY(-80%);" src="{{imgUrl}}/{{item.folder}}{{item.autoname}}" mode="widthFix" ></image></view>
+  <!-- <view style="flex:3;height:100rpx;"><image style="height:175rpx" mode="widthFix" ></image></view> -->
+  <view style="flex:7" bindtap="godetail" data-id="{{item.id}}" data-isvisited="{{item.isvisited}}" data-content="{{item.content}}">
+    <view style="color:#707070"><text style="margin-bottom:15rpx;display:-webkit-box;-webkit-line-clamp:1; overflow:hidden;text-overflow:ellipsis;-webkit-box-orient:vertical;word-break:break-all;">{{item.title}}</text></view>
+    <view style="display:flex;color:#707070">
+      <view style="flex:4;font-size: 25rpx;display: flex;">
+         <image style="width:30rpx;height:30rpx;display: block;" src="/pages/images/smuser.png"></image>
+         <text>{{item.publisher}}</text>
+      </view>
+      <view style="flex:6;font-size: 25rpx;display: flex;">
+         <image style="width:30rpx;height:30rpx;display: block;" src="/pages/images/clock.png"></image>
+         <text>{{item.publishtime}}</text>
+      </view>
+    </view>
+    <view wx:if="{{item.isvisited=='0'}}" style="margin-top:13rpx"><text style="background-color: red;font-size: 22rpx;padding: 2rpx 20rpx 2rpx 20rpx;border-radius: 10rpx;color: white;">未读</text></view>
+    <!-- wx:if="{{state}}" -->
+    <view wx:if="{{item.isvisited=='1'}}" style="margin-top:13rpx"><text style="background-color: #D5941E;font-size: 22rpx;padding: 2rpx 20rpx 2rpx 20rpx;border-radius: 10rpx;color: white;">已读</text></view>
+  </view>
+</view>

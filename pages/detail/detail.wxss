@@ -1,0 +1,13 @@
+/* pages/detail/detail.wxss */
+.txt{
+  display: flex;
+}
+.txt text{
+  flex:1
+}
+.yichu{
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  
+}

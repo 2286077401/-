@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "tabBar":"/custom-tab-bar/index",
+    "scroll-name":"/components/scroll/scroll",
+    "scroll-centerList":"/components/centerList/centerList"
+  }
+}

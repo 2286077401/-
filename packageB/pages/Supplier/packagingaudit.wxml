@@ -1,0 +1,113 @@
+<view style="padding:20rpx;font-size:26rpx;line-height: 40rpx;">
+  <view class="box">
+    <view style="flex:1;display:flex">
+      <view class="rui-justify" style="flex:3"><text>厂名:</text></view>
+      <view style="flex:7"> <input type="text" bindinput="getuserinput" data-inputcenter="厂名"></input> </view>
+    </view>
+    <view style="flex:1;display:flex">
+      <view class="rui-justify" style="flex:3"><text>厂址:</text></view>
+      <view style="flex:7"> <input type="text" bindinput="getuserinput" data-inputcenter="厂址"></input> </view>
+    </view>
+  </view>
+  <view class="box">
+    <view style="flex:1;display:flex">
+      <view class="rui-justify" style="flex:3"><text>地址:</text></view>
+      <view style="flex:7"> <input type="text" bindinput="getuserinput" data-inputcenter="地址"></input> </view>
+    </view>
+    <view style="flex:1;display:flex">
+      <view class="rui-justify" style="flex:3"><text>电话:</text></view>
+      <view style="flex:7"> <input type="text" bindinput="getuserinput" data-inputcenter="电话"></input> </view>
+    </view>
+  </view>
+  <view class="box">
+    <view style="flex:1;display:flex">
+      <view class="rui-justify" style="flex:3"><text>供应商:</text></view>
+      <view style="flex:7"> <input type="text" bindinput="getuserinput" data-inputcenter="供应商"></input> </view>
+    </view>
+    <view style="flex:1;display:flex">
+      <view class="rui-justify" style="flex:3"><text>传真:</text></view>
+      <view style="flex:7"> <input type="text" bindinput="getuserinput" data-inputcenter="传真"></input> </view>
+    </view>
+  </view>
+  <view class="box">
+    <view style="flex:1;display:flex">
+      <view class="rui-justify" style="flex:3"><text>审计日期:</text></view>
+      <view style="flex:7; position: relative;top: -20rpx;">
+        <picker style="width: 90%; height: 50rpx; background: white; border-radius: 10rpx;position: absolute;top: 50%;left: 50%;transform: translate(-50%,-50%);" mode="date" value="{{audittime}}" start="2015-09-01"  bindchange="bindDateChange">
+            <view class="picker" style="width:100%;height:50rpx">
+              {{audittime}}
+            </view>
+          </picker> 
+      </view>
+    </view>
+    <view style="flex:1;display:flex">
+      <view class="rui-justify" style="flex:3"><text>电子邮箱:</text></view>
+      <view style="flex:7"> <input type="text" style="margin-top: 20rpx;" bindtap="getuserinput"
+          data-inputcenter="电子邮箱"></input> </view>
+    </view>
+  </view>
+  <view style="display:flex">
+    <view class="rui-justify" style="flex:3"><text>审计列席人:</text></view>
+    <view style="flex:7"> <input type="text" style="width:100%;" bindtap="getuserinput"
+        data-inputcenter="审计列席人"></input> </view>
+  </view>
+  <view style="display:flex;height: 100rpx;" wx:for="{{listdata.Tlist}}" wx:key="index">
+    <view class="rui-justify" style="flex:3;position: relative;"><text
+        style="width: 100%;position: absolute;top: 50%;left: 50%;transform: translate(-50%,-50%);">{{item.note}}:</text>
+    </view>
+    <view style="flex:7;position: relative;">
+      <input type="text" style="width:100%;position: absolute;top: 50%;left: 50%;transform: translate(-50%,-50%);"
+        bindinput="getuserinput" data-inputcenter="{{item.note}}"></input> </view>
+  </view>
+  <view>
+    <view wx:for="{{listchoose}}" wx:key="index"
+      style="width: 90%;margin: 0 auto;border-bottom: 1rpx solid #CDCFCC;line-height: 60rpx;">
+      <view> {{index+1}} 、<text>{{item.note}}</text></view>
+      <view style="display:flex;width:100%">
+        <view style="flex:1;text-align:center" bindtap="choose" data-yes="是" data-index="{{index}}"
+          data-id="{{item.id}}" data-type="{{item.A}}">
+          <text class="{{item.choose=='是'?'active':'none'}}"
+            style="margin-right:20rpx;border-radius: 20rpx; padding: 2rpx 10rpx 2rpx 10rpx;">A</text><text>{{item.A}}</text>
+        </view>
+        <view style="flex:1;text-align:center;" bindtap="choose" data-no="否" data-index="{{index}}"
+          data-id="{{item.id}}" data-type="{{item.B}}">
+          <text class="{{item.choose=='否'?'active':'none'}}"
+            style="margin-right:20rpx;border-radius: 20rpx; padding: 2rpx 4rpx 2rpx 10rpx;">B</text>
+          <text>{{item.B}}</text>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view style="display:flex">
+    <view class="rui-justify" style="flex:3"><text>不符合项及改进建议:</text></view>
+    <view style="flex:7"> <input type="text" style="margin-top: 20rpx;width:100%;" bindinput="getuserinput"
+        data-inputcenter="不符合项及改进建议"></input> </view>
+  </view>
+  <view style="display:flex">
+    <view class="rui-justify" style="flex:3"><text>审计人:</text></view>
+    <view style="flex:7"> <input type="text" style="width:100%;" bindinput="getuserinput"
+        data-inputcenter="审计人1"></input>
+    </view>
+  </view>
+  <view style="margin-bottom:30rpx"><text>备注:以上项目中如有超过15项(不包括15项) 回答是"否" , 则该供应商不能或得许可</text></view>
+  <view style="display:flex">
+    <view class="rui-justify" style="flex:3"><text>审核结论:</text></view>
+    <view style="flex:7"> <input type="text" style="width:100%;" bindinput="getuserinput"
+        data-inputcenter="审核结论"></input>
+    </view>
+  </view>
+  <view class="box">
+    <view style="flex:1;display:flex">
+      <view class="rui-justify" style="flex:3"><text>公司负责人:</text></view>
+      <view style="flex:7"> <input type="text" style="margin-top: 20rpx;" bindinput="getuserinput"
+          data-inputcenter="公司负责人"></input> </view>
+    </view>
+    <view style="flex:1;display:flex;margin-top: 20rpx;">
+      <view class="rui-justify" style="flex:3"><text>审计人:</text></view>
+      <view style="flex:7"> <input type="text" bindinput="getuserinput" data-inputcenter="审计人2"></input> </view>
+    </view>
+  </view>
+  <view style="width:100%">
+    <button style="background:#D5941E;color:white;width:30%;margin:0 auto;padding:10rpx" bindtap="submit">保存</button>
+  </view>
+</view>

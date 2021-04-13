@@ -1,0 +1,50 @@
+/* pages/crm/after/after.wxss */
+.center {
+  width: 90%;
+  margin: 0 auto;
+  padding: 20rpx;
+  line-height: 50rpx;
+  font-size: 28rpx;
+  background-color: white;
+  margin-bottom: 20rpx;
+
+}
+
+page {
+  background-color: #F1F1F0;
+}
+
+ 
+
+.modalDlg {
+  width: 130rpx;
+  height: 120rpx;
+  position: fixed;
+  z-index: 9999;
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 25rpx;
+  font-size: 25rpx;
+  top: 90rpx;
+  right: 20rpx;
+  line-height: 60rpx;
+}
+.close_mask {
+  color: #000;
+  position: relative;
+  left: 40%;
+  /* top: -82%; */
+  font-size: 32rpx;
+}
+.mask {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 60rpx;
+  left: 0;
+  background: #000;
+  z-index: 9000;
+  opacity: 0.7;
+}

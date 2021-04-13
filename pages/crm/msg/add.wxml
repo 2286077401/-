@@ -1,0 +1,188 @@
+<!-- 顶部navbar导航栏 -->
+<view wx:if="{{!isDetail}}" style="text-align: right;"><text style="display: block;margin-right: 30rpx;" bindtap="submitKhadd">确定</text></view>
+<view wx:if="{{isDetail}}" style="text-align: right;"><text style="display: block;margin-right: 30rpx;" bindtap="modify">修改</text></view>
+<view class="navbar" catchtouchmove="catchtouchmove">
+	<!-- -->
+	<view wx:for="{{navbar}}" data-index="{{index}}" class="item{{currentIndex==index?'active':''}}" bindtap="navbarTab" wx:key="index">
+		<view>
+			<image style="width:50rpx;height:50rpx" src="{{currentIndex==index?navbarimg[index].active:navbarimg[index].after}}"></image>
+		</view>
+		<view><text >{{item}}</text></view>
+	</view>
+
+</view>
+<view class="drawer_screen" bindtap="powerDrawer" data-statu="close" wx:if="{{showModalStatus}}"></view>
+<view hidden="{{currentIndex!==0}}" class='box'>
+	<view class="line">
+		<view class="tittle"><text>客户姓名</text></view>
+		<view class="inputbox" wx:if="{{khMsg==''}}"><input disabled="{{isDetail}}" bindinput="inputkhName" value="{{khMsg.name}}"></input></view>
+		<view class="inputbox" wx:if="{{khMsg!=''}}"><input disabled="{{isDetail}}" bindinput="inputkhName" value="{{name}}"></input></view>
+	</view>
+	<view class="line">
+		<view class="tittle"><text>助记码</text></view>
+		<view class="inputbox" wx:if="{{khMsg==''}}"><input disabled="{{isDetail}}" disabled="true"  value="{{khMsg.helpno}}"></input></view>
+		<view class="inputbox" wx:if="{{khMsg!=''}}"><input disabled="{{isDetail}}" disabled="true"  value="{{helpno}}"></input></view>
+	</view>
+	<view class="line">
+		<view class="tittle"><text>客户分类</text></view>
+		<view wx:if="{{khMsg==''}}" class="inputbox"><input disabled="{{isDetail}}" bindinput="inputKhclass" bindtap="powerDrawer" data-statu="open" data-biaos="khClass" value="{{classname}}"></input></view>
+		<view wx:if="{{khMsg!=''}}" class="inputbox"><input disabled="{{isDetail}}" bindinput="inputKhclass" bindtap="powerDrawer" data-statu="open" data-biaos="khClass" value="{{khMsg.classname}}"></input></view>
+	</view>
+	<view class="line">
+		<view class="tittle"><text>客户状态</text></view>
+		<view wx:if="{{khMsg==''}}" class="inputbox"><input disabled="{{isDetail}}" bindinput="inputKhstate" bindtap="powerDrawer" data-statu="open" data-biaos="khState" value="{{tracelevel}}"></input></view>
+		<view wx:if="{{khMsg!=''}}" class="inputbox"><input disabled="{{isDetail}}" bindinput="inputKhstate" bindtap="powerDrawer" data-statu="open" data-biaos="khState" value="{{khMsg.tracelevel}}"></input></view>
+	</view>
+	<view class="line">
+		<view class="tittle"><text>正式客户</text></view>
+		<view class="inputbox df">
+			<view class="f1 center">
+				<image bindtap="singlechoice" class="icon" src="{{iconshow?'/pages/images/cholseactive.png':'/pages/images/cholse.png'}}"></image>
+			</view><text class="f1">是</text>
+			<view class="f1 center">
+				<image bindtap="singlechoice" class="icon" src="{{iconshow?'/pages/images/cholse.png':'/pages/images/cholseactive.png'}}"></image>
+			</view><text class="f1">否</text>
+		</view>
+	</view>
+	<view class="line">
+		<view class="tittle"><text>收货人</text></view>
+		<view class="inputbox" wx:if="{{khMsg!=''}}"><input disabled="{{isDetail}}" bindinput="inputShouhuor" value="{{khMsg.receivername}}"></input></view>
+		<view class="inputbox" wx:if="{{khMsg==''}}"><input disabled="{{isDetail}}" bindinput="inputShouhuor" value="{{receivername}}"></input></view>
+	</view>
+	<view class="line">
+		<view class="tittle"><text>收货电话</text></view>
+		<view class="inputbox" wx:if="{{khMsg!=''}}"><input disabled="{{isDetail}}" bindinput="inputTel" value="{{khMsg.receivercell}}"></input></view>
+		<view class="inputbox" wx:if="{{khMsg==''}}"><input disabled="{{isDetail}}" bindinput="inputTel" value="{{receivercell}}"></input></view>
+	</view>
+	<view class="line">
+		<view class="tittle"><text>收货地址</text></view>
+		<view class="inputbox" wx:if="{{khMsg!=''}}"><input disabled="{{isDetail}}" bindinput="inputaddes" value="{{khMsg.receiveaddr}}"></input></view>
+		<view class="inputbox" wx:if="{{khMsg==''}}"><input disabled="{{isDetail}}" bindinput="inputaddes" value="{{receiveaddr}}"></input></view>
+	</view>
+	<view class="line">
+		<view class="tittle"><text>所属省</text></view>
+		<view class="inputbox" wx:if="{{khMsg!=''}}"><input disabled="{{isDetail}}" bindinput="inputprovince" bindtap="powerDrawer" data-statu="open" data-biaos="province" value="{{khMsg.provincename}}"></input></view>
+		<view class="inputbox" wx:if="{{khMsg==''}}"><input disabled="{{isDetail}}" bindinput="inputprovince" bindtap="powerDrawer" data-statu="open" data-biaos="province" value="{{provincename}}"></input></view>
+	</view>
+	<view class="line">
+		<view class="tittle"><text>所属市</text></view>
+		<view class="inputbox" wx:if="{{khMsg!=''}}"><input disabled="{{isDetail}}" bindinput="inputcity" bindtap="powerDrawer" data-statu="open" data-biaos="city" value="{{khMsg.cityname}}"></input></view>
+		<view class="inputbox" wx:if="{{khMsg==''}}"><input disabled="{{isDetail}}" bindinput="inputcity" bindtap="powerDrawer" data-statu="open" data-biaos="city" value="{{cityname}}"></input></view>
+	</view>
+	<view class="line">
+		<view class="tittle"><text>所属县</text></view>
+		<view class="inputbox" wx:if="{{khMsg!=''}}"><input disabled="{{isDetail}}" bindinput="inputcounty" bindtap="powerDrawer" data-statu="open" data-biaos="county" value="{{khMsg.countyname}}"></input></view>
+		<view class="inputbox" wx:if="{{khMsg==''}}"><input disabled="{{isDetail}}" bindinput="inputcounty" bindtap="powerDrawer" data-statu="open" data-biaos="county" value="{{countyname}}"></input></view>
+	</view>
+	<view class="line">
+		<view class="tittle"><text>备注</text></view>
+		<view class="inputbox" wx:if="{{khMsg!=''}}"><input disabled="{{isDetail}}" bindinput="inputnote" value="{{khMsg.note}}"></input></view>
+		<view class="inputbox" wx:if="{{khMsg==''}}"><input disabled="{{isDetail}}" bindinput="inputnote" value="{{note}}"></input></view>
+	</view>
+</view>
+<!-- 联系人 -->
+<view hidden="{{currentIndex!==1}}" class='box'>
+	<view wx:if="{{khMsg==''}}" wx:for="{{contactsarr}}" wx:key="index">
+		<view class="df m3"><text style="flex:8;font-weight: bolder;">联系人信息</text>
+			<view style="flex:2;"><button   wx:if="{{!isDetail}}" data-index="{{index}}" bindtap="mainProduct" style="padding:10rpx;font-size:25rpx" data-lxrMsgindex="{{index}}">删除</button></view>
+		</view>
+		<view class="df m3" wx:if="{{khMsg==''}}"><text class="f1">联系人</text><input bindtap="getlxrIndex" disabled="{{isDetail}}" class="f1" bindinput="inputlxrMsg" data-lxrMsgindex="{{index}}" value="{{item.contacts}}"></input></view>
+		<view class="df m3" wx:if="{{khMsg==''}}"><text class="f1">联系方式</text><input bindtap="getlxrIndex" disabled="{{isDetail}}" bindinput="inputlxWay" data-lxWayindex="{{index}}" data-lxrMsgindex="{{index}}" class="f1" value="{{item.contactsway}}"></input></view>
+		<view class="df m3" wx:if="{{khMsg==''}}"><text class="f1">QQ</text><input bindtap="getlxrIndex" disabled="{{isDetail}}" bindinput="inputqq" data-inputqqindex="{{index}}" class="f1" data-lxrMsgindex="{{index}}" value="{{item.qq}}"></input></view>
+		<view class="df m3" wx:if="{{khMsg==''}}"><text class="f1">邮箱</text><input bindtap="getlxrIndex" disabled="{{isDetail}}" bindinput="inputmailbox" data-inputmailboxindex="{{index}}" class="f1" data-lxrMsgindex="{{index}}" value="{{item.mailbox}}"></input></view>
+		<view wx:if="{{khMsg==''}}" class="df m3"><text class="f1">是否主要联系人</text>
+			<view class="f1 "><text bindtap="powerDrawer" data-statu="open" data-biaos="lxrismain" data-lxrMsgindex="{{index}}">{{item.lxrismain=='1'?'是':'否'}}</text></view>
+		</view>
+	</view>
+	<view wx:if="{{khMsg!=''}}" wx:for="{{lxr}}" wx:key="index">
+		<view class="df m3"><text style="flex:8;font-weight: bolder;">联系人信息</text>
+			<view style="flex:2;"><button wx:if="{{!isDetail}}" data-index="{{index}}" bindtap="mainProduct" style="padding:10rpx;font-size:25rpx" data-lxrMsgindex="{{index}}">删除</button></view>
+		</view>
+		<view class="df m3" wx:if="{{khMsg!=''}}"><text class="f1">联系人</text><input bindtap="getlxrIndex" disabled="{{isDetail}}" class="f1" bindinput="inputlxrMsg" data-lxrMsgindex="{{index}}" value="{{item.linker}}"></input></view>
+		<view class="df m3" wx:if="{{khMsg!=''}}"><text class="f1">联系方式</text><input bindtap="getlxrIndex" disabled="{{isDetail}}" bindinput="inputlxWay" data-lxWayindex="{{index}}" data-lxrMsgindex="{{index}}" class="f1" value="{{item.cellno}}"></input></view>
+		<view class="df m3" wx:if="{{khMsg!=''}}" ><text class="f1">QQ</text><input bindtap="getlxrIndex" disabled="{{isDetail}}" bindinput="inputqq" data-inputqqindex="{{index}}" class="f1" data-lxrMsgindex="{{index}}"  value="{{item.qq}}"></input></view>
+		<view class="df m3" wx:if="{{khMsg!=''}}"><text class="f1">邮箱</text><input bindtap="getlxrIndex" disabled="{{isDetail}}" bindinput="inputmailbox" data-inputmailboxindex="{{index}}" class="f1" data-lxrMsgindex="{{index}}" value="{{item.email}}"></input></view>
+		<view wx:if="{{khMsg!=''}}" class="df m3"><text class="f1">是否主要联系人</text>
+			<view class="f1 "><text bindtap="powerDrawer" data-statu="open" data-biaos="lxrismain" data-lxrMsgindex="{{index}}">{{item.ismain=='1'?'是':'否'}}</text></view>
+		</view>
+	</view>
+	<view class="df">
+		<view style="flex:6"></view>
+		<view wx:if="{{!isDetail}}" style="flex:4"><button style="padding: 15rpx;font-size: 25rpx;" bindtap="addcontent">添加联系人</button></view>
+	</view>
+</view>
+<view hidden="{{currentIndex!==2}}" class='box'>
+	<view wx:if="{{khMsg==''}}" wx:for="{{yewuyuan}}" wx:key="index">
+		<view class="df m3"><text style="flex:8;font-weight: bolder;">业务员信息</text>
+			<view style="flex:2;"><button wx:if="{{!isDetail}}" data-index="{{index}}" bindtap="mainYwy" style="padding:10rpx;font-size:25rpx">删除</button></view>
+		</view>
+		<view class="df m3"><text class="f1">业务员姓名</text><input disabled="{{isDetail}}" class="f1" disabled="{{isDetail}}" bindinput="inputywyName" bindtap="powerDrawer" data-statu="open" data-biaos="ywyname" value="{{item.ywyName}}" data-ywyindex="{{index}}"></input></view>
+		<view class="df m3"><text class="f1">是否主要联系人</text>
+			<view class="f1 "><text bindtap="powerDrawer" data-statu="open" data-biaos="ywyismain" data-index="{{index}}">{{item.ywyismain=='0'?'否':'是'}}</text></view>
+		</view>
+
+	</view>
+	<view wx:if="{{khMsg!=''}}" wx:for="{{ywy}}" wx:key="index">
+		<view class="df m3"><text style="flex:8;font-weight: bolder;">业务员信息</text>
+			<view style="flex:2;"><button wx:if="{{!isDetail}}" data-index="{{index}}" bindtap="mainYwy" style="padding:10rpx;font-size:25rpx">删除</button></view>
+		</view>
+		<view class="df m3"><text class="f1">业务员姓名</text><input disabled="{{isDetail}}" class="f1" disabled="{{isDetail}}" bindinput="inputywyName" bindtap="powerDrawer" data-statu="open" data-biaos="ywyname" value="{{item.account}}" data-ywyindex="{{index}}"></input></view>
+		<view class="df m3"><text class="f1">是否主要联系人</text>
+			<view class="f1 "><text bindtap="powerDrawer" data-statu="open" data-biaos="ywyismain" data-index="{{index}}">{{item.ismain=='0'?'否':'是'}}</text></view>
+		</view>
+
+	</view>
+	<view class="df">
+		<view style="flex:6"></view>
+		<view wx:if="{{!isDetail}}" style="flex:4"><button style="padding: 11rpx;font-size: 25rpx;" bindtap="addYwy">添加业务员</button></view>
+	</view>
+</view>
+<!-- 蒙版层 -->
+<view animation="{{animationData}}" class="drawer_box" wx:if="{{showModalStatus}}">
+	<!--drawer content-->
+	<scroll-view bindscrolltolower="ywynext" scroll-y="true" catchtouchmove="catchtouchmove" class="drawer_content" style="width: 420rpx;">
+		<view class="tccontent" wx:if="{{biaos!='ismain'}}">
+			<view class="tctop"> <input style="font-size: 25rpx;height: 60rpx;" placeholder="名称关键字" value='{{get}}' bindinput="topserch"></input> </view>
+			<view class="serchbtnbox" style="box-shadow:0 0 9px 3px #999;"><button bindtap="serchall" style="height: 60rpx;padding: 0;background-color: white;color: gray;font-size:20rpx;line-height:60rpx">搜索</button></view>
+		</view>
+		<view wx:if="{{biaos=='khClass'}}" wx:for="{{khclasslistdata}}" wx:key="index" style="margin: 20rpx 0 20rpx 0;">
+			<view bindtap="getkhclass" data-statu="close" data-khclass="{{item.id}}" data-name="{{item.name}}">{{item.name}}</view>
+			<view></view>
+		</view>
+		<view wx:if="{{biaos=='khState'}}" wx:for="{{khstatedata}}" wx:key="index" style="margin: 20rpx 0 20rpx 0;">
+			<view bindtap="getkhstate" data-statu="close" data-khstateid="{{item.id}}" data-name="{{item.name}}">{{item.name}}</view>
+			<view></view>
+		</view>
+		<view wx:if="{{biaos=='province'}}" wx:for="{{provincedata}}" wx:key="index" style="margin: 20rpx 0 20rpx 0;">
+			<view bindtap="getprovince" data-statu="close" data-provinceId="{{item.placeid}}" data-name="{{item.name}}">{{item.name}}</view>
+			<view></view>
+		</view>
+		<view wx:if="{{biaos=='city'}}" wx:for="{{citydata}}" wx:key="index" style="margin: 20rpx 0 20rpx 0;">
+			<view bindtap="getcity" data-statu="close" data-cityId="{{item.placeid}}" data-name="{{item.name}}">{{item.name}}</view>
+			<view></view>
+		</view>
+		<view wx:if="{{biaos=='county'}}" wx:for="{{countiesdata}}" wx:key="index" style="margin: 20rpx 0 20rpx 0;">
+			<view bindtap="getcounties" data-statu="close" data-countiesid="{{item.placeid}}" data-name="{{item.name}}">{{item.name}}</view>
+			<view></view>
+		</view>
+		<view wx:if="{{biaos=='ywyname'}}" wx:for="{{yewuyuannamedata}}" wx:key="index" style="margin: 20rpx 0 20rpx 0;">
+			<view bindtap="getywy" data-statu="close" data-ywyid="{{item.id}}" data-name="{{item.name}}">{{item.name}}</view>
+			<view></view>
+		</view>
+		<view wx:if="{{biaos=='ismain'}}" style="margin: 20rpx 0 20rpx 0;">
+			<view bindtap="ismain" data-type="1" data-statu="close">是</view>
+			<view bindtap="ismain" data-type="0" data-statu="close">否</view>
+			<view></view>
+		</view>
+		<view wx:if="{{biaos=='ywyismain'}}" style="margin: 20rpx 0 20rpx 0;">
+			<view bindtap="ywyismain" data-type="1" data-statu="close">是</view>
+			<view bindtap="ywyismain" data-type="0" data-statu="close">否</view>
+			<view></view>
+		</view>
+		<view wx:if="{{biaos=='lxrismain'}}" style="margin: 20rpx 0 20rpx 0;">
+			<view bindtap="lxrismain" data-type="1"  data-statu="close">是</view>
+			<view bindtap="lxrismain" data-type="0"  data-statu="close">否</view>
+			<view></view>
+		</view>
+	</scroll-view>
+</view>

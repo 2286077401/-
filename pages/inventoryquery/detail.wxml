@@ -1,0 +1,15 @@
+<view>
+<view style="display:flex;height:80rpx;width:100%"><view style="flex:4;height:80rpx;color: gray;margin-left:30rpx">仓库名称</view><view style="flex:6;height:80rpx;color:gray">{{itemlist.storagename}}</view></view>
+<view style="display:flex;height:80rpx;width:100%"><view style="flex:4;height:80rpx;color: gray;margin-left:30rpx">产品名称</view><view style="flex:6;height:80rpx;color:gray">{{itemlist.proname}}</view></view>
+<view style="display:flex;height:80rpx;width:100%"><view style="flex:4;height:80rpx;color: gray;margin-left:30rpx">产品编码</view><view style="flex:6;height:80rpx;color:gray">{{itemlist.prono}}</view></view>
+<view style="display:flex;height:80rpx;width:100%"><view style="flex:4;height:80rpx;color: gray;margin-left:30rpx">规格</view><view style="flex:6;height:80rpx;color:gray">{{itemlist.specification}}</view></view>
+<view style="display:flex;height:80rpx;width:100%"><view style="flex:4;height:80rpx;color: gray;margin-left:30rpx">单价</view><view style="flex:6;height:80rpx;color:gray">{{itemlist.singleprice}}</view></view>
+<view style="display:flex;height:80rpx;width:100%"><view style="flex:4;height:80rpx;color: gray;margin-left:30rpx">批次</view><view style="flex:6;height:80rpx;color:gray">{{}}批次</view></view>
+<view style="display:flex;height:80rpx;width:100%"><view style="flex:4;height:80rpx;color: gray;margin-left:30rpx">主单位</view><view style="flex:6;height:80rpx;color:gray">{{itemlist.zhudanwei}}</view></view>
+<view style="display:flex;height:80rpx;width:100%"><view style="flex:4;height:80rpx;color: gray;margin-left:30rpx">主单位数量</view><view style="flex:6;height:80rpx;color:gray">{{itemlist.zhudanweishuliang}}</view></view>
+<view style="display:flex;height:80rpx;width:100%"><view style="flex:4;height:80rpx;color: gray;margin-left:30rpx">副单位</view><view style="flex:6;height:80rpx;color:gray">{{itemlist.fudanwei}}</view></view>
+<view style="display:flex;height:80rpx;width:100%"><view style="flex:4;height:80rpx;color: gray;margin-left:30rpx">副单位数量</view><view style="flex:6;height:80rpx;color:gray">{{itemlist.fudanweishuliang}}</view></view>
+<view style="display:flex;height:80rpx;width:100%"><view style="flex:4;height:80rpx;color: gray;margin-left:30rpx">库存金额</view><view style="flex:6;height:80rpx;color:gray">{{itemlist.totalmoney}}</view></view>
+<view style="display:flex;height:80rpx;width:100%"><view style="flex:4;height:80rpx;color: gray;margin-left:30rpx">生产日期</view><view style="flex:6;height:80rpx;color:gray">{{itemlist.producedate}}</view></view>
+<view style="display:flex;height:80rpx;width:100%"><view style="flex:4;height:80rpx;color: gray;margin-left:30rpx">有效期至</view><view style="flex:6;height:80rpx;color:gray">{{itemlist.validtime}}</view></view>
+</view>

@@ -1,0 +1,3 @@
+<view>
+	<cusprosalBar-canvas custprosaleslistnext="{{custprosaleslistnext}}"></cusprosalBar-canvas>
+</view>

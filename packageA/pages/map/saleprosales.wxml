@@ -1,0 +1,3 @@
+<view>
+	<salprosalBar-canvas selarprosaleslistnext="{{selarprosaleslistnext}}"></salprosalBar-canvas>
+</view>

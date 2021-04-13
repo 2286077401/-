@@ -1,0 +1,4 @@
+/* packageA/pages/map/prodelisales.wxss */
+page{
+  padding-bottom: 30rpx;
+}

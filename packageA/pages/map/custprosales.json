@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "cusprosalBar-canvas": "../../../packageA/pages/cusprosalBar/cusprosalBar"
+  }
+  
+}

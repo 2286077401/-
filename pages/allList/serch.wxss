@@ -1,0 +1,63 @@
+page{
+  width: 100%;
+  height: 100%;
+  background-color: #F0F0F0;
+}
+.isRuleShow{
+  display: block;
+}
+.isRuleHide{
+  display: none;
+
+}
+.ruleZhezhao{
+  height: 100%;
+  width: 100%;
+  position: fixed;
+  background-color:rgba(0, 0, 0, .5); 
+  top: 0;
+  left: 0;
+  z-index: 999;
+}
+.ruleZhezhaoContent{
+  padding: 40rpx 0;
+  width: 80%;
+  background: #fff;
+  margin: 40% auto;
+  border-radius: 20rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  position: relative;
+  max-height:600rpx
+}
+
+.ruleHide{
+  height: 60rpx!important;
+  width: 60rpx!important;
+  position: absolute;
+  top: -20rpx;
+  right: -20rpx;
+  z-index: 10000;
+}
+.rule{
+  display: block;
+  border: 1px solid #fff;
+  width: 100rpx;
+  text-align: center;
+  line-height: 60rpx;
+  color: #fff;
+  height: 60rpx;
+  font-size: 30rpx;
+  border-radius: 30rpx;
+  position: absolute;
+  top: 10%;
+  right: 5%;
+}
+.select{
+  width: 520rpx;
+  height: 110rpx;
+  margin-top: 30rpx;
+  margin-bottom: 30rxp;
+}

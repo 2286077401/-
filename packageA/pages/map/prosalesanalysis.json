@@ -1,0 +1,5 @@
+{
+  "usingComponents": {
+    "mapbar-canvas": "../../../packageA/pages/showBar/showBar"
+  }
+}

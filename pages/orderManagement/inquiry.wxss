@@ -1,0 +1,5 @@
+/* pages/orderManagement/ inquiry.wxss */
+page{
+  background-color: #EDEDED;
+  height:100%
+}

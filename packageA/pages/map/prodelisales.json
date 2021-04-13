@@ -1,0 +1,5 @@
+{
+  "usingComponents": {
+    "prodelsalBar-canvas": "../../../packageA/pages/prodelsalBar/prodelsalBar"
+  }
+}

@@ -1,0 +1,215 @@
+<view style="padding:20rpx;font-size:26rpx;line-height: 40rpx;">
+  <view class="box">
+    <view style="flex:1;display:flex;height: 100rpx;">
+      <view class="rui-justify" style="flex:3"><text
+          style="line-height: 35rpx;width: 100%;position: absolute;top: 50%;left: 50%;transform: translate(-50%,-50%);">供应商名称:</text>
+      </view>
+      <view style="flex:7;position: relative;"> <input type="text"
+          style="width:90%;position: absolute;top: 50%;left: 50%;transform: translate(-50%,-50%);"
+          bindinput="getuserinput" data-inputcenter="供应商名称"></input> </view>
+    </view>
+    <view style="flex:1;display:flex;height: 100rpx;">
+      <view class="rui-justify" style="flex:3"><text
+          style="line-height: 35rpx;width: 100%;position: absolute;top: 50%;left: 50%;transform: translate(-50%,-50%);">许可证号:</text>
+      </view>
+      <view style="flex:7;position: relative;"> <input type="text"
+          style="width:90%;position: absolute;top: 50%;left: 50%;transform: translate(-50%,-50%);"
+          bindinput="getuserinput" data-inputcenter="许可证号"></input> </view>
+    </view>
+  </view>
+  <view class="box">
+    <view style="flex:1;display:flex;height: 100rpx;">
+      <view class="rui-justify" style="flex:3"><text
+          style="line-height: 35rpx;width: 100%;position: absolute;top: 50%;left: 50%;transform: translate(-50%,-50%);">地址:</text>
+      </view>
+      <view style="flex:7;position: relative;"> <input type="text"
+          style="width:90%;position: absolute;top: 50%;left: 50%;transform: translate(-50%,-50%);"
+          bindinput="getuserinput" data-inputcenter="地址"></input> </view>
+    </view>
+    <view style="flex:1;display:flex;height: 100rpx;">
+      <view class="rui-justify" style="flex:3"><text
+          style="line-height: 35rpx;width: 100%;position: absolute;top: 50%;left: 50%;transform: translate(-50%,-50%);">传真:</text>
+      </view>
+      <view style="flex:7;position: relative;"> <input type="text"
+          style="width:90%;position: absolute;top: 50%;left: 50%;transform: translate(-50%,-50%);"
+          bindinput="getuserinput" data-inputcenter="传真"></input> </view>
+    </view>
+  </view>
+  <view class="box">
+    <view style="flex:1;display:flex;height: 100rpx;">
+      <view class="rui-justify" style="flex:3"><text
+          style="line-height: 35rpx;width: 100%;position: absolute;top: 50%;left: 50%;transform: translate(-50%,-50%);">联系人:</text>
+      </view>
+      <view style="flex:7;position: relative;"> <input type="text"
+          style="width:90%;position: absolute;top: 50%;left: 50%;transform: translate(-50%,-50%);"
+          bindinput="getuserinput" data-inputcenter="联系人"></input> </view>
+    </view>
+    <view style="flex:1;display:flex;height: 100rpx;">
+      <view class="rui-justify" style="flex:3"><text
+          style="line-height: 35rpx;width: 100%;position: absolute;top: 50%;left: 50%;transform: translate(-50%,-50%);">电话:</text>
+      </view>
+      <view style="flex:7;position: relative;"> <input type="text"
+          style="width:90%;position: absolute;top: 50%;left: 50%;transform: translate(-50%,-50%);"
+          bindinput="getuserinput" data-inputcenter="电话"></input> </view>
+    </view>
+  </view>
+  <view class="box">
+    <view style="flex:1;display:flex;height: 100rpx;">
+      <view class="rui-justify" style="flex:3"><text
+          style="line-height: 35rpx;width: 100%;position: absolute;top: 50%;left: 50%;transform: translate(-50%,-50%);">质量认证情况:</text>
+      </view>
+      <view style="flex:7;position: relative;"> <input type="text"
+          style="width:90%;position: absolute;top: 50%;left: 50%;transform: translate(-50%,-50%);"
+          bindinput="getuserinput" data-inputcenter="质量认证情况"></input> </view>
+    </view>
+    <view style="flex:1;display:flex;height: 100rpx;">
+      <view class="rui-justify" style="flex:3"><text
+          style="line-height: 35rpx;width: 100%;position: absolute;top: 50%;left: 50%;transform: translate(-50%,-50%);">产品名称:</text>
+      </view>
+      <view style="flex:7;position: relative;"> <input type="text"
+          style="width:90%;position: absolute;top: 50%;left: 50%;transform: translate(-50%,-50%);"
+          bindinput="getuserinput" data-inputcenter="产品名称"></input> </view>
+    </view>
+  </view>
+  <view class="box">
+    <view style="flex:1;display:flex;height: 100rpx;">
+      <view class="rui-justify" style="flex:3"><text
+          style="line-height: 35rpx;width: 100%;position: absolute;top: 50%;left: 50%;transform: translate(-50%,-50%);">剂型:</text>
+      </view>
+      <view style="flex:7;position: relative;"> <input type="text"
+          style="width:90%;position: absolute;top: 50%;left: 50%;transform: translate(-50%,-50%);"
+          bindinput="getuserinput" data-inputcenter="剂型"></input> </view>
+    </view>
+    <view style="flex:1;display:flex;height: 100rpx;">
+      <view class="rui-justify" style="flex:3"><text
+          style="line-height: 35rpx;width: 100%;position: absolute;top: 50%;left: 50%;transform: translate(-50%,-50%);">批准生产文号:</text>
+      </view>
+      <view style="flex:7;position: relative;"> <input type="text"
+          style="width:90%;position: absolute;top: 50%;left: 50%;transform: translate(-50%,-50%);"
+          bindinput="getuserinput" data-inputcenter="批准生产文号"></input> </view>
+    </view>
+  </view>
+  <view class="box">
+    <view style="flex:1;display:flex;height: 100rpx;">
+      <view class="rui-justify" style="flex:3"><text
+          style="line-height: 35rpx;width: 100%;position: absolute;top: 50%;left: 50%;transform: translate(-50%,-50%);">月供数量:</text>
+      </view>
+      <view style="flex:7;position: relative;"> <input type="text"
+          style="width:90%;position: absolute;top: 50%;left: 50%;transform: translate(-50%,-50%);"
+          bindinput="getuserinput" data-inputcenter="月供数量"></input> </view>
+    </view>
+    <view style="flex:1;display:flex;height: 100rpx;">
+      <view class="rui-justify" style="flex:3"><text
+          style="line-height: 35rpx;width: 100%;position: absolute;top: 50%;left: 50%;transform: translate(-50%,-50%);">批量:</text>
+      </view>
+      <view style="flex:7;position: relative;"> <input type="text"
+          style="width:90%;position: absolute;top: 50%;left: 50%;transform: translate(-50%,-50%);"
+          bindinput="getuserinput" data-inputcenter="批量"></input> </view>
+    </view>
+  </view>
+  <view class="box">
+    <view style="flex:1;display:flex;height: 100rpx;">
+      <view class="rui-justify" style="flex:3"><text
+          style="line-height: 35rpx;width: 100%;position: absolute;top: 50%;left: 50%;transform: translate(-50%,-50%);">质量标准号:</text>
+      </view>
+      <view style="flex:7;position: relative;"> <input type="text"
+          style="width:90%;position: absolute;top: 50%;left: 50%;transform: translate(-50%,-50%);"
+          bindinput="getuserinput" data-inputcenter="质量标准号"></input> </view>
+    </view>
+    <view style="flex:1;display:flex;height: 100rpx;">
+      <view class="rui-justify" style="flex:3"><text
+          style="line-height: 35rpx;width: 100%;position: absolute;top: 50%;left: 50%;transform: translate(-50%,-50%);"></text>
+      </view>
+      <view style="flex:7;position: relative;"> </view>
+    </view>
+  </view>
+  <view style="line-height: 50rpx;">
+    <view wx:for="{{listchoose}}" wx:key="index" style="width: 90%;margin: 0 auto;border-bottom: 1rpx solid #CDCFCC;">
+      <view> {{index+1}} 、<text>{{item.note}}</text></view>
+      <view style="display:flex;width:100%">
+        <view style="flex:1;text-align:center;display: flex;" bindtap="choose" data-index="{{index}}"
+          data-id="{{item.id}}" data-type="{{item.A}}">
+          <text class="{{item.choose=='优'?'active':'none'}}"
+            style="margin-right:20rpx; border-radius: 30rpx; padding: 2rpx 16rpx 2rpx 16rpx;">A</text>
+          <text>{{item.A}}</text>
+        </view>
+        <view style="flex:1;text-align:center;display: flex;" bindtap="choose" data-index="{{index}}"
+          data-id="{{item.id}}" data-type="{{item.B}}">
+          <text class="{{item.choose=='良'?'active':'none'}}"
+            style="margin-right:20rpx; border-radius: 30rpx; padding: 2rpx 16rpx 2rpx 16rpx;">B</text>
+          <text>{{item.B}}</text>
+        </view>
+        <view style=" flex:1;text-align:center;display: flex;" bindtap="choose" data-index="{{index}}"
+          data-id="{{item.id}}" data-type="{{item.C}}">
+          <text class="{{item.choose=='差'?'active':'none'}}"
+            style="margin-right:20rpx; border-radius: 30rpx; padding: 2rpx 16rpx 2rpx 16rpx;">C</text>
+          <text>{{item.C}}</text>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view style="display:flex;height: 100rpx;">
+    <view class="rui-justify" style="flex:3"><text
+        style="line-height: 35rpx;width: 100%;position: absolute;top: 50%;left: 50%;transform: translate(-50%,-50%);">综合评价:</text>
+    </view>
+    <view style="flex:7;position: relative;"> <input type="text"
+        style="width:90%;position: absolute;top: 50%;left: 50%;transform: translate(-50%,-50%);"
+        bindinput="getuserinput" data-inputcenter="综合评价"></input> </view>
+  </view>
+  <view class="box">
+    <view style="flex:1;display:flex;height: 100rpx;">
+      <view class="rui-justify" style="flex:3"><text
+          style="line-height: 35rpx;width: 100%;position: absolute;top: 50%;left: 50%;transform: translate(-50%,-50%);">评估人:</text>
+      </view>
+      <view style="flex:7;position: relative;"> <input type="text"
+          style="width:90%;position: absolute;top: 50%;left: 50%;transform: translate(-50%,-50%);"
+          bindinput="getuserinput" data-inputcenter="评估人"></input> </view>
+    </view>
+    <view style="flex:1;display:flex;height: 100rpx;">
+      <view class="rui-justify" style="flex:3">
+        <text style="line-height: 35rpx;width: 100%;position: absolute;top: 50%;left: 50%;transform: translate(-50%,-50%);">时间:</text>
+         
+      </view>
+      <view style="flex:7;position: relative;"> 
+         <picker style="width: 90%; height: 50rpx; background: white; border-radius: 10rpx;position: absolute;top: 50%;left: 50%;transform: translate(-50%,-50%);" mode="date" value="{{datetime}}" start="2015-09-01"  bindchange="bindDateChange">
+            <view class="picker" style="width:100%;height:50rpx">
+              {{datetime}}
+            </view>
+          </picker> 
+        </view>
+    </view>
+  </view>
+  <view style="display:flex;height: 100rpx;">
+    <view class="rui-justify" style="flex:3"><text
+        style="line-height: 35rpx;width: 100%;position: absolute;top: 50%;left: 50%;transform: translate(-50%,-50%);">批准意见:</text>
+    </view>
+    <view style="flex:7;position: relative;"> <input type="text"
+        style="width:90%;position: absolute;top: 50%;left: 50%;transform: translate(-50%,-50%);"
+        bindinput="getuserinput" data-inputcenter="批准意见"></input> </view>
+  </view>
+  <view class="box">
+    <view style="flex:1;display:flex;height: 100rpx;">
+      <view class="rui-justify" style="flex:3"><text
+          style="line-height: 35rpx;width: 100%;position: absolute;top: 50%;left: 50%;transform: translate(-50%,-50%);">批准人:</text>
+      </view>
+      <view style="flex:7;position: relative;"> <input type="text"
+          style="width:90%;position: absolute;top: 50%;left: 50%;transform: translate(-50%,-50%);"
+          bindinput="getuserinput" data-inputcenter="批准人"></input> </view>
+    </view>
+    <view style="flex:1;display:flex;height: 100rpx;">
+      <view class="rui-justify" style="flex:3"><text
+          style="line-height: 35rpx;width: 100%;position: absolute;top: 50%;left: 50%;transform: translate(-50%,-50%);">批准日期:</text>
+      </view>
+      <view style="flex:7;position: relative;">
+        <picker style="width: 90%; height: 50rpx; background: white; border-radius: 10rpx;position: absolute;top: 50%;left: 50%;transform: translate(-50%,-50%);" mode="date" value="{{approvaltime}}" start="2015-09-01"  bindchange="bindapprovalChange">
+            <view class="picker" style="width:100%;height:50rpx">
+              {{approvaltime}}
+            </view>
+          </picker> 
+      </view>
+    </view>
+  </view>
+  <view style="width:100%">
+    <button style="background:#D5941E;color:white;width:30%;margin:0 auto;padding:10rpx" bindtap="submit">保存</button>
+  </view>
+</view>

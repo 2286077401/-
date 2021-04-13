@@ -1,0 +1,272 @@
+<view class='swipertab' style="border-top:1rpx solid #F5F5F5;">
+	<view class="tabitem {{currentab==0 ? 'active' : ''}}" data-current="0" bindtap='clicktab1'>
+		<view class="txt">浏览</view>
+	</view>
+	<view class="tabitem {{currentab==1 ? 'active' : ''}}" data-current="1" bindtap='clicktab2'>
+		<view class="txt">添加</view>
+	</view>
+	<view bindtap="chaxun">
+		<image src="/pages/images/serch.png" style="width: 35rpx;height: 35rpx;margin: 20rpx 50rpx 0 0;"></image>
+	</view>
+	
+</view>
+
+<view class="container1" wx:if="{{pagee == 1}}" bindtouchstart="touchStart" bindtouchmove="touchMove"
+	bindtouchend="touchEnd" animation="{{ani1}}">
+	<view style="margin-top:10rpx;background:white;width:100%" wx:for="{{10}}" wx:key="index">
+		<view style="display:flex;border-bottom:1rpx solid #F5F5F5;width:100%;padding:20rpx">
+			<view style="flex:7;text-align:center;font-weight: bolder;text-align:left;padding-left:20rpx">供应商编号 :
+				{{}}GS202010120001</view>
+			<view style="flex:3;color:#D5941E" bindtap="godetail">查看详情 》</view>
+		</view>
+		<view style="width:100%;text-align:left;padding-left:40rpx;font-size: 28rpx;line-height: 40rpx;margin-top:10rpx">
+			供应商:{{}}测试账号</view>
+		<view style="width:100%;text-align:left;padding-left:40rpx;font-size: 28rpx;line-height: 40rpx;">业务负责人:{{}}济南李总
+		</view>
+		<view style="width:100%;text-align:left;padding-left:40rpx;font-size: 28rpx;line-height: 40rpx;margin-bottom:20rpx">
+			所供商品:{{}}酒精</view>
+	</view>
+</view>
+
+<view class="container2" wx:if="{{pagee == 2}}" bindtouchstart="touchStart" bindtouchmove="touchMove"
+	bindtouchend="touchEnd" animation="{{ani2}}">
+	<view style="display:flex;width:100%">
+		<text style="color:#D5941E;font-weight: bolder;flex:1;text-align:right;margin-right:20rpx;">|</text>
+		<text style="font-weight: bolder;flex:9">供应商类型</text>
+	</view>
+	<view style="width:100%;display:flex;padding: 20rpx;">
+		<view style="flex:1;display:flex">
+			<view style="flex:1;text-align:center">
+				类型<text style="color:red">*</text>
+			</view>
+			<view style="flex:1;position: relative;">
+				<text bindtap="choosetype"
+					style="border-radius: 10rpx;display:block;height:140%;background:white;">{{gystype}}</text>
+				<view wx:if="{{!typeactive}}"
+					style="box-sizing: border-box; width:100%;height:100rpx; position: absolute;-moz-box-shadow:0 0 10px gray; -webkit-box-shadow:0 0 10px gray;box-shadow:0 0 10px gray;">
+					<view bindtap="determinetype" data-type="包装材料"
+						style="background:white;border-bottom:1rpx solid #F6F5FA;height:50rpx;width:100%;line-height:50rpx;padding-left:20rpx">
+						包装材料</view>
+					<view bindtap="determinetype" data-type="原料"
+						style="background:white;height:50rpx;width:100%;line-height:50rpx;padding-left:20rpx">原料</view>
+				</view>
+			</view>
+
+		</view>
+		<view style="flex:1;display:flex">
+		</view>
+	</view>
+
+
+	<view style="display:flex;width:100%">
+		<text style="color:#D5941E;font-weight: bolder;flex:1;text-align:right;margin-right:20rpx;">|</text>
+		<text style="font-weight: bolder;flex:9">供应商信息</text>
+	</view>
+
+
+	<view style="width:100%;display:flex;padding: 20rpx;">
+		<view style="flex:1;display:flex">
+			<view style="flex:1;text-align:center">
+				<text style="color:red">*</text>名   称:
+			</view>
+			<view style="flex:1">
+				<input wx:if="{{typeactive}}" bindinput="getinputvlu" data-type="suppliername" value="{{suppliername}}"
+					style=" border-radius: 10rpx;"></input>
+			</view>
+		</view>
+		<view style="flex:1;display:flex">
+			<view style="flex:1;text-align:center">
+				<text style="color:red">*</text>电   话:
+			</view>
+			<view style="flex:1">
+				<input bindinput="getinputvlu" data-type="telephone" value="{{telephone}}"
+					style=" border-radius: 10rpx;"></input>
+			</view>
+		</view>
+	</view>
+	<view style="width:100%;display:flex;padding: 20rpx;">
+		<view style="flex:1;display:flex">
+			<view style="flex:1;text-align:center">
+				<text style="color:red">*</text>负 责 人:
+			</view>
+			<view style="flex:1;">
+				<input disabled="true" bindinput="getinputvlu" bindtap="powerDrawer" data-statu="open" data-biaos="khName"
+					data-type="businessleader" value="{{businessleader}}" style=" border-radius: 10rpx;"></input>
+			</view>
+		</view>
+		<view style="flex:1;display:flex">
+			<view style="flex:1;text-align:center">
+				邮   箱
+			</view>
+			<view style="flex:1">
+				<input bindinput="getinputvlu" data-type="mailbox" value="{{mailbox}}" style=" border-radius: 10rpx;"></input>
+			</view>
+		</view>
+
+	</view>
+	<view style="width:100%;display:flex;padding: 20rpx;">
+
+		<view style="flex:1;display:flex">
+			<view style="flex:1;text-align:center">
+				<text style="color:red">*</text>联 系 人:
+			</view>
+			<view style="flex:1;">
+				<input bindinput="getinputvlu" data-type="contacts" value="{{contacts}}" style=" border-radius: 10rpx;"></input>
+			</view>
+		</view>
+		<view style="flex:1;display:flex">
+			<view style="flex:1;text-align:center">
+				传   真
+			</view>
+			<view style="flex:1;">
+				<input bindinput="getinputvlu" data-type="fax" value="{{fax}}" style=" border-radius: 10rpx;"></input>
+			</view>
+		</view>
+	</view>
+
+	<view class='box'>
+		<view style="flex:2"><text style="color:red">*</text>地   址:</view>
+		<input bindinput="getinputvlu" data-type="address" value="{{address}}"
+			style="flex:6;height:50rpx;border-radius: 10rpx;"></input>
+	</view>
+
+	<view style="display:flex;width:100%">
+		<text style="color:#D5941E;font-weight: bolder;flex:1;text-align:right;margin-right:20rpx;">|</text>
+		<text style="font-weight: bolder;flex:9">供应商开票信息:</text>
+	</view>
+	<view class='box'>
+		<view style="flex:2">
+			<text>公司名称:</text>
+		</view>
+		<input bindinput="getinputvlu" data-type="corporatename" value="{{corporatename}}"
+			style="flex:6;height:50rpx;border-radius: 10rpx;"></input>
+	</view>
+	<view class='box'>
+		<text style="flex:2;">公司地址:</text>
+		<input bindinput="getinputvlu" data-type="companyaddress" value="{{companyaddress}}"
+			style="flex:6;border-radius: 10rpx;"></input>
+	</view>
+	<view class='box'>
+		<text style="flex:2;">纳税识别号:</text>
+		<input bindinput="getinputvlu" data-type="identificationnumber" value="{{identificationnumber}}"
+			style="flex:6;height:50rpx;border-radius: 10rpx;"></input>
+	</view>
+	<view class='box'>
+		<text style="flex:2;">公司电话:</text>
+		<input bindinput="getinputvlu" data-type="companytel" value="{{companytel}}"
+			style="flex:6;height:50rpx;border-radius: 10rpx;"></input>
+	</view>
+	<view class='box'>
+		<text style="flex:2;">公司开户行:</text>
+		<input bindinput="getinputvlu" data-type="companybank" value="{{companybank}}"
+			style="flex:6;height:50rpx;border-radius: 10rpx;"></input>
+	</view>
+	<view class='box'>
+		<text style="flex:2;">银行账号:</text>
+		<input bindinput="getinputvlu" data-type="bankaccount" value="{{bankaccount}}"
+			style="flex:6;height:50rpx;border-radius: 10rpx;"></input>
+	</view>
+	<view>
+		<text>温馨提示 : 所有带</text>
+		<text style="color:red">*</text>
+		<text>的为必填</text>
+	</view>
+	<view class='box'>
+		<button style="padding:10rpx;width:30%;background:#D5941E;color:white;border-radius: 10rpx;"
+			bindtap="submit">保存</button>
+	</view>
+	<view style="display:flex;width:100%">
+		<text style="color:#D5941E;font-weight: bolder;flex:1;text-align:right;margin-right:20rpx;">|</text>
+		<text style="font-weight: bolder;flex:9">供应商资质</text>
+	</view>
+	<view style="display: flex;flex-wrap: wrap;width:100%;text-align:center;margin-top:30rpx">
+		<view style=" flex:0 0 32.7%;height:180rpx;">
+			<image bindtap="gopages" data-gotype="营业执照" src="../../../pages/images/AXSpdb6EkJ.png" mode="widthFix" style="width:110rpx"></image>
+			<view style="width:100%;text-align:center">营业执照</view>
+		</view>
+		<view style=" flex:0 0 32.7%;height:180rpx;">
+			<image bindtap="gopages" data-gotype="生产许可证" src="../../../pages/images/AXSpdb6EkJ.png" mode="widthFix" style="width:110rpx"></image>
+			<view style="width:100%;text-align:center">生产许可证</view>
+		</view>
+		<view style=" flex:0 0 32.7%;height:180rpx;">
+			<image bindtap="gopages" data-gotype="卫生许可证" src="../../../pages/images/AXSpdb6EkJ.png" mode="widthFix" style="width:110rpx"></image>
+			<view style="width:100%;text-align:center">卫生许可证</view>
+		</view>
+		<view style=" flex:0 0 32.7%;height:180rpx;">
+			<image bindtap="gopages" data-gotype="GMP证书/GSP证书" src="../../../pages/images/AXSpdb6EkJ.png" mode="widthFix" style="width:110rpx"></image>
+			<view style="width:100%;text-align:center">GMP证书/GSP证书</view>
+		</view>
+		<view style=" flex:0 0 32.7%;height:180rpx;">
+			<image bindtap="gopages" data-gotype="样品检验报告" src="../../../pages/images/AXSpdb6EkJ.png" mode="widthFix" style="width:110rpx"></image>
+			<view style="width:100%;text-align:center">样品检验报告</view>
+		</view>
+		<view style=" flex:0 0 32.7%;height:180rpx;">
+			<image bindtap="gopages" data-gotype="质量标准证书" src="../../../pages/images/AXSpdb6EkJ.png" mode="widthFix" style="width:110rpx"></image>
+			<view style="width:100%;text-align:center">质量标准证书</view>
+		</view>
+		<view style=" flex:0 0 32.7%;height:180rpx;">
+			<image bindtap="gopages" data-gotype="经营授权书" src="../../../pages/images/AXSpdb6EkJ.png" mode="widthFix" style="width:110rpx"></image>
+			<view style="width:100%;text-align:center">经营授权书</view>
+		</view>
+		<view style=" flex:0 0 32.7%;height:180rpx;">
+			<image bindtap="gopages" data-gotype="生产批件" src="../../../pages/images/AXSpdb6EkJ.png" mode="widthFix" style="width:110rpx"></image>
+			<view style="width:100%;text-align:center">生产批件</view>
+		</view>
+		<view style=" flex:0 0 32.7%;height:180rpx;">
+			<image bindtap="gopages" data-gotype="供货品种" src="../../../pages/images/AXSpdb6EkJ.png" mode="widthFix" style="width:110rpx"></image>
+			<view style="width:100%;text-align:center">供货品种</view>
+		</view>
+	</view>
+	<view style="display:flex;width:100%">
+		<text style="color:#D5941E;font-weight: bolder;flex:1;text-align:right;margin-right:20rpx;">|</text>
+		<text style="font-weight: bolder;flex:9">审计</text>
+	</view>
+	<view style="width:100%;display:flex;margin:30rpx">
+		<view style="flex:1;width:100%"><button
+				style="padding:0rpx;color:white;background:#D5941E;font-size:25rpx;border-radius:10rpx;width:50%;margin:0 auto"  bindtap="gopages" data-gotype="包装审计">包装审计</button>
+		</view>
+		<view style="flex:1;width:100%"><button
+				style="padding:0rpx;color:white;background:#D5941E;font-size:25rpx;border-radius:10rpx;width:50%;margin:0 auto"  bindtap="gopages" data-gotype="原料审计">原料审计</button>
+		</view>
+	</view>
+	<view style="display:flex;width:100%">
+		<text style="color:#D5941E;font-weight: bolder;flex:1;text-align:right;margin-right:20rpx;">|</text>
+		<text style="font-weight: bolder;flex:9">审计记录</text>
+	</view>
+
+</view>
+<view class="drawer_screen" bindtap="powerDrawer" data-statu="close" wx:if="{{showModalStatus}}"></view>
+<view animation="{{animationData}}" class="drawer_box" wx:if="{{showModalStatus}}">
+	<!--drawer content-->
+	<scroll-view scroll-y='true' bindscrolltolower='next' class="drawer_content">
+		<view class="tccontent">
+			<view class="tctop"> <input style="font-size: 25rpx;height: 60rpx;" placeholder="请输入关键字" value='{{get}}'
+					bindinput="serchinput"></input> </view>
+			<view class="serchbtnbox" style="box-shadow:0 0 9px 3px #999;"><button bindtap="serchinputname"
+					style="height: 60rpx;padding: 0;background-color: white;color: gray;font-size:20rpx;line-height:60rpx;width:60rpx">搜索</button>
+			</view>
+		</view>
+		<view wx:if="{{biaos=='khName'}}" wx:for="{{khNamelistdata}}" wx:key="index" style="margin: 20rpx 0 20rpx 0;">
+			<view bindtap="getkhName" data-statu="close" data-khNameid="{{item.id}}" data-khName="{{item.name}}">{{item.name}}
+			</view>
+			<view></view>
+		</view>
+		<view wx:if="{{biaos=='ywyName'}}" wx:for="{{ywynamelistdata}}" wx:key="index" style="margin: 20rpx 0 20rpx 0;">
+			<view bindtap="getywyName" data-statu="close" data-ywyNameid="{{item.id}}" data-ywyName="{{item.name}}">
+				{{item.name}}</view>
+			<view></view>
+		</view>
+		<view wx:if="{{biaos=='khClass'}}" wx:for="{{khclassnamelistdata}}" wx:key="index" style="margin: 20rpx 0 20rpx 0;">
+			<view bindtap="getkhclassName" data-statu="close" data-khclassNameid="{{item.id}}"
+				data-khclassName="{{item.name}}">{{item.name}}</view>
+			<view></view>
+		</view>
+		<view wx:if="{{biaos=='khState'}}" wx:for="{{khstatenamelistdata}}" wx:key="index" style="margin: 20rpx 0 20rpx 0;">
+			<view bindtap="getkhstateName" data-statu="close" data-khstateNameid="{{item.id}}"
+				data-khstateName="{{item.name}}">{{item.name}}</view>
+			<view></view>
+		</view>
+
+	</scroll-view>
+</view>
+<tabBar></tabBar>

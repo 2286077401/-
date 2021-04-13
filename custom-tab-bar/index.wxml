@@ -1,0 +1,8 @@
+<view class="foot-nav">
+  <view wx:for="{{foot}}" wx:key="index" data-path="{{item.url}}"  bindtap="navigateTo" open-type="reLaunch" data-index="{{index}}" class="tab-bar-item">
+    <view class="img-box">
+      <image src="{{selected === index ? item.selectedIconPath : item.iconPath}}"></image>
+    </view>
+    <text style="color: {{selected === index ? selectedColor : color}}">{{item.text}}</text>
+  </view>
+</view>

@@ -1,0 +1,7 @@
+<view style="line-height: 100rpx;width:80%;margin:0 auto">
+  <view>修改密码</view>
+  <view style="padding-left:30rpx;margin-bottom:30rpx"><input type="password" bindinput="oldPass" style="border:1rpx solid #707070;border-radius:10rpx;padding:20rpx" placeholder="原密码"></input></view>
+  <view style="padding-left:30rpx;margin-bottom:30rpx"><input type="password" bindinput="newoldPass" style="border:1rpx solid #707070;border-radius:10rpx;padding:20rpx" placeholder="新密码"></input></view>
+  <view style="padding-left:30rpx;margin-bottom:30rpx"><input type="password" bindinput="confirmPass" style="border:1rpx solid #707070;border-radius:10rpx;padding:20rpx" placeholder="确认密码"></input></view>
+  <view style="display:flex;"><view bindtap="cancel" style="flex:7;text-align: right">取消</view><view bindtap="submit" style="flex:3;text-align: center;color:#4990F0">确定</view></view>
+</view>

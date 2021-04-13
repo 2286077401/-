@@ -1,0 +1,158 @@
+<view style="width:100%;text-align:center; font-weight: bolder;">
+	{{showtype}}
+</view>
+<view style="position: absolute;top:0;display:flex;right: 0;">
+	<view style="padding-right:10rpx;font-size: 28rpx;" bindtap="ranking">排名</view>
+	<view style="padding-left:10rpx;padding-right:30rpx;font-size: 28rpx;" bindtap="serch" data-type="{{showtype}}">搜索</view>
+</view>
+
+<view wx:if="{{showtype=='产品销售区域分析数据统计'}}">
+	<view style="width:100%;height:100rpx;display:flex;line-height:100rpx">
+		<view style="flex:1;text-align:center;border:1rpx solid #F5F5F5" wx:if="{{totalcountall1!=undefined}}">
+			{{'总数量:'+totalcountall1}}</view>
+		<view style="flex:1;text-align:center;border:1rpx solid #F5F5F5" wx:if="{{totalcountall1!=undefined}}">
+			{{'总金额:'+totalmoneyall1}}</view>
+	</view>
+	<view style="display:flex;margin-top:30rpx">
+		<view class="topale">销售区域</view>
+		<view class="topale">产品名称</view>
+		<view class="topale">销售数量</view>
+		<view class="topale">销售金额</view>
+	</view>
+	<view wx:if="{{next!='true'}}" class="ale" wx:for="{{getmapDatalist}}" wx:key="index" bindtap="bardetail"
+		data-baritem="{{item}}">
+		<view class="le">{{item.county}}</view>
+		<view class="le">{{item.proname}}</view>
+		<view class="le">{{item.totalcount}}</view>
+		<view class="le">{{item.totalmoney}}</view>
+	</view>
+	<view wx:if="{{next}}" class="ale" wx:for="{{getmaplist}}" wx:key="index" bindtap="bardetail" data-baritem="{{item}}">
+		<view class="le">{{item.county}}</view>
+		<view class="le">{{item.proname}}</view>
+		<view class="le">{{item.totalcount}}</view>
+		<view class="le">{{item.totalmoney}}</view>
+	</view>
+</view>
+
+<view wx:if="{{showtype=='客户产品销售分析数据统计'}}">
+	<view style="width:100%;height:100rpx;display:flex;line-height:100rpx">
+		<view style="flex:1;text-align:center;border:1rpx solid #F5F5F5" wx:if="{{totalmoneyall2!=undefined}}">
+			{{'总金额:'+totalmoneyall2}}</view>
+		<view style="flex:1;text-align:center;border:1rpx solid #F5F5F5">{{}}</view>
+	</view>
+	<view style="display:flex;margin-top:30rpx">
+		<view class="topale">客户名称</view>
+		<view class="topale">销售总数量</view>
+		<view class="topale">销售总金额</view>
+	</view>
+	<view class="ale" wx:for="{{custprosaleslist}}" wx:key="index" bindtap="prodetail" data-barcustid="{{item.custid}}">
+		<view style=" flex:1;text-align:center;line-height: 30rpx;">{{item.custname}}</view>
+		<view class="le">{{item.allcount}}</view>
+		<view class="le">{{item.allmoney}}</view>
+	</view>
+	<view class="ale" wx:for="{{custprosaleslistnext}}" wx:key="index" bindtap="prodetail"
+		data-barcustid="{{item.custid}}">
+		<view class="le">{{item.custname}}</view>
+		<view class="le">{{item.allcount}}</view>
+		<view class="le">{{item.allmoney}}</view>
+	</view>
+</view>
+
+<view wx:if="{{showtype=='业务员产品销售分析数据统计'}}">
+	<view style="width:100%;height:100rpx;display:flex;line-height:100rpx">
+		<view style="flex:1;text-align:center;border:1rpx solid #F5F5F5" wx:if="{{totalcountall1!=undefined}}">
+			{{'总数量:'+totalcountall1}}</view>
+		<view style="flex:1;text-align:center;border:1rpx solid #F5F5F5" wx:if="{{totalcountall1!=undefined}}">
+			{{'总金额:'+totalmoneyall1}}</view>
+	</view>
+	<view style="display:flex;margin-top:30rpx">
+		<view class="topale">业务员名称</view>
+		<view class="topale">销售总数量</view>
+		<view class="topale">销售总金额</view>
+	</view>
+	<view class="ale" wx:for="{{selarprosaleslist}}" wx:key="index" bindtap="ywydetail" data-barcustid="{{item.salerid}}">
+		<view class="le">{{item.saler}}</view>
+		<view class="le">{{item.totalcount}}</view>
+		<view class="le">{{item.totalmoney}}</view>
+	</view>
+	<view class="ale" wx:for="{{selarprosaleslistnext}}" wx:key="index" bindtap="ywydetail"
+		data-barcustid="{{item.salerid}}">
+		<view class="le">{{item.saler}}</view>
+		<view class="le">{{item.totalcount}}</view>
+		<view class="le">{{item.totalmoney}}</view>
+	</view>
+</view>
+
+<view wx:if="{{showtype=='产品发货销售分析数据统计'}}">
+	<view style="width:100%;height:100rpx;display:flex;line-height:100rpx">
+		<view style="flex:1;text-align:center;border:1rpx solid #F5F5F5" wx:if="{{totalcountall1!=undefined}}">
+			{{'总数量:'+totalcountall1}}</view>
+		<view style="flex:1;text-align:center;border:1rpx solid #F5F5F5" wx:if="{{totalcountall1!=undefined}}">
+			{{'总金额:'+totalmoneyall1}}</view>
+	</view>
+	<view style="display:flex;margin-top:30rpx">
+		<view class="topale">产品名称</view>
+		<view class="topale">发货数量</view>
+		<view class="topale">发货金额</view>
+	</view>
+	<view class="ale" wx:for="{{prodelsalBardatalist}}" wx:key="index" bindtap="bardetail" data-baritem="{{item}}">
+		<view class="le">{{item.proname}}</view>
+		<view class="le">{{item.totalcount}}</view>
+		<view class="le">{{item.totalmoney}}</view>
+	</view>
+	<view class="ale" wx:for="{{prodelsalBardatalistnext}}" wx:key="index" bindtap="bardetail" data-baritem="{{item}}">
+		<view class="le">{{item.proname}}</view>
+		<view class="le">{{item.totalcount}}</view>
+		<view class="le">{{item.totalmoney}}</view>
+	</view>
+</view>
+
+<view wx:if="{{showtype=='产品发货同期对比数据统计'}}">
+	<view style="width:100%;height:100rpx;display:flex;line-height:100rpx">
+		<view style="flex:1;text-align:center;border:1rpx solid #F5F5F5" wx:if="{{totalcountall5!=undefined}}">
+			{{'今年数量:'+totalcountall5}}</view>
+		<view style="flex:1;text-align:center;border:1rpx solid #F5F5F5" wx:if="{{totalcountall5!=undefined}}">
+			{{'去年数量:'+totalmoneyall5}}</view>
+	</view>
+	<view style="display:flex;margin-top:30rpx">
+		<view class="topale">产品名称</view>
+		<view class="topale">今年发货数量</view>
+		<view class="topale">去年发货数量</view>
+	</view>
+	<view class="ale" wx:for="{{prodelperBardatalist}}" wx:key="index" bindtap="bardetail" data-baritem="{{item}}">
+		<view class="le"> {{item.proname}}</view>
+		<view class="le"> {{item.totalcount}}</view>
+		<view class="le"> {{item.uptotalcount}}</view>
+	</view>
+	<view class="ale" wx:for="{{prodelperBardatalistnext}}" wx:key="index" bindtap="bardetail" data-baritem="{{item}}">
+		<view class="le"> {{item.proname}}</view>
+		<view class="le"> {{item.totalcount}}</view>
+		<view class="le"> {{item.uptotalcount}}</view>
+
+	</view>
+</view>
+
+<view wx:if="{{showtype=='客户发货同期对比数据统计'}}">
+	<view style="width:100%;height:100rpx;display:flex;line-height:100rpx">
+		<view style="flex:1;text-align:center;border:1rpx solid #F5F5F5" wx:if="{{totalcountall6!=undefined}}">
+			{{'今年数量:'+totalcountall6}}</view>
+		<view style="flex:1;text-align:center;border:1rpx solid #F5F5F5" wx:if="{{totalmoneyall6!=undefined}}">
+			{{'去年数量:'+totalmoneyall6}}</view>
+	</view>
+	<view style="display:flex;margin-top:30rpx">
+		<view class="topale">客户名称</view>
+		<view class="topale">今年发货数量</view>
+		<view class="topale">去年发货金额</view>
+	</view>
+	<view class="ale" wx:for="{{cusdelperBardatalist}}" wx:key="index" bindtap="bardetail" data-baritem="{{item}}">
+		<view class="le"> {{item.custname}}</view>
+		<view class="le"> {{item.totalcount}}</view>
+		<view class="le"> {{item.uptotalcount}}</view>
+
+	</view>
+	<view class="ale" wx:for="{{cusdelperBardatalistnext}}" wx:key="index" bindtap="bardetail" data-baritem="{{item}}">
+		<view class="le"> {{item.custname}}</view>
+		<view class="le"> {{item.totalcount}}</view>
+		<view class="le"> {{item.uptotalcount}}</view>
+	</view>
+</view>

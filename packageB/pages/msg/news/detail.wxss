@@ -1,0 +1,10 @@
+/* pages/msg/news/detail.wxss */
+
+:not(not){
+   width: 97%;
+   margin: 10rpx;
+}
+
+page{
+  width:100%
+}

@@ -1,0 +1,4 @@
+/* pages/user/setup/modify.wxss */
+page{
+  width:100%
+}

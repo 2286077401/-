@@ -1,0 +1,7 @@
+<!-- 新的：接口对其了H5 -->
+<cover-view style="width:100%;height:100%;z-index:99999">
+<canvas   wx:if="{{isUseNewCanvas}}" type="2d" class="ec-canvas" canvas-id="{{ canvasId }}" bindinit="init" bindtouchstart="{{ ec.disableTouch ? '' : 'touchStart' }}" bindtouchmove="{{ ec.disableTouch ? '' : 'touchMove' }}" bindtouchend="{{ ec.disableTouch ? '' : 'touchEnd' }}"></canvas>
+<!-- 旧的 -->
+<canvas   wx:else class="ec-canvas" canvas-id="{{ canvasId }}" bindinit="init" bindtouchstart="{{ ec.disableTouch ? '' : 'touchStart' }}" bindtouchmove="{{ ec.disableTouch ? '' : 'touchMove' }}" bindtouchend="{{ ec.disableTouch ? '' : 'touchEnd' }}"></canvas>
+
+</cover-view>

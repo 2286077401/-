@@ -1,0 +1,4 @@
+<view>
+   <web-view src="https://m.kuaidi100.com/app/?coname=indexall"></web-view>
+   <!-- <view>快递查询</view> -->
+</view>

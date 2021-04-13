@@ -1,0 +1,54 @@
+<view>
+	<view class="banner">
+		<image src="/pages/images/crmbanner.png" bindload="imageLoad" style="width:{{imgwidth}}rpx; height:{{imgheight }}rpx;"></image>
+	</view>
+	<view class="center">
+		<view class="detail">
+			<view class="contert" bindtap="goChildren" data-biaos="msg">
+				<view>
+					<image class="minimage" bindload="minimageLoad" style="width:{{minimgwidth}}rpx; height:{{minimgheight }}rpx;" src="/pages/images/kehuMsg.png"></image>
+				</view>
+				<view>客户信息</view>
+			</view>
+			<view class="contert" bindtap="goChildren" data-biaos="vistion">
+				<view>
+					<image class="minimage" bindload="minimageLoad" style="width:{{minimgwidth}}rpx; height:{{minimgheight }}rpx;" src="/pages/images/kehuVisit.png"></image>
+				</view>
+				<view>客户拜访</view>
+			</view>
+		</view>
+		<view class="detail">
+			<view class="contert" bindtap="goChildren" data-biaos="postion">
+				<view>
+					<image class="minimage" style="width:45rpx; height:60rpx;" src="/pages/images/kehuPosition.png"></image>
+				</view>
+				<view>客户位置</view>
+			</view>
+			<view class="contert" bindtap="goChildren" data-biaos="take">
+				<view>
+					<image class="minimage" bindload="minimageLoad" style="width:{{minimgwidth}}rpx; height:{{minimgheight }}rpx;" src="/pages/images/takePhontel.png"></image>
+				</view>
+				<view>拍照上传</view>
+			</view>
+		</view>
+		<view class="detail">
+			<view class="contert" bindtap="goChildren" data-biaos="after">
+				<view>
+					<image class="minimage" bindload="minimageLoad" style="width:{{minimgwidth}}rpx; height:{{minimgheight }}rpx;" src="/pages/images/afterSell.png"></image>
+				</view>
+				<view>售后服务</view>
+			</view>
+			<view class="contert" bindtap="goChildren" data-biaos="tel">
+				<view>
+					<image class="minimage" bindload="minimageLoad" style="width:{{minimgwidth}}rpx; height:{{minimgheight }}rpx;" src="/pages/images/phoneTel.png"></image>
+				</view>
+				<view>通讯录</view>
+			</view>
+		</view>
+	</view>
+
+
+
+
+	<tabBar></tabBar>
+</view>

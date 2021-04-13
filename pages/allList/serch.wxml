@@ -1,0 +1,33 @@
+ <view style="height: 100%;padding:40rpx">
+ 	<view style="display:flex;width:100%">
+ 		<text style="flex: 3;line-height: 50rpx;font-size: 28rpx;">产品名称</text>
+ 		<input style="flex:7;background-color: white;border-radius: 10rpx;height: 60rpx;" value="{{serchName}}" bindtap='showRule'></input>
+ 	</view>
+ 	<view style="display:flex;width:100%;margin-top:100rpx">
+ 		<view style="flex:1;text-align:center"> <button bindtap="clern" style="background-color: #D5941E;width: 60%;font-size: 28rpx;color: white;padding: 10rpx;font-weight: 1;">重置</button></view>
+ 		<view style="flex:1;text-align:center"> <button bindtap="serch" style="background-color: #D5941E;width: 60%;font-size: 28rpx;color: white;padding: 10rpx;font-weight: 1;">搜索</button></view>
+ 	</view>
+ </view>
+ <!--遮罩层-->
+ <view  class="ruleZhezhao {{isRuleTrue?'isRuleShow':'isRuleHide'}}">
+
+ 	<scroll-view  bindscrolltolower="lower" scroll-y="true" class='ruleZhezhaoContent'>
+ 		<view style="display:flex;padding:30rpx">
+ 			<input bindinput="inputName" placeholder="名称关键字" value="{{serchName}}" style="border-bottom:1rpx solid gray;flex:8"></input>
+ 			<view style="flex:2"><button bindtap="serch" style="font-weight: 1;padding: 0rpx;width: 60%;box-shadow:0 0 8rpx 2rpx #999;border-radius: 0rpx; font-size: 26rpx;">搜索</button></view>
+ 		</view>
+ 		<view bindtap='hideRule'  wx:for="{{listdate}}" wx:key="index" style="display:flex;margin: 10rpx 0 10rpx 0;border-bottom:1rpx solid #C8C8C8">
+ 			<view style="min-width:200rpx;min-height:200rpx;position: relative;  overflow: hidden;">
+ 				<image bindload="imageLoad" data-index="{{ index }}" style="width:{{ images[index].width }}rpx; height:{{ images[index].height }}rpx;position: absolute;top: 50%;left: 50%;transform: translate(-50%,-50%);"  src="{{imgUrl}}{{item.fileurl}}"></image>
+ 			</view>
+ 			<view bindtap="getName" data-name="{{item.proname}}" style="flex-direction: column;display:flex;">
+ 				<text style="flex:1 1 auto">{{item.proname}}</text>
+ 				<text style="flex:1 1 auto">{{item.prono}}</text>
+ 				<text style="flex:1 1 auto;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">{{item.specification}}</text>
+ 			</view>
+ 		</view>
+ 	</scroll-view>
+
+
+ </view>	
+  <tabBar></tabBar>

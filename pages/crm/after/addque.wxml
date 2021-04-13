@@ -1,0 +1,47 @@
+<!--pages/crm/take/photograph.wxml-->
+<!-- <upload-img></upload-img> -->
+<view>
+	<view style="text-align:right;margin-right:30rpx" bindtap="uploadall">上传</view>
+</view>
+<view class="content" style="display:flex">
+	<view style="flex:3;line-height: 130rpx;">问题描述</view>
+	<view style="flex:7; height: 130rpx;">
+		<textarea bindinput="getmiaoshu" style="background-color:white; height: 130rpx;width:100%;  border-radius: 10rpx;"></textarea>
+	</view>
+</view>
+<view class="content" style="display:flex">
+	<view style="flex:3">手机号</view>
+	<view style="flex:7">
+		<input bindinput="getphone" style="background-color:white;"></input>
+	</view>
+</view>
+<view class="content" style="display:flex">
+	<view style="flex:3">发生时间</view>
+	<view style="flex:7">
+		<view class="section">
+			<picker mode="date" value="{{date}}"  bindchange="bindDateChange">
+				<view class="picker" style="background-color:white;border-radius: 10rpx;">
+					{{date}}
+				</view>
+			</picker>
+		</view>
+	</view>
+</view>
+<view class="content" style="display:flex">
+	<view style="flex:3">所属公司</view>
+	<view style="flex:7">
+		<input bindinput="getgongsi" style="background-color:white;"></input>
+	</view>
+</view>
+<view class="weui-uploader" style="display:flex">
+	<view style="flex:3;line-height:225rpx">问题截图</view>
+	<view style="flex:7" class="img-v weui-uploader__bd">
+		<view class='pic' wx:for="{{imgs}}" wx:for-item="item" wx:key="*this">
+			<image class='weui-uploader__img ' src="{{item}}" data-index="{{index}}" mode="aspectFill" bindtap="previewImg">
+				<icon type='cancel' class="delete-btn" data-index="{{index}}" catchtap="deleteImg"></icon>
+			</image>
+		</view>
+		<view class="weui-uploader__input-box pic" bindtap="chooseImg"> </view>
+	</view>
+	<!-- <button class="upload-img-btn" bindtap="chooseImg" type='primary'>拍照  / 上传</button> -->
+</view>

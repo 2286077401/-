@@ -1,0 +1,31 @@
+/* packageB/pages/Supplier/packagingaudit.wxss */
+page {
+  background-color: #F1F1F0;
+  padding-bottom: 120rpx
+}
+.box {
+  display: flex;
+}
+.active{
+  background: #D5941E;
+  color: white;
+}
+.none{
+  background: none;
+  color: black;
+}
+
+
+.rui-justify {
+  text-align: justify;
+}
+input{
+  background: white;
+  border-radius: 10rpx;
+  margin: 0 10rpx 0 10rpx;
+}
+.rui-justify::after {
+  content: '';
+  display: inline-block;
+  padding-left: 100%;
+}

@@ -1,0 +1,58 @@
+<view style="padding:20rpx">
+	<view style="display:flex;padding-bottom:20rpx">
+		<view style="flex:3;line-height:70rpx">供应商名称</view>
+		<view style="flex:7"><input bindtap="powerDrawer" data-statu="open" data-biaos="supplier" placeholder="请选择供应商"
+				bindinput="getinput" data-type="supplier" value="{{name}}"
+				style="height:70rpx;padding-left:20rpx; border-radius: 10rpx;background-color: white;"></input></view>
+	</view>
+	<view style="display:flex;padding-bottom:20rpx">
+		<view style="flex:3;line-height:70rpx">业务负责人</view>
+		<view style="flex:7"><input placeholder="请选择业务负责人" bindinput="getinputvlu" bindtap="powerDrawer" data-statu="open"
+				data-biaos="khName" data-type="businessleader" value="{{businessleader}}" data-type="salesman"
+				style="height:70rpx;padding-left:20rpx;border-radius: 10rpx;background-color: white;"></input></view>
+	</view>
+	<view style="display:flex;padding-bottom:20rpx">
+		<view style="flex:3;line-height:70rpx">所供商品</view>
+		<view style="flex:7"><input placeholder="请选输入所供商品" bindinput="getinput" data-type="product" bindinput="getinput"
+				data-type="commodity" value="{{product}}"
+				style="height:70rpx;padding-left:20rpx;border-radius: 10rpx;background-color: white;"></input></view>
+	</view>
+	<view style="display:flex;margin-top:40rpx">
+		<button style="color: white;background: #D5941E;width: 180rpx;padding: 0rpx;height: 70rpx;line-height: 70rpx;"
+			bindtap="clear">重置</button>
+		<button style="color: white;background: #D5941E;width: 180rpx;padding: 0rpx;height: 70rpx;line-height: 70rpx;"
+			bindtap="serch">搜索</button> </view>
+</view>
+<view class="drawer_screen" bindtap="powerDrawer" data-statu="close" wx:if="{{showModalStatus}}"></view>
+<view animation="{{animationData}}" class="drawer_box" wx:if="{{showModalStatus}}">
+	<!--drawer content-->
+	<scroll-view scroll-y='true' bindscrolltolower='next' class="drawer_content">
+		<view class="tccontent">
+			<view class="tctop"> <input style="font-size: 25rpx;height: 60rpx;" placeholder="请输入关键字" value='{{get}}'
+					bindinput="serchinput"></input> </view>
+			<view class="serchbtnbox" style="box-shadow:0 0 9px 3px #999;"><button bindtap="serchinputname"
+					style="height: 60rpx;padding: 0;background-color: white;color: gray;font-size:20rpx;line-height:60rpx;width:60rpx">搜索</button>
+			</view>
+		</view>
+		<view wx:if="{{biaos=='khName'}}" wx:for="{{khNamelistdata}}" wx:key="index" style="margin: 20rpx 0 20rpx 0;">
+			<view bindtap="getkhName" data-statu="close" data-khNameid="{{item.id}}" data-khName="{{item.name}}">{{item.name}}
+			</view>
+			<view></view>
+		</view>
+		<view wx:if="{{biaos=='ywyName'}}" wx:for="{{ywynamelistdata}}" wx:key="index" style="margin: 20rpx 0 20rpx 0;">
+			<view bindtap="getywyName" data-statu="close" data-ywyNameid="{{item.id}}" data-ywyName="{{item.name}}">
+				{{item.name}}</view>
+			<view></view>
+		</view>
+		<view wx:if="{{biaos=='khClass'}}" wx:for="{{khclassnamelistdata}}" wx:key="index" style="margin: 20rpx 0 20rpx 0;">
+			<view bindtap="getkhclassName" data-statu="close" data-khclassNameid="{{item.id}}"
+				data-khclassName="{{item.name}}">{{item.name}}</view>
+			<view></view>
+		</view>
+		<view wx:if="{{biaos=='khState'}}" wx:for="{{khstatenamelistdata}}" wx:key="index" style="margin: 20rpx 0 20rpx 0;">
+			<view bindtap="getkhstateName" data-statu="close" data-khstateNameid="{{item.id}}"
+				data-khstateName="{{item.name}}">{{item.name}}</view>
+			<view></view>
+		</view>
+	</scroll-view>
+</view>

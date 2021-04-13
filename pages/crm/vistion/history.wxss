@@ -1,0 +1,102 @@
+/* pages/crm/vistion/history.wxss */
+page {
+  height: 100%;
+  width: 100%;
+  padding: 20rpx;
+  line-height: 70rpx;
+}
+
+.top {
+  width: 100%;
+  height: 50rpx;
+}
+
+.toptitle {
+  width: 20%;
+  text-align: center;
+  float: right;
+}
+
+.content1 {
+  font-weight: bolder;
+  display: flex;
+  font-size: 35rpx;
+  margin-top: 10rpx;
+  width: 100%;  
+}
+
+.content1 view {
+  flex: 1;
+}
+
+.alginvi {
+  text-align: right;
+  margin-right: 40rpx;
+  color: #D5941E;
+}
+
+.content2 {
+  color: gray;
+  font-size: 32rpx;
+}
+
+.content3 {
+  font-weight: bolder;
+  font-size: 35rpx;
+
+}
+
+.content4 {
+  color: gray;
+  height: 250rpx;
+  font-size: 32rpx;
+
+}
+
+.bottom {
+  display: flex;
+}
+
+.inp {
+  flex: 7;
+}
+
+.btn {
+  flex: 3;
+ 
+}
+.comment{
+  display: flex;
+  line-height: 50rpx;
+  margin-top: 30rpx;
+  
+}
+.commenttitle{
+  flex: 3;
+  text-align: center;
+  line-height: 100rpx;
+
+}
+.commentcontent{
+  flex: 7;
+  text-align: left;
+}
+/* .drawer_screen {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  background: #000;
+  opacity: 0.5;
+  overflow: hidden;
+} */
+.histr{
+  height: 100rpx;
+  width: 95%;
+  background-color: white;
+  position: absolute;
+  z-index: 1001;
+}
+

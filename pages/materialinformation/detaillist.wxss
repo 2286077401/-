@@ -1,0 +1,4 @@
+/* pages/inventorymanagement/detaillist.wxss */
+page{
+  padding-bottom:120rpx
+}

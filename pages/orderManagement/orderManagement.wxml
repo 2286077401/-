@@ -1,0 +1,323 @@
+ <view class='swipertab'>
+ 	<view class="tabitem {{currentab==0 ? 'active' : ''}}" data-current="0" bindtap='clicktab1'>
+ 		<view class="txt">浏览</view>
+ 	</view>
+ 	<view class="tabitem {{currentab==1 ? 'active' : ''}}" data-current="1" bindtap='clicktab2'>
+ 		<view class="txt">下单</view>
+ 	</view>
+ 	<view bindtap="chaxun">
+ 		<image src="/pages/images/serch.png" style="width: 35rpx;height: 35rpx;margin: 5rpx 50rpx 0 0;"></image>
+ 	</view>
+ </view>
+
+ <view class="container1" wx:if="{{pagee == 1}}" bindtouchstart="touchStart" bindtouchmove="touchMove" bindtouchend="touchEnd" animation="{{ani1}}">
+ 	<view wx:if="{{isSearch=='true'}}" wx:for="{{dataArray}}" wx:key="index" style="width:100%;background-color:white;margin-top:20rpx;padding:10rpx">
+ 		<view class="topOrder">
+ 			<view style="flex:1;font-weight: bolder;">订单编号:{{item.orderno}}</view>
+ 			<view style="flex:1;color:#D5941E;text-align:center; font-weight: bolder;">{{item.spnodename}}</view>
+ 		</view>
+ 		<view class="conter">
+ 			<view style="color:gray" bindtap="goorderDetail" data-id="{{item.id}}" data-item="{{item}}"><text>{{item.custname}}</text><text style="color:black"> | </text><text>业务员:{{item.saler}}</text></view>
+ 			<view style="color:gray" bindtap="goorderDetail" data-id="{{item.id}}" data-item="{{item}}"><text>创建人:{{item.creator}}</text></view>
+ 			<view style="color:gray" bindtap="goorderDetail" data-id="{{item.id}}" data-item="{{item}}"><text>创建时间:{{item.createtime}}</text></view>
+ 			<view style="display:flex">
+ 				<text style="flex:1" wx:if="{{item.orderstatus=='0'}}" class="bolder" >发货状态:未发货</text>
+ 				<text style="flex:1" wx:if="{{item.orderstatus=='1'}}" class="bolder" >发货状态:部分发货</text>
+ 				<text style="flex:1" wx:if="{{item.orderstatus=='2'}}" class="bolder" >发货状态:发货完成</text>
+ 				<text style="flex:1" wx:if="{{item.orderstatus=='3'}}" class="bolder" >发货状态:预订单</text>
+ 				<text style="flex:1" wx:if="{{item.orderstatus!='0'&&item.orderstatus!='1'&&item.orderstatus!='2'&&item.orderstatus!='3'}}" class="bolder" >发货状态:未知</text>
+ 				<button bindtap="wlCx" data-item="{{item}}" data-orderno="{{item.orderno}}" data-id="{{item.id}}" style="flex:1" wx:if="{{item.orderstatus=='2'}}" style="background-color:#D5941E;color:white;height: 50rpx;width: 200rpx;margin-right: 60rpx;font-size: 25rpx;margin-top: 10rpx;padding: 0rpx;line-height: 50rpx;">物流查询</button>
+ 			</view>
+ 		</view>
+ 	</view>
+
+
+ 	<view wx:if="{{isSearch=='false'&&searchOrder==undefined}}" style="width:100%;background-color:white;margin-top:20rpx;padding:10rpx">
+ 		<view style="width:100%;text-align:center">暂无数据</view>
+ 	</view>
+ 	<!-- wx:if="{{isSearch=='false'&&searchOrder!=undefined}}" -->
+ 	<view wx:for="{{dataArray}}" wx:key="index" style="width:100%;background-color:white;margin-top:20rpx;padding:10rpx">
+ 		<view class="topOrder">
+ 			<view style="flex:1; ">订单编号:{{item.orderno}}</view>
+ 			<view style="flex:1;color:#D5941E;text-align:center">{{item.spnodename}}</view>
+ 		</view>
+ 		<view class="conter">
+ 			<view bindtap="goorderDetail" data-id="{{item.id}}" data-item="{{item}}"><text>{{item.custname}} | 业务员:{{item.saler}}</text></view>
+ 			<view bindtap="goorderDetail" data-id="{{item.id}}" data-item="{{item}}"><text>创建人:{{item.creator}}</text></view>
+ 			<view bindtap="goorderDetail" data-id="{{item.id}}" data-item="{{item}}"><text>创建时间:{{item.createtime}}</text></view>
+ 			<view style="display:flex">
+ 				<text style="flex:1" wx:if="{{item.orderstatus=='0'}}" class="bolder" >发货状态:未发货</text>
+ 				<text style="flex:1" wx:if="{{item.orderstatus=='1'}}" class="bolder" >发货状态:部分发货</text>
+ 				<text style="flex:1" wx:if="{{item.orderstatus=='2'}}" class="bolder" >发货状态:发货完成</text>
+ 				<text style="flex:1" wx:if="{{item.orderstatus=='3'}}" class="bolder" >发货状态:预订单</text>
+ 				<text style="flex:1" wx:if="{{item.orderstatus!='0'&&item.orderstatus!='1'&&item.orderstatus!='2'&&item.orderstatus!='3'}}" class="bolder" >发货状态:未知</text>
+ 				<button bindtap="wlCx" data-item="{{item}}" data-orderno="{{item.orderno}}" data-id="{{item.id}}" style="flex:1" wx:if="{{item.orderstatus=='2'}}" style="background-color:#D5941E;color:white;height: 50rpx;width: 200rpx;margin-right: 60rpx;font-size: 25rpx;margin-top: 10rpx;padding: 0rpx;line-height: 50rpx;">物流查询</button>
+ 			</view>
+ 		</view>
+ 	</view>
+ </view>
+
+ <view class="container2" wx:if="{{pagee == 2}}" bindtouchstart="touchStart" bindtouchmove="touchMove" bindtouchend="touchEnd" animation="{{ani2}}" style="padding:20rpx 0rpx 0 0rpx;background-color:white;margin-top:20rpx">
+ 	<view style="width:90%;">
+ 		<view class="contentBox">
+ 			<view style="flex:2;">
+ 				<text>客户姓名</text>
+ 			</view>
+ 			<view style="flex:4" data-biaos="getKhname" bindtap='chooseShare' data-index="0">
+ 				<input bindinput="inputkhName" wx:if="{{!hideShare}}" value="{{getKhname}}" placeholder=" 请选择客户名称 "></input>
+ 			</view>
+ 			<view style="flex:4;display:flex">
+ 				<text style="flex:1">客户余额</text>
+ 				<!-- {{khYue}} -->
+ 				<text style="flex:1" >{{khMsg.creditline}}</text>
+ 			</view>
+ 		</view>
+
+ 		<view class="contentBox">
+ 			<view style="flex:1;display:flex">
+ 				<text style="flex:4">是否代收</text>
+ 				<view style="flex:2" bindtap="changeds">
+ 					<image style="width:30rpx;height:30rpx" wx:if="{{!isdaishou}}" src="/pages/images/cholse.png"></image>
+ 					<image style="width:30rpx;height:30rpx" wx:if="{{isdaishou}}" src="/pages/images/cholseactive.png"></image>
+ 				</view>
+ 				<text style="flex:1">是</text>
+ 				<view style="flex:2" bindtap="changedsf">
+ 					<image style="width:30rpx;height:30rpx" wx:if="{{isdaishou&&khMsg.paidtype=='代收'}}" src="/pages/images/cholse.png"></image>
+ 					<image style="width:30rpx;height:30rpx" wx:if="{{!isdaishou}}" src="/pages/images/cholseactive.png"></image>
+ 				</view>
+ 				<text style="flex:1">否</text>
+ 			</view>
+ 			<view style="flex:1;text-align:center;display:flex">
+ 				<view style="flex:1;text-align: right;" wx:if="{{isdaishou}}">代收金额 </view>
+ 				<input bindinput="inputDaishou" style="flex:1;text-align:left;padding-right:30rpx;" wx:if="{{!hideShare}}"></input>
+ 			</view>
+ 		</view>
+
+ 		<view class="contentBox">
+ 			<view style="flex:1;display:flex">
+ 				<text style="flex:2">付款方式</text>
+ 				<view style="flex:4">
+ 					<input disabled="true" bindinput="inputfkWay" wx:if="{{!hideShare}}" data-biaos="getFkway" bindtap='chooseShare' value="{{paidtype}}" placeholder=" 请选择付款方式 "></input>
+ 				</view>
+ 				<view style="flex:4;display:flex">
+ 					<text style="flex:1">物流名称</text>
+ 					<input disabled="true" style="flex:1" wx:if="{{!hideShare}}" data-biaos="getWlname" bindtap='chooseShare' value="{{logisticsname}}" placeholder="物流名称"></input>
+ 					<!-- <input bindinput="inputWlname" style="flex:1" wx:if="{{!hideShare}}" data-biaos="getWlname" bindtap='chooseShare' value="{{khMsg.logisticsname}}" placeholder="物流名称"></input> -->
+ 				</view>
+ 			</view>
+ 		</view>
+
+ 		<view class="contentBox">
+ 			<view style="flex:1;display:flex">
+ 				<text style="flex:2">收货人</text>
+ 				<view style="flex:4">
+ 					<input bindinput="inputshouhuor" wx:if="{{!hideShare}}" placeholder=" 名称 " value="{{khMsg.receiver}}"></input>
+ 				</view>
+ 				<view style="flex:4;display:flex">
+ 					<text style="flex:1">收货电话</text>
+ 					<input bindinput="inputshPhone" type='number' wx:if="{{!hideShare}}" style="flex:1" placeholder=" 电话 " value="{{khMsg.receivertel}}"></input>
+ 				</view>
+ 			</view>
+ 		</view>
+
+ 		<view class="contentBox">
+ 			<view style="flex:1;display:flex">
+ 				<text style="flex:2">收货地址</text>
+ 				<view style="flex:8" wx:if="{{!xslxshow}}">
+ 					<input bindinput="inputDz" wx:if="{{!hideShare}}" placeholder=" 收货地址 " value="{{khMsg.receiveaddr}}"></input>
+ 				</view>
+ 			</view>
+ 		</view>
+
+ 		<view class="contentBox">
+ 			<view style="flex:1;display:flex">
+ 				<text style="flex:2">备注</text>
+ 				<view style="flex:8" wx:if="{{!xslxshow}}">
+ 					<input bindinput="inputBeizhu" wx:if="{{!hideShare}}" placeholder=" 备注 " value="{{beizhuMsg}}"></input>
+ 				</view>
+ 			</view>
+ 		</view>
+ 	</view>
+ 	<view wx:for='{{orderNumber}}' wx:key="index" style="width: 100%;">
+ 		<view style="display:flex;background-color:#F1F1F0;width:100%;padding:15rpx">
+ 			<text style="flex:5;">产品信息</text>
+ 			<view style="flex:5;text-align:right;"><button style="height: 50rpx;width: 220rpx;font-size: 25rpx;line-height: 12rpx;color:white;background-color:#D5941E;" data-index="{{index}}" bindtap="mainProduct">删除商品</button></view>
+ 		</view>
+ 		<view style="width: 90%;margin: 0 auto;">
+ 			<view class="contentBox">
+ 				<view style="display:flex;flex:2;min-width: 70rpx">
+ 					<text >名称</text>
+ 				</view>
+ 				<view style="flex:4;;min-width: 200rpx" wx:if="{{!xslxshow}}">
+ 					<input bindinput="inputcpName" disabled="true" wx:if="{{!hideShare}}" data-biaos="getCpname" bindtap='chooseShare' data-index="{{index}}" value="{{item.getKhname}}" placeholder="请选择产品名称"></input>
+ 				</view>
+ 				<view style="flex:4;display:flex;max-width: 278rpx">
+ 					<text style="flex:1">规格</text>
+ 					<text style="flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">{{item.getguige}}</text>
+ 				</view>
+ 			</view>
+
+ 			<view class="contentBox">
+ 				<view style="flex:1;display:flex">
+ 					<text style="flex:2">单位</text>
+ 					<view style="flex:4">
+ 						<input disabled='true'  bindinput="inputDanwei" wx:if="{{!hideShare}}" data-biaos="getDw" data-cpname="{{item.proname}}" data-dwIndex="{{index}}" data-dwbiaos="first" bindtap='chooseShare' value="{{item.getDw}}" placeholder="单位"></input>
+ 						<!-- <view class='select_box'>
+ 							<view class='select' catchtap='selectTap' data-cpListid="{{index}}">
+ 								<text class='select_text'>{{item.getDw}}</text>
+ 								<image class='select_img {{show &&"select_img_rotate"}}' src='/pages/images/gobottom.png'></image>
+ 							</view>
+ 							<view class='option_box' catchtouchmove="catchtouchmove" style='height:{{show?(productMsg.length>5?300:productMsg.length*60):0}}rpx;'>
+ 								<text class='option' style='{{xlindex==productMsg.length-1&&"border:0;"}}' wx:for='{{productMsg}}' wx:key='this' data-index='{{index}}' data-dwId="{{item.id}}" data-danwei="{{item.name}}" catchtap='optionTap'>{{item.name}}</text>
+ 							</view>
+ 						</view> -->
+
+ 					</view>
+ 					<view style="flex:4;display:flex" wx:if="{{!hideShare}}">
+ 						<text style="flex:1" >销售类型</text>
+ 						<input disabled='true' bindinput="inputXsleixin" style="flex:1" wx:if="{{!xslxshow}}" data-index="{{index}}" data-biaos="getXsclass" bindtap='showMask' value="{{item.getXsclass}}" placeholder="销售类型"></input>
+ 						<!-- <view class='select_box'>
+ 							<view class='select' data-type="xslx" data-cpListid="{{index}}" catchtap='selectTap' style="width:100%">
+ 								<text class='select_text'>{{item.getXsclass}}</text>
+ 								<image class='select_img {{xslxshow&&"select_img_rotate"}}' src='/pages/images/gobottom.png'></image>
+ 							</view>
+ 							<view class='option_box' style='height:{{xslxshow?(selectData.length>5?300:selectData.length*60):0}}rpx;width:100%'>
+ 								<text class='option' style='{{xslxindex==selectData.length-1&&"border:0;"}}' wx:for='{{selectData}}' wx:key='this' data-index='{{index}}'  data-type="xslx" data-leixin="{{item}}" catchtap='optionTap'>{{item}}</text>
+ 							</view>
+ 						</view> -->
+ 					</view>
+ 				</view>
+ 			</view>
+
+ 			<view class="contentBox">
+ 				<view style="flex:1;display:flex">
+ 					<text style="flex:2">单价</text>
+ 					<view style="flex:4">
+ 						<text wx:if="{{!hideShare}}"  >{{item.getdanjia}}</text>
+ 					</view>
+ 					<view style="flex:4;display:flex">
+ 						<text  style="flex:1">折后单价</text>
+ 						<text  style="flex:1" >{{item.getzhehou}}</text>
+ 					</view>
+ 				</view>
+ 			</view>
+
+ 			<view class="contentBox">
+ 				<view style="flex:1;display:flex">
+ 					<text style="flex:2">数量</text>
+ 					<view style="flex:4">
+ 						<input bindtap="djinput" data-index="{{index}}" wx:if="{{!hideShare}}" value="{{item.getshuliang}}" bindinput="inputCount"></input>
+ 					</view>
+ 					<view style="flex:4;display:flex">
+ 						<text style="flex:1">返利率</text>
+ 						<text wx:if="{{!hideShare}}" style="flex:1" >{{item.getfanli}}</text>
+ 					</view>
+ 				</view>
+ 			</view>
+
+ 			<view class="contentBox">
+ 				<view style="flex:1;display:flex">
+ 					<text style="flex:2">金额</text>
+ 					<view style="flex:4">
+ 						<text >{{item.getjine}}</text>
+ 					</view>
+ 					<view style="flex:4;display:flex">
+ 						<text style="flex:1">折后金额</text>
+ 						<text  style="flex:1">{{item.getzhehoujine}}</text>
+ 					</view>
+ 				</view>
+ 			</view>
+ 		</view>
+ 	</view>
+
+ 	<view style="display:flex;width:100%;background-color:#F1F1F0;padding:15rpx">
+ 		<text style="flex:4;"></text>
+ 		<view style="flex:3;text-align:right;padding: 0 10rpx 0 0;"><button style="height: 50rpx;width: 220rpx;font-size: 25rpx;line-height: 12rpx;background-color:#D5941E;color:white" bindtap="addProduct">添加产品</button></view>
+ 		<view style="flex:3;text-align:right;"><button bindtap="submitOrder" style="height: 50rpx;width: 220rpx;font-size: 25rpx;line-height: 12rpx;background-color:#D5941E;color:white">提交</button></view>
+ 	</view>
+ </view>
+ <view wx:if="{{hideShare}}" style='position:fixed;top:0;bottom:0;right:0;left:0;background-color:#333333d1;display:flex;align-items:flex-end;align-content:center;style="height:300rpx; overflow: scroll;"' bindtap="close">
+ 	<scroll-view bindscrolltolower="khNamelower" scroll-y="true" class="khName" catchtouchmove="catchtouchmove">
+ 		<!-- 获取客户姓名 -->
+ 		<view wx:if="{{biaos=='getKhname'}}" catchtouchmove="catchtouchmove" style="  display:flex;padding: 30rpx;">
+ 			<view style="flex:8;border-bottom:1rpx solid gray">
+ 				<input bindinput="getKhname" value="{{inputkhName}}" style="color:black" placeholder="输入关键字"></input>
+ 			</view>
+ 			<view style="flex:2;padding: 5rpx;">
+ 				<button bindtap="serchKhname" style="width: 120rpx;height: 50rpx;font-size: 22rpx;line-height:50rpx;color:#F08C50;padding:0rpx;box-shadow:0 0 5rpx 2rpx #999;">搜索</button>
+ 			</view>
+ 		</view>
+
+ 		<view wx:if="{{biaos=='getKhname'}}" bindtap='chooseShare' wx:for="{{khName}}" wx:key="index" style="line-height: 45rpx;padding: 20rpx 0 20rpx 0;border-bottom: 1rpx solid gray;padding: 30rpx;">
+ 			<text bindtap="confirmKhname" data-index="{{item.name}}" data-custid="{{item.id}}" data-khitem="{{item}}" style="color: #303030;display: block;font-weight: bold;font-size: 35rpx;">{{item.name}}</text>
+ 			<text bindtap="confirmKhname" data-index="{{item.name}}" data-custid="{{item.id}}" data-khitem="{{item}}" style="color: black;display: block;font-size: 28rpx;">{{item.receiveaddr}}</text>
+ 		</view>
+
+ 		<!-- 付款方式 -->
+ 		<view wx:if="{{biaos=='getFkway'}}" style="padding: 30rpx;">
+ 			<view style="font-weight: bold;width: 100%;font-size: 35rpx;padding-bottom:20rpx">
+ 				<view style="margin:0 auto">支付方式</view>
+ 			</view>
+ 		</view>
+ 		<view style="line-height: 50rpx;font-size: 25rpx;padding: 0 30rpx 30rpx 30rpx;">
+ 			<view style="border-bottom: 1rpx solid gray;" wx:if="{{biaos=='getFkway'}}" bindtap='chooseShare' wx:for="{{fkWayData}}" wx:key="index">
+ 				<text bindtap="confirmFkway" data-id="{{item.id}}" data-index="{{item.name}}" style="color:black;display: block;">{{item.name}}</text>
+ 			</view>
+ 		</view>
+ 		<!-- 物流方式 -->
+ 		<view wx:if="{{biaos=='getWlname'}}" style="padding: 30rpx;">
+ 			<view style="font-weight: bold;width: 100%;font-size: 35rpx;padding-bottom:20rpx">
+ 				<view style="margin:0 auto">物流</view>
+ 			</view>
+ 		</view>
+ 		<view style="line-height: 50rpx;font-size: 25rpx;padding: 0 30rpx 30rpx 30rpx;">
+ 			<view style="border-bottom: 1rpx solid gray;ine-height: 40rpx;" wx:if="{{biaos=='getWlname'}}" bindtap='chooseShare' wx:for="{{wlmodelData}}" wx:key="index">
+ 				<text bindtap="confirmWlname" data-index="{{item.logname}}" data-wuliuID="{{item.id}}" style="color:black;display:block">{{item.logname}}</text>
+ 				<text bindtap="confirmWlname" data-index="{{item.logname}}" data-wuliuID="{{item.id}}" style="color:black;display:block">{{item.linkercell}}</text>
+ 			</view>
+ 		</view>
+
+ 		<!-- 产品名称 -->
+ 		<view wx:if="{{biaos=='getCpname'}}" style=" display:flex;margin-top: -40rpx;padding:30rpx">
+ 			<view style="flex:8;border-bottom:1rpx solid gray">
+ 				<input bindinput="inputCpname" style="color:black" placeholder="输入关键字" value="{{inputproname}}"></input>
+ 			</view>
+ 			<view style="flex:2">
+ 				<button bindtap="serchCpname" style="width: 120rpx;height: 50rpx;font-size: 22rpx;line-height:50rpx;color:#F08C50;padding:0rpx">搜索</button>
+ 			</view>
+ 		</view>
+ 		<view wx:if="{{biaos=='getCpname'}}" wx:for="{{cpNamemodelData}}" wx:key="index">
+ 			<!-- <text bindtap="confirmCpname" data-index="Cpname+{{index}}" style="color:black">{{产品名称}}</text> -->
+ 			<view style="display:flex;border-bottom:1rpx solid gray;padding:20rpx">
+ 				<view style="flex:3;height: 130rpx;width: 190rpx;display: flex;align-items: center;">
+ 					<image bindtap="bigImg" data-imgdata="{{item.fileurl}}" mode="widthFix" style="width:100rpx;" src="{{imgUrl}}/{{item.fileurl}}"></image>
+ 				</view>
+ 				<view style="flex:7;display: flex;flex-direction: column;" bindtap='chooseSharecpName' data-biaos="getCpname" data-proItem="{{item}}" data-cpName="{{item.proname}}">
+ 					<view style="font-size:30rpx; flex: 1 1 auto;"><text>{{item.proname}}</text></view>
+ 					<view style="font-size:25rpx; flex: 1 1 auto;"><text>{{item.prono}}</text></view>
+ 					<view style="font-size:25rpx; flex: 1 1 auto;"><text>{{item.specification}}</text></view>
+ 				</view>
+ 			</view>
+ 		</view>
+
+ 		<!-- 单位 -->
+ 		<view wx:if="{{biaos=='getDw'}}" style="display:flex;padding: 30rpx;margin-top: -60rpx;">
+ 			<view>单位</view>
+ 		</view>
+ 		<view style="padding: 10rpx 0 10rpx 30rpx;border-bottom:1rpx solid gray;line-height: 50rpx;" wx:if="{{biaos=='getDw'}}" bindtap="chooseShare" data-dwindex="{{index}}" data-biaos="getDw">
+ 			<view wx:for="{{productMsg}}" wx:for-item="val" wx:for-index='led' wx:key="led">
+ 				<text bindtap="confirmDw" data-name="{{val.name}}"  data-index="{{index}}"  data-led="{{led}}" style="color:black;display: block;font-size: 30rpx;">{{val.name==null?'':val.name}}</text>
+ 			</view>
+ 		</view>
+ 	</scroll-view>
+
+ </view>
+
+ <cover-view class="mask" hidden="{{flag}}" catchtouchmove="catchtouchmove" bindtap="close">
+ 	<cover-view class="maskContent" >
+ 		<cover-view style="font-size: 30rpx;margin-bottom: 20rpx;margin: 30rpx;" bindtap="closeMask" data-type="产品" data-led="0">产品</cover-view>
+ 		<cover-view style="font-size: 30rpx;margin-bottom: 20rpx;margin: 30rpx;" bindtap="closeMask" data-type="赠品" data-led="1">赠品</cover-view>
+ 	</cover-view>
+ </cover-view>
+
+ <tabBar></tabBar>

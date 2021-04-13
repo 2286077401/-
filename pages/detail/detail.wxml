@@ -1,0 +1,18 @@
+
+ 	<view style="padding:50rpx" wx:for="{{listdate}}" wx:key="index">
+ 		<view style="width: 100%;text-align: center;">
+ 			<image wx:if="{{itempic!=''}}" bindload="imageLoad" data-index="{{ index }}" style="width:{{ images[index].width }}rpx; height:{{ images[index].height }}rpx;" src="{{imgUrl}}/{{itempic}}"></image>
+ 			<image wx:if="{{itempic==''}}" bindload="imageLoad" data-index="{{ index }}" style="width:{{ images[index].width }}rpx; height:{{ images[index].height }}rpx;" src="/pages/images/noneImg.png"></image>
+ 		</view>
+ 		<view style="line-height: 80rpx;font-size: 25rpx;color: gray;">
+ 			<view class="txt"><text>产品名称</text><text class="yichu">{{item.proname}}</text></view>
+ 			<view class="txt"><text>产品编码</text><text>{{item.prono}}</text></view>
+ 			<view class="txt"><text>规格</text><text class="yichu" >{{item.specification}}</text></view>
+ 			<view class="txt"><text>单价</text><text>{{item.saleprice}}</text></view>
+ 			<view class="txt"><text>主单位</text><text>{{item.mainunitname}}</text></view>
+ 			<view class="txt"><text>副单位</text><text>{{item.secondunitname}}</text></view>
+ 			<view class="txt"><text>主副转换率</text><text>{{item.maintosec}}</text></view>
+ 			<view class="txt"><text>助记码</text><text>{{item.helpno}}</text></view>
+ 			<view><button style="background-color: #D5941E;color: white;position: absolute;left: 50%;margin-left: -75rpx;width: 150rpx;font-size: 25rpx;padding: 20rpx;;" bindtap="orderManagement">下单</button></view>
+ 		</view>
+ 	</view>

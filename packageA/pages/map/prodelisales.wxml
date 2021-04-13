@@ -1,0 +1,3 @@
+<view>
+  		<prodelsalBar-canvas prodelsalBardatalistnext="{{prodelsalBardatalistnext}}"></prodelsalBar-canvas>
+</view>

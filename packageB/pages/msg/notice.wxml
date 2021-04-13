@@ -1,0 +1,43 @@
+<view>
+	<view style="margin-top:20rpx;margin-bottom:20rpx;padding:20rpx;display:flex;height:60rpx;background-color:white;line-height:60rpx">
+		<view style="flex:5;position: relative;">
+			订单审批
+			<view style="background-color: red;position: absolute;color: white;border-radius: 10px;font-size: 12px;padding: 5rpx 10rpx 5rpx 10rpx;left: 130rpx;top: 0rpx;height: 30rpx;line-height: 30rpx;" wx:if="{{approvalarr.length!=0}}" >{{approvalarr.length}}</view>
+		</view>
+		<view style="color:#D9AB56;flex:5;text-align:right" data-biaos="order" bindtap="click">查看详情>></view>
+	</view>
+
+	<view style="margin-bottom:20rpx;padding:20rpx;display:flex;height:60rpx;background-color:white;line-height:60rpx">
+		<view style="flex:5;position: relative;">日志审批
+			<view style="background-color: red;position: absolute;color: white;border-radius: 10px;font-size: 12px;padding: 5rpx 10rpx 5rpx 10rpx;left: 130rpx;top: 0rpx;height: 30rpx;line-height: 30rpx;" wx:if="{{replyarr.length!=0}}">{{replyarr.length}}</view>
+		</view>
+		<view style="color:#D9AB56;flex:5;text-align:right" data-biaos="journal" bindtap="click">查看详情>></view>
+	</view>
+
+	<view style="margin-bottom:20rpx;padding:20rpx;display:flex;height:60rpx;background-color:white;line-height:60rpx">
+		<view style="flex:5;position: relative;">退货审批
+			<view style="background-color: red;position: absolute;color: white;border-radius: 10px;font-size: 12px;padding: 5rpx 10rpx 5rpx 10rpx;left: 130rpx;top: 0rpx;height: 30rpx;line-height: 30rpx;" wx:if="{{returnarr.length!=0}}" >{{returnarr.length}}</view>
+		</view>
+		<view style="color:#D9AB56;flex:5;text-align:right" data-biaos="return" bindtap="click">查看详情>></view>
+	</view>
+
+	<view style="margin-bottom:20rpx;padding:20rpx;display:flex;height:60rpx;background-color:white;line-height:60rpx">
+		<view style="flex:5;position: relative;">采购审批
+			<view style="background-color: red;position: absolute;color: white;border-radius: 10px;font-size: 12px;padding: 5rpx 10rpx 5rpx 10rpx;left: 130rpx;top: 0rpx;height: 30rpx;line-height: 30rpx;" wx:if="{{cgarr.length!=0}}">{{cgarr.length}}</view>
+		</view>
+		<view style="color:#D9AB56;flex:5;text-align:right" data-biaos="purchase" bindtap="click">查看详情>></view>
+	</view>
+
+	<view style="margin-bottom:20rpx;padding:20rpx;display:flex;height:60rpx;background-color:white;line-height:60rpx">
+		<view style="flex:5;position: relative;">费用报销审批
+					<view style="background-color: red;position: absolute;color: white;border-radius: 10px;font-size: 12px;padding: 5rpx 10rpx 5rpx 10rpx;left: 200rpx;top: 0rpx;height: 30rpx;line-height: 30rpx;" wx:if="{{bxarr.length!=0}}">{{bxarr.length}}</view></view>
+		<view style="color:#D9AB56;flex:5;text-align:right" data-biaos="reimbursement" bindtap="click">查看详情>></view>
+	</view>
+
+	<view style="margin-bottom:20rpx;padding:20rpx;display:flex;height:60rpx;background-color:white;line-height:60rpx">
+		<view style="flex:5;position: relative;">费用申请审批
+			<view style="background-color: red;position: absolute;color: white;border-radius: 10px;font-size: 12px;padding: 5rpx 10rpx 5rpx 10rpx;left: 200rpx;top: 0rpx;height: 30rpx;line-height: 30rpx;" wx:if="{{sqarr.length!=0}}">{{sqarr.length}}</view> 
+		</view>
+		<view style="color:#D9AB56;flex:5;text-align:right" data-biaos="apply" bindtap="click">查看详情>></view>
+	</view>
+</view>

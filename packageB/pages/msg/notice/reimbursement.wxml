@@ -1,0 +1,25 @@
+<view bindtap="godetail" data-id="{{item.id}}" data-item="{{item}}" wx:for="{{listdata}}" wx:key="index" wx:if="{{item.spnodename!='审批结束'}}" style="padding:20rpx;border-top:1rpx solid #CDCFCC;font-size: 30rpx;line-height: 50rpx;background:white;margin-bottom:20rpx">
+	<view style="display:flex">
+		<view style="flex:5;text-align:left;font-weight: bolder;font-size:26rpx;">报销编号:<text style="font-size:25rpx">{{item.reimno}}</text> </view>
+		<view style="flex:5;text-align:center;font-weight: bolder;color:#D5941E;font-size:26rpx;">{{item.spnodename}}</view>
+	</view>
+	<view style="border-top:1rpx solid #CDCFCC;display:flex;font-size:26rpx;">
+		<text style="flex:5">报销人: {{item.applyer}}</text>
+		<text style="flex:5">报销金额:{{item.applymoney}}</text>
+	</view>
+	<view style="display:flex;font-size:26rpx;"><text style="flex:5; overflow:hidden;white-space:nowrap;	text-overflow:ellipsis;">报销分类: {{item.tongji}}</text><text style="flex:5; overflow:hidden;white-space:nowrap;	text-overflow:ellipsis;">报销时间: {{item.applytime}}</text></view>
+	<view style="font-size:26rpx;">是否发放: {{item.isshutdown==0?'否':'是'}}</view>
+	<!-- <view style="font-weight: bolder;">发货状态:{{}}</view> -->
+	<!-- <view style="display:flex; font-weight: bolder;">
+		<text style="flex:1" wx:if="{{item.orderstatus=='0'}}" class="bolder" >发货状态:未发货</text>
+		<text style="flex:1" wx:if="{{item.orderstatus=='1'}}" class="bolder" >发货状态:部分发货</text>
+		<text style="flex:1" wx:if="{{item.orderstatus=='2'}}" class="bolder" >发货状态:发货完成</text>
+		<text style="flex:1" wx:if="{{item.orderstatus=='3'}}" class="bolder" >发货状态:预订单</text>
+		<text style="flex:1" wx:if="{{item.orderstatus!='0'&&item.orderstatus!='1'&&item.orderstatus!='2'&&item.orderstatus!='3'}}" class="bolder" >发货状态:未知</text>
+	 <button bindtap="wlCx" data-item="{{item}}" data-orderno="{{item.orderno}}" data-id="{{item.id}}" style="flex:1" wx:if="{{item.orderstatus=='2'}}" style="background-color:#D5941E;color:white;height: 50rpx;width: 200rpx;margin-right: 60rpx;font-size: 25rpx;margin-top: 10rpx;padding: 0rpx;line-height: 50rpx;">物流查询</button> 
+	</view> -->
+</view>
+
+<view wx:if="{{listdata.length==0}}" style="width:100%;height:100%;background:white;text-align:center">
+	<text style="padding-top:300rpx;display:block;">暂无数据</text>
+</view>

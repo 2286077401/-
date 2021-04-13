@@ -1,0 +1,133 @@
+page {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.df {
+  display: flex;
+}
+
+.f1 {
+  flex: 1;
+}
+.f7 {
+  flex: 7;
+}
+.f3 {
+  flex: 3;
+}
+
+.tr {
+  text-align: right;
+}
+
+.mr3 {
+  margin-right: 30rpx;
+}
+
+.cgray {
+  color: gray;
+  font-size: 28rpx;
+}
+
+.pf {
+  font-size: 27rpx;
+  color: red;
+  font-weight: bolder;
+}
+
+.fb {
+  font-weight: bolder;
+  font-size: 27rpx;
+}
+
+.p3 {
+  padding: 20rpx 30rpx 20rpx 30rpx;
+}
+
+.all {
+  border-bottom: 3rpx solid gray;
+  line-height: 45rpx;
+
+}
+
+.more {
+  text-align: right;
+  margin-right: 30rpx;
+
+}
+
+.center {
+  width: 300rpx;
+  height: 400rpx;
+  right: 50%;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  margin-right: -250rpx;
+}
+
+.navbar {
+  flex: none;
+  display: flex;
+  background: #fff;
+}
+
+.navbar .item {
+  position: relative;
+  flex: auto;
+  text-align: center;
+  line-height: 80rpx;
+}
+
+.navbar .item.active {
+  color: #FFCC00;
+}
+
+.navbar .item.active:after {
+  content: "";
+  display: block;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 4rpx;
+  background: #FFCC00;
+}
+
+.modalDlg {
+  width: 130rpx;
+  height: 120rpx;
+  position: fixed;
+  z-index: 9999;
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 25rpx;
+  font-size: 25rpx;
+  top: 90rpx;
+  right: 20rpx;
+  line-height: 40rpx;
+}
+
+.close_mask {
+  color: #000;
+  position: relative;
+  left: 40%;
+  /* top: -82%; */
+  font-size: 32rpx;
+}
+
+.mask {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 60rpx;
+  left: 0;
+  background: #000;
+  z-index: 9000;
+  opacity: 0.7;
+}
+

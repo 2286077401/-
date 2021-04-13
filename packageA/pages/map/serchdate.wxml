@@ -1,0 +1,298 @@
+<view wx:if="{{showtype=='产品销售区域分析数据统计'}}">
+	<view style="display:flex;line-height: 55rpx;">
+		<view style="flex:3;text-align:center;">产品名称</view>
+		<view style="flex:7"><input bindtap="powerDrawer" data-statu="open" data-biaos="产品销售区域分析数据统计"
+				bindinput="getinputvlu" value="{{serch0}}"
+				style="background: white;height: 60rpx;border-radius: 10rpx;"></input></view>
+	</view>
+	<view style="display:flex;line-height: 55rpx;margin-top:30rpx">
+		<view style="text-align:center;flex:3" class="section__title">开始时间</view>
+		<picker style="flex:7;background:white;height:60rpx;border-radius:10rpx" mode="date" value="{{startime1}}"
+			bindchange="bindstartime1Change">
+			<view class="picker">
+				{{startime1}}
+			</view>
+		</picker>
+	</view>
+	<view style="display:flex;line-height: 55rpx;margin-top:30rpx">
+		<view style="text-align:center;flex:3" class="section__title">结束时间</view>
+		<picker style="flex:7;background:white;height:60rpx;border-radius:10rpx" mode="date" value="{{endtime1}}"
+			bindchange="bindendtime1Change">
+			<view class="picker">
+				{{endtime1}}
+			</view>
+		</picker>
+	</view>
+	<view style="display:flex;line-height: 55rpx;margin-top:30rpx">
+		<view style="flex:3;text-align:center;">所属省</view>
+		<view style="flex:7"><input bindtap="powerDrawer" data-statu="open" data-biaos="province" bindinput="getinputvlu"
+				value="{{provincename}}" style="background: white;height: 60rpx;border-radius: 10rpx;"></input></view>
+	</view>
+	<view style="display:flex;line-height: 55rpx;margin-top:30rpx">
+		<view style="flex:3;text-align:center;">所属市</view>
+		<view style="flex:7"><input bindtap="powerDrawer" data-statu="open" data-biaos="city" bindinput="getinputvlu"
+				value="{{cityname}}" style="background: white;height: 60rpx;border-radius: 10rpx;"></input></view>
+	</view>
+	<view style="display:flex;line-height: 55rpx;margin-top:30rpx">
+		<view style="flex:3;text-align:center;">所属区</view>
+		<view style="flex:7"><input bindtap="powerDrawer" data-statu="open" data-biaos="county" bindinput="getinputvlu"
+				value="{{countyname}}" style="background: white;height: 60rpx;border-radius: 10rpx;"></input></view>
+	</view>
+	<view style="display:flex;line-height: 55rpx;margin-top:30rpx">
+		<view style="flex:3;text-align:center;">公司分类</view>
+		<view style="flex:7"><input bindtap="powerDrawer" data-statu="open" data-biaos="class" bindinput="getinputvlu"
+				value="{{classtype}}" style="background: white;height: 60rpx;border-radius: 10rpx;"></input></view>
+	</view>
+	<view style="display:flex;margin-top: 30rpx;">
+		<view style="flex:1"><button
+				style="padding: 0;color: #D5941E;border-radius: 5px;height: 50rpx;background: #D5941E;width: 40%;color: white;"
+				bindtap="clearvlu">重置</button></view>
+		<view style="flex:1"><button
+				style="padding: 0;color: #D5941E;border-radius: 5px;height: 50rpx;background: #D5941E;width: 40%;color: white;"
+				bindtap="serchdate">搜索</button></view>
+	</view>
+</view>
+<view wx:if="{{showtype=='客户产品销售分析数据统计详情搜索'}}">
+	<view style="display:flex;line-height: 55rpx;">
+		<view style="text-align:center;flex:3">客户名称</view>
+		<view style="flex:7"><input bindtap="powerDrawer" data-statu="open" data-biaos="客户产品销售分析数据统计详情搜索"
+				bindinput="getinputvlu" value="{{serch1serch}}"
+				style="background: white;height: 60rpx;border-radius: 10rpx;"></input></view>
+	</view>
+	<view style="display:flex;line-height: 55rpx;margin-top:30rpx">
+		<view style="text-align:center;flex:3" class="section__title">开始时间</view>
+		<picker style="flex:7;background:white;height:60rpx;border-radius:10rpx" mode="date" value="{{startime5}}"
+			bindchange="bindstartime2Change">
+			<view class="picker">
+				{{startime2}}
+			</view>
+		</picker>
+	</view>
+	<view style="display:flex;line-height: 55rpx;margin-top:30rpx">
+		<view style="text-align:center;flex:3" class="section__title">结束时间</view>
+		<picker style="flex:7;background:white;height:60rpx;border-radius:10rpx" mode="date" value="{{endtime5}}"
+			bindchange="bindendtime2Change">
+			<view class="picker">
+				{{endtime2}}
+			</view>
+		</picker>
+	</view>
+	<view style="display:flex;margin-top: 30rpx;">
+		<view style="flex:1"><button
+				style="padding: 0;color: #D5941E;border-radius: 5px;height: 50rpx;background: #D5941E;width: 40%;color: white;"
+				bindtap="clearvlu">重置</button></view>
+		<view style="flex:1"><button
+				style="padding: 0;color: #D5941E;border-radius: 5px;height: 50rpx;background: #D5941E;width: 40%;color: white;"
+				bindtap="serchdate">搜索</button></view>
+	</view>
+</view>
+<view wx:if="{{showtype=='业务员产品销售分析数据统计搜索'}}">
+	<view style="display:flex;line-height: 55rpx;">
+		<view style="text-align:center;flex:3">客户名称</view>
+		<view style="flex:7"><input bindtap="powerDrawer" data-statu="open" data-biaos="业务员产品销售分析数据统计搜索"
+				bindinput="getinputvlu" value="{{serch0}}"
+				style="background: white;height: 60rpx;border-radius: 10rpx;"></input></view>
+	</view>
+	<view style="display:flex;line-height: 55rpx;margin-top:30rpx">
+		<view style="text-align:center;flex:3" class="section__title">开始时间</view>
+		<picker style="flex:7;background:white;height:60rpx;border-radius:10rpx" mode="date" value="{{startime3}}"
+			bindchange="bindstartime3Change">
+			<view class="picker">
+				{{startime3}}
+			</view>
+		</picker>
+	</view>
+	<view style="display:flex;line-height: 55rpx;margin-top:30rpx">
+		<view style="text-align:center;flex:3" class="section__title">结束时间</view>
+		<picker style="flex:7;background:white;height:60rpx;border-radius:10rpx" mode="date" value="{{endtime3}}"
+			bindchange="bindendtime3Change">
+			<view class="picker">
+				{{endtime3}}
+			</view>
+		</picker>
+	</view>
+	<view style="display:flex;margin-top: 30rpx;">
+		<view style="flex:1"><button
+				style="padding: 0;color: #D5941E;border-radius: 5px;height: 50rpx;background: #D5941E;width: 40%;color: white;"
+				bindtap="clearvlu">重置</button></view>
+		<view style="flex:1"><button
+				style="padding: 0;color: #D5941E;border-radius: 5px;height: 50rpx;background: #D5941E;width: 40%;color: white;"
+				bindtap="serchdate">搜索</button></view>
+	</view>
+</view>
+<view wx:if="{{showtype=='客户产品销售分析数据统计'}}">
+	<view style="display:flex;line-height: 55rpx;">
+		<view style="text-align:center;flex:3">客户名称</view>
+		<view style="flex:7"><input bindtap="powerDrawer" data-statu="open" data-biaos="客户产品销售分析数据统计"
+				bindinput="getinputvlu" value="{{serch1}}"
+				style="background: white;height: 60rpx;border-radius: 10rpx;"></input></view>
+	</view>
+
+	<view style="display:flex;margin-top: 30rpx;">
+		<view style="flex:1"><button
+				style="padding: 0;color: #D5941E;border-radius: 5px;height: 50rpx;background: #D5941E;width: 40%;color: white;"
+				bindtap="clearvlu">重置</button></view>
+		<view style="flex:1"><button
+				style="padding: 0;color: #D5941E;border-radius: 5px;height: 50rpx;background: #D5941E;width: 40%;color: white;"
+				bindtap="serchdate">搜索</button></view>
+	</view>
+</view>
+<view wx:if="{{showtype=='业务员产品销售分析数据统计'}}">
+	<view style="display:flex;line-height: 55rpx;">
+		<view style="flex:3">业务员</view>
+		<view style="flex:7"><input bindtap="powerDrawer" data-statu="open" data-biaos="业务员产品销售分析数据统计"
+				bindinput="getinputvlu" value="{{serch2}}"
+				style="background: white;height: 60rpx;border-radius: 10rpx;"></input></view>
+	</view>
+	<view style="display:flex;margin-top: 30rpx;">
+		<view style="flex:1"><button
+				style="padding: 0;color: #D5941E;border-radius: 5px;height: 50rpx;background: #D5941E;width: 40%;color: white;"
+				bindtap="clearvlu">重置</button></view>
+		<view style="flex:1"><button
+				style="padding: 0;color: #D5941E;border-radius: 5px;height: 50rpx;background: #D5941E;width: 40%;color: white;"
+				bindtap="serchdate">搜索</button></view>
+	</view>
+</view>
+<view wx:if="{{showtype=='产品发货销售分析数据统计'}}">
+	<view style="display:flex;line-height: 55rpx;">
+		<view style="flex:3">产品名称</view>
+		<view style="flex:7"><input bindtap="powerDrawer" data-statu="open" data-biaos="产品发货销售分析数据统计"
+				bindinput="getinputvlu" value="{{serch3}}"
+				style="background: white;height: 60rpx;border-radius: 10rpx;"></input></view>
+	</view>
+	<view style="display:flex;margin-top: 30rpx;">
+		<view style="flex:1"><button
+				style="padding: 0;color: #D5941E;border-radius: 5px;height: 50rpx;background: #D5941E;width: 40%;color: white;"
+				bindtap="clearvlu">重置</button></view>
+		<view style="flex:1"><button
+				style="padding: 0;color: #D5941E;border-radius: 5px;height: 50rpx;background: #D5941E;width: 40%;color: white;"
+				bindtap="serchdate">搜索</button></view>
+	</view>
+</view>
+<view wx:if="{{showtype=='产品发货同期对比数据统计'}}">
+	<view style="display:flex;line-height: 55rpx;">
+		<view style="flex:3">产品名称</view>
+		<view style="flex:7"><input bindtap="powerDrawer" data-statu="open" data-biaos="产品发货同期对比数据统计"
+				bindinput="getinputvlu" value="{{serch4}}"
+				style="background: white;height: 60rpx;border-radius: 10rpx;"></input></view>
+	</view>
+	<view style="display:flex;margin-top: 30rpx;">
+		<view style="flex:1"><button
+				style="padding: 0;color: #D5941E;border-radius: 5px;height: 50rpx;background: #D5941E;width: 40%;color: white;"
+				bindtap="clearvlu">重置</button></view>
+		<view style="flex:1"><button
+				style="padding: 0;color: #D5941E;border-radius: 5px;height: 50rpx;background: #D5941E;width: 40%;color: white;"
+				bindtap="serchdate">搜索</button></view>
+	</view>
+</view>
+<view wx:if="{{showtype=='客户发货同期对比数据统计'}}">
+	<view style="display:flex;line-height: 55rpx;">
+		<view style="text-align:center;flex:3">客户名称</view>
+		<view style="flex:7"><input bindtap="powerDrawer" data-statu="open" data-biaos="客户发货同期对比数据统计"
+				bindinput="getinputvlu" value="{{serch5}}"
+				style="background: white;height: 60rpx;border-radius: 10rpx;"></input></view>
+	</view>
+	<view style="display:flex;line-height: 55rpx;margin-top:30rpx">
+		<view style="text-align:center;flex:3" class="section__title">开始时间</view>
+		<picker style="flex:7;background:white;height:60rpx;border-radius:10rpx" mode="date" value="{{startime5}}"
+			bindchange="bindstartime5Change">
+			<view class="picker">
+				{{startime5}}
+			</view>
+		</picker>
+	</view>
+	<view style="display:flex;line-height: 55rpx;margin-top:30rpx">
+		<view style="text-align:center;flex:3" class="section__title">结束时间</view>
+		<picker style="flex:7;background:white;height:60rpx;border-radius:10rpx" mode="date" value="{{endtime5}}"
+			bindchange="bindendtime5Change">
+			<view class="picker">
+				{{endtime5}}
+			</view>
+		</picker>
+	</view>
+	<view style="display:flex;margin-top: 30rpx;">
+		<view style="flex:1"><button
+				style="padding: 0;color: #D5941E;border-radius: 5px;height: 50rpx;background: #D5941E;width: 40%;color: white;"
+				bindtap="clearvlu">重置</button></view>
+		<view style="flex:1"><button
+				style="padding: 0;color: #D5941E;border-radius: 5px;height: 50rpx;background: #D5941E;width: 40%;color: white;"
+				bindtap="serchdate">搜索</button></view>
+	</view>
+</view>
+
+
+
+<view class="drawer_screen" bindtap="powerDrawer" data-statu="close" wx:if="{{showModalStatus}}"></view>
+<view animation="{{animationData}}" class="drawer_box" wx:if="{{showModalStatus}}">
+	<!--drawer content-->
+	<view style="display:flex;padding:10rpx">
+		<view style="flex:7;"><input bindinput="pupopovul" value="{{pupopo}}"></input></view>
+		<view style="flex:3;text-align:center"><button bindtap="pupoposerch"
+				style="padding:0rpx;color:#D5941E;width:70%">搜索</button> </view>
+	</view>
+	<scroll-view scroll-y='true' bindscrolltolower='next' class="drawer_content">
+		<view wx:if="{{biaos=='产品销售区域分析数据统计'}}" wx:for="{{khnamelist}}" wx:key="index" style="margin: 20rpx 0 20rpx 0;">
+			<view bindtap="getkhName" data-statu="close" data-khNameid="{{item.id}}" data-khName="{{item.proname}}">
+				{{item.proname}}</view>
+			<view></view>
+		</view>
+		<view wx:if="{{biaos=='province'}}" wx:for="{{provincedata}}" wx:key="index" style="margin: 20rpx 0 20rpx 0;">
+			<view bindtap="getprovince" data-statu="close" data-provinceid="{{item.placeid}}" data-name="{{item.name}}">
+				{{item.name}}</view>
+			<view></view>
+		</view>
+		<view wx:if="{{biaos=='city'}}" wx:for="{{citydata}}" wx:key="index" style="margin: 20rpx 0 20rpx 0;">
+			<view bindtap="getcity" data-statu="close" data-cityid="{{item.placeid}}" data-name="{{item.name}}">
+				{{item.name}}</view>
+			<view></view>
+		</view>
+		<view wx:if="{{biaos=='county'}}" wx:for="{{countiesdata}}" wx:key="index" style="margin: 20rpx 0 20rpx 0;">
+			<view bindtap="getcounties" data-statu="close" data-countyid="{{item.placeid}}" data-name="{{item.name}}">
+				{{item.name}}</view>
+			<view></view>
+		</view>
+		<view wx:if="{{biaos=='class'}}" wx:for="{{clssArr}}" wx:key="index" style="margin: 20rpx 0 20rpx 0;">
+			<view bindtap="getclasstype" data-statu="close" data-vul="{{item.vul}}" data-name="{{item.name}}">
+				{{item.name}}</view>
+			<view></view>
+		</view>
+
+		<view wx:if="{{biaos=='客户产品销售分析数据统计'}}" wx:for="{{cpnamelist}}" wx:key="index" style="margin: 20rpx 0 20rpx 0;">
+			<view bindtap="getcpName" data-statu="close" data-cpNameid="{{item.id}}" data-cpName="{{item.name}}">{{item.name}}
+			</view>
+			<view></view>
+		</view>
+
+		<view wx:if="{{biaos=='业务员产品销售分析数据统计'}}" wx:for="{{ywynamelist}}" wx:key="index" style="margin: 20rpx 0 20rpx 0;">
+			<view bindtap="getywyName" data-statu="close" data-ywyNameid="{{item.id}}" data-ywyName="{{item.name}}">
+				{{item.name}}</view>
+			<view></view>
+		</view>
+		<view wx:if="{{biaos=='产品发货同期对比数据统计'}}" wx:for="{{khnamelist}}" wx:key="index" style="margin: 20rpx 0 20rpx 0;">
+			<view bindtap="getkhName" data-statu="close" data-khNameid="{{item.id}}" data-khName="{{item.proname}}">
+				{{item.proname }}</view>
+			<view></view>
+		</view>
+		<view wx:if="{{biaos=='业务员产品销售分析数据统计搜索'}}" wx:for="{{khnamelist}}" wx:key="index" style="margin: 20rpx 0 20rpx 0;">
+			<view bindtap="getkhName" data-statu="close" data-khNameid="{{item.id}}" data-khName="{{item.proname}}">
+				{{item.proname }}</view>
+			<view></view>
+		</view>
+		<view wx:if="{{biaos=='客户产品销售分析数据统计详情搜索'}}" wx:for="{{cpnamelist}}" wx:key="index" style="margin: 20rpx 0 20rpx 0;">
+			<view bindtap="getcpName" data-statu="close" data-cpNameid="{{item.id}}" data-cpname="{{item.name}}">
+				{{item.name }}</view>
+			<view></view>
+		</view>
+
+		<view wx:if="{{biaos=='产品发货销售分析数据统计'}}" wx:for="{{khnamelist}}" wx:key="index" style="margin: 20rpx 0 20rpx 0;">
+			<view bindtap="getkhName" data-statu="close" data-khNameid="{{item.id}}" data-khName="{{item.proname}}">
+				{{item.proname }}</view>
+			<view></view>
+		</view>
+		<view wx:if="{{biaos=='客户发货同期对比数据统计'}}" wx:for="{{cpnamelist}}" wx:key="index" style="margin: 20rpx 0 20rpx 0;">
+			<view bindtap="getcpName" data-statu="close" data-cpNameid="{{item.id}}" data-cpName="{{item.name}}">{{item.name}}
+			</view>
+			<view></view>
+		</view>
+	</scroll-view>
+</view>

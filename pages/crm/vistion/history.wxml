@@ -1,0 +1,38 @@
+<view>
+	<!-- <view class="drawer_screen" bindtap="powerDrawer" data-statu="close" wx:if="{{showModalStatus}}"></view>
+	<view class="histr" bindtap="powerDrawer" data-statu="close" wx:if="{{showModalStatus}}"> -->
+	<!-- <view>
+	</view>
+	</view> -->
+	<view class="top">
+		<view class="toptitle" bindtap="gethistory" data-statu="open">历史</view>
+	</view>
+	<view class="content1">
+		<view>客户:{{visitlist.custname}}</view>
+		<view class="alginvi" bindtap="govisit">再拜访</view>
+	</view>
+	<view class="content2">{{visitlist.visitor}} | {{visitlist.visitedate}} | 预计成交 {{visitlist.forecastmoney}}万</view>
+	<view class="content3">
+		<view>目的:{{visitlist.purpose}}</view>
+	</view>
+	<view class="content4">
+		<view>详情:{{visitlist.visitecontent}}</view>
+	</view>
+	<view class="bottom">
+		<view class="inp"><input bindinput="returnvi" style="height: 70rpx;border: 1rpx solid gray;border-radius: 10rpx;"></input></view>
+		<view class="btn" wx:if="{{pifu=='false'}}"><button bindtap="submitvi" data-type="huifu" style="line-height:70rpx; font-weight: normal;padding:0rpx;width:80%;height:70rpx;color:white;background-color:#D5941E">回复</button></view>
+		<view class="btn" wx:if="{{pifu=='true'}}"><button bindtap="submitvi" data-type="pifu" style="line-height:70rpx; font-weight: normal;padding:0rpx;width:80%;height:70rpx;color:white;background-color:#D5941E">批复</button></view>
+	</view>
+	<view class="comment" wx:for="{{listdata}}" wx:key="index">
+		<view wx:if="{{pifu=='false'}}"  class="commenttitle" style="font-size: 33rpx;font-weight: 550;">
+			{{item.person}}:
+		</view>
+		<view wx:if="{{pifu=='true'}}"  class="commenttitle" style="font-size: 33rpx;font-weight: 550;">
+			{{item.person}}:
+		</view>
+		<view class="commentcontent">
+			<view style="font-size: 33rpx;font-weight: 550;">{{item.content}}</view>
+			<view style="color:gray;font-size: 33rpx;">{{item.time}}</view>
+		</view>
+	</view>
+</view>

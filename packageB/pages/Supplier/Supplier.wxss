@@ -1,0 +1,181 @@
+/* 详情 与 售后 */
+input {
+  background: white;
+  width: 100%;
+}
+
+
+page {
+  background-color: #F1F1F0;
+  padding-bottom: 120rpx
+}
+
+
+
+.swipertab {
+  display: flex;
+  background-color: white;
+  padding-bottom: 10rpx;
+  position: fixed;
+  width: 100%;
+  top: 0rpx;
+  z-index: 999;
+}
+
+
+.bolder {
+  font-weight: bolder;
+}
+
+
+.conter {
+  font-size: 26rpx;
+  line-height: 50rpx;
+  padding: 20rpx;
+}
+
+
+.container1 {
+  width: 100%;
+  /* height: 100%; */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  box-sizing: border-box;
+  margin-top: 70rpx;
+  font-size: 25rpx;
+}
+
+
+.tabitem {
+  flex: 1;
+  text-align: center;
+  transition: all 1s;
+  font-size: 26rpx;
+  line-height: 50rpx;
+}
+
+
+.active {
+  font-size: 35rpx;
+  flex: 1;
+  text-align: center;
+  color: #D5941E;
+}
+
+
+.contentBox {
+  display: flex;
+  font-size: 26rpx;
+  width: 100%;
+  padding: 30rpx 0 30rpx 0;
+  line-height: 40rpx;
+}
+input {
+  font-size: 26rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  word-break: break-all;
+  box-orient: vertical;
+  line-clamp: 1;
+}
+
+
+.txt {
+  height: 50rpx;
+  padding-bottom: 10rpx;
+  width: 50%;
+  margin: 0 auto;
+}
+
+
+.active>.txt {
+  border-bottom: 2rpx solid #D5941E;
+}
+
+
+.container2 {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  box-sizing: border-box;
+  margin-top: 90rpx;
+  font-size: 25rpx;
+
+}
+.box {
+  padding-right:30rpx;
+  width: 100%;
+  display: flex;
+  margin: 10rpx 0 10rpx 0;
+  text-align: center;
+}
+/*mask*/
+.drawer_screen {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  background: #000;
+  opacity: 0.5;
+  overflow: hidden;
+}
+
+/*content*/
+/* 模态框 */
+.drawer_box {
+  width: 450rpx;
+  max-height: 800rpx;
+  position: fixed;
+  top: 35%;
+  left: 0;
+  z-index: 1001;
+  background: #FFFFFF;
+  margin: -150px 145rpx 0 145rpx;
+  border-radius: 3px;
+  overflow: scroll;
+  overflow-y: scroll;
+}
+
+.tccontent {
+  display: flex;
+  height: 60rpx;
+  width: 390rpx;
+
+}
+
+.tctop {
+  flex: 8;
+  height: 60rpx;
+  overflow: hidden;
+  border-bottom: 1rpx solid gray;
+
+}
+
+.serchbtnbox {
+  flex: 2;
+  height: 60rpx;
+  border-radius: 10rpx;
+}
+
+.drawer_content {
+  padding: 20rpx;
+  overflow: scroll;
+  overflow-y: scroll;
+  max-height: 600rpx;
+  width: 410rpx;
+ 
+}
+
+.tet{text-align: justify;}
+.tet::after{
+  content: '';
+  display: inline-block; 
+  padding-left: 100%;
+}

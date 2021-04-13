@@ -1,0 +1,26 @@
+<view>
+	<view class="more">
+		<view bindtap="submit" style="text-align: right;margin-right: 30rpx;">更多</view>
+	</view>
+	<view class="modalDlg" wx:if="{{showModal}}">
+		<!-- <view class='close_mask' bindtap="close_mask">X</view> -->
+		<view class="choosewin">
+			<view bindtap="close_mask" data-biaos="搜索">搜索</view>
+			<view bindtap="close_mask" data-biaos="拍照">拍照</view>
+		</view>
+	</view>
+	<view class="mask" bindtap="close" catchtouchmove="preventTouchMove" wx:if="{{showModal}}"></view>
+
+	<view wx:for="{{listdata}}" wx:key="index" style="display:flex;margin: 30rpx;">
+		<view style="flex:3;padding:20rpx" bindtap="bigimg" data-bigimgurl="{{imgUrl}}/{{item.filedirectory}}{{item.autofilename}}">
+			<image mode="widthFix" style="max-height: 175rpx;width:100rpx;margin: 0 auto;display: block;position: relative;top: 50%; transform: translateY(-50%);" src="{{imgUrl}}/{{item.filedirectory}}{{item.autofilename}}"></image>
+		</view>
+		<view style="flex:7">
+			<view>{{item.custname}}</view>
+			<view style="font-size: 30rpx;color: gray;line-height: 50rpx;">类型: {{item.pictype}}</view>
+			<view style="font-size: 30rpx;color: gray;line-height: 50rpx;">照片描述: {{item.filenote==''?'无':item.filenote}}</view>
+			<view style="font-size: 30rpx;color: gray;line-height: 50rpx;">{{item.createtime}}</view>
+		</view>
+	</view>
+
+</view>

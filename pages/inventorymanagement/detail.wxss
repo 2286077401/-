@@ -1,0 +1,6 @@
+/* pages/inventorymanagement/detail.wxss */
+page{
+  background-color: #F0F0F0;
+  padding-bottom:120rpx
+}
+

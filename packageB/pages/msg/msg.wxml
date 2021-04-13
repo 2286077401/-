@@ -1,0 +1,51 @@
+<view style="border-top:1rpx solid gray;width:99%;margin:0 auto">
+	<view style="display:flex;" bindtap="golistpage" data-biaos="新闻">
+		<view style="flex:2; text-align:center;position: relative;">
+			<view style="background-color: red;position: absolute;color: white;border-radius: 11px;font-size: 20rpx;padding: 2px 5px 2px 5px;top: 10rpx;right: 5rpx;" wx:if="{{newAjaxlength}}">{{newAjaxlength}}</view>
+			<image style="width:30%;margin-top: 45rpx;" mode="widthFix" src="/pages/images/db_xw.png"></image>
+		</view>
+		<view style="flex:5;border-bottom:1rpx solid gray;padding: 20rpx 0 20rpx 0;">
+			<view>新闻</view>
+			<view style="color:gray">实时新闻</view>
+		</view>
+		<view style="flex:3;text-align: center;border-bottom:1rpx solid gray;padding:20rpx 0 20rpx 0;line-height: 80rpx;">{{nowtime}}</view>
+	</view>
+
+
+	<view style="display:flex;box-sizing: border-box;" bindtap="golistpage" data-biaos="公告">
+		<view style="flex:2;text-align:center ; position: relative;">
+			<view style="background-color: red;position: absolute;color: white;border-radius: 11px;font-size: 20rpx;padding: 2px 5px 2px 5px;top: 10rpx;right: 5rpx;" wx:if="{{approvalAjaxlength!=''}}">{{approvalAjaxlength}}</view>
+			<image style="width:30%;margin:0 auto;vertical-align: middle;margin-top: 45rpx;" mode="widthFix" src="/pages/images/db_gg.png"></image>
+		</view>
+		<view style="flex:5;border-bottom:1rpx solid gray;padding: 20rpx 0 20rpx 0;">
+			<view>公告</view>
+			<view style="color:gray">最新公告</view>
+		</view>
+		<view style="flex:3;text-align: center;border-bottom:1rpx solid gray;padding:20rpx 0 20rpx 0;line-height: 80rpx;">{{nowtime}}</view>
+	</view>
+
+	<view style="display:flex;" bindtap="golistpage" data-biaos="视频">
+		<view style="flex:2; text-align:center;   position: relative;">
+			<view wx:if="{{vidolength!=''}}" style="background-color: red;position: absolute;color: white;border-radius: 11px;font-size: 20rpx;padding: 2px 5px 2px 5px;top: 10rpx;right: 5rpx;">{{vidolength}}</view>
+			<image style="width:30%;margin-top: 45rpx;" mode="widthFix" src="/pages/images/db_video.png"></image>
+		</view>
+		<view style="flex:5;border-bottom:1rpx solid gray;padding: 20rpx 0 20rpx 0;">
+			<view>视频</view>
+			<view style="color:gray">最新视频</view>
+		</view>
+		<view style="flex:3;text-align: center;border-bottom:1rpx solid gray;padding:20rpx 0 20rpx 0;line-height: 80rpx;">{{nowtime}}</view>
+	</view>
+
+	<view style="display:flex; " bindtap="golistpage" data-biaos="审批">
+		<view style="flex:2;text-align:center;  position: relative;">
+			<view style="background-color: red;position: absolute;color: white;border-radius: 11px;font-size: 20rpx;padding: 2px 5px 2px 5px;top: 10rpx;right: 5rpx;">{{approvalnum}}</view>
+			<image style="width:30%;margin-top: 45rpx;" mode="widthFix" src="/pages/images/db_sp.png"></image>
+		</view>
+		<view style="flex:5;border-bottom:1rpx solid gray;padding: 20rpx 0 20rpx 0;">
+			<view>审批</view>
+			<view style="color:gray">最重要的信息</view>
+		</view>
+		<view style="flex:3;text-align: center;border-bottom:1rpx solid gray;padding:20rpx 0 20rpx 0;line-height: 80rpx;">{{nowtime}}</view>
+	</view>
+	<tabBar></tabBar>
+</view>

@@ -1,0 +1,5 @@
+{
+  "usingComponents": {
+    "cusdelperBar-canvas": "../../../packageA/pages/cusdelperBar/cusdelperBar"
+  }
+}

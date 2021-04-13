@@ -1,0 +1,13 @@
+ <view class="Scroll-container">
+ 	<view class="content-all" bindtouchstart="scrollTouchstart" bindtouchmove="scrollTouchmove" bindtouchend="scrollTouchend" style="transform:translateY(-{{scrollindex*100}}%);margin-top: {{margintop}}px;">
+ 	<view wx:if="{{headd}}"  style="width:100%;text-align:center; overflow: hidden;height:60rpx">	<image class="{{animationSlow}}" src="/pages/images/loding.png" style="transform: rotate({{deg}}deg);width:50rpx;height:50rpx;"></image></view>
+		 <view wx:if="{{headd}}" style="width:100%;text-align:center;color:#4E92BA">{{lodaing}}</view>
+ 		<view wx:for="{{dataArray}}" wx:key="index">
+ 			<view style="border-bottom:1rpx solid gray;margin:30rpx;padding-bottom:20rpx;line-height: 45rpx;">
+ 				<view><text>仓库:{{item.storagename}}</text></view>
+ 				<view style="font-size: 26rpx;color: gray;"><text>产品:{{item.proname}}</text></view>
+ 				<view style="font-size: 26rpx;color: gray;"><text>{{item.uplowinfo}}</text></view>
+ 			</view>
+ 		</view>
+ 	</view>
+ </view>

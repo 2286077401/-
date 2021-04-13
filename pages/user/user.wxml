@@ -1,0 +1,65 @@
+<view>
+	<view class="top">
+		<image mode="widthFix" style="width:100%; position: absolute;" src="/pages/images/icon_top_bg_user_info.png"></image>
+		<view style="position: absolute;width:100%;">
+			<view style="width:100%;text-align:center;margin-bottom:20rpx;margin-top:30rpx">我的</view>
+			<view style="width:100%;text-align:center">
+				<image src="/pages/images/user.png" style="width:150rpx;height:150rpx;border: 1rpx solid #707070;border-radius: 50%;"></image>
+			</view>
+			<view style="width:100%;text-align:center;font-size:25rpx;margin-top:20rpx">{{usermsg[0].name}}</view>
+			<view style="width:100%;text-align:center;font-size:25rpx">{{usermsg[0].telno}}</view>
+		</view>
+	</view>
+
+	<view style="background-color:white; border-radius: 20rpx;width: 95%;margin:0 auto;overflow: hidden;">
+		<view style="display:flex;height:80rpx;line-height:80rpx;background-color:white;border-bottom:1rpx solid #F5F5F5" bindtap="gogerenmsg">
+			<view style="flex:2;text-align:center;margin-top:20rpx">
+				<image src="/pages/images/icon_user_info.png" style="width:50rpx;height:50rpx"></image>
+			</view>
+			<view style="flex:6">个人信息</view>
+			<view style="flex:2;text-align:right;margin-right:20rpx">
+				<image style="width:20rpx;height:30rpx" src="/pages/images/photo_select_mark_arrow.png"></image>
+			</view>
+		</view>
+		<view style="display:flex;height:80rpx;line-height:80rpx;background-color:white;" bindtap="ceshi">
+			<view style="flex:2;text-align:center;margin-top:20rpx">
+				<image src="/pages/images/icon_user_compey.png" style="width:50rpx;height:50rpx"></image>
+			</view>
+			<view style="flex:6">企业信息</view>
+			<view style="flex:2;text-align:right;margin-right:20rpx">
+				<image style="width:20rpx;height:30rpx" src="/pages/images/photo_select_mark_arrow.png"></image>
+			</view>
+		</view>
+	</view>
+
+
+	<view style=" height:80rpx;line-height:80rpx;display:flex;background-color:white;margin:20rpx auto 20rpx auto;border-radius:20rpx;width:95%; ">
+		<view style="flex:2;text-align:center;margin-top:20rpx">
+			<image src="/pages/images/icon_user_hz.png" style="width:60rpx;height:50rpx"></image>
+		</view>
+		<view style="flex:4">商务合作</view>
+		<view style="flex:4;text-align:right;margin-right:20rpx">0531-88807917</view>
+	</view>
+
+
+	<view style=" height:80rpx;line-height:80rpx;display:flex;background-color:white;margin:20rpx auto 20rpx auto;border-radius:20rpx;width:95%; " bindtap="gosetup">
+		<view style="flex:2;text-align:center;margin-top:20rpx">
+			<image src="/pages/images/icon_user_set.png" style="width:50rpx;height:50rpx"></image>
+		</view>
+		<view style="flex:6">设置</view>
+		<view style="flex:2;text-align:right;margin-right:20rpx">
+			<image style="width:20rpx;height:30rpx" src="/pages/images/photo_select_mark_arrow.png"></image>
+		</view>
+	</view>
+
+	<view bindtap="downloadapp" style=" height:80rpx;line-height:80rpx;display:flex;background-color:white;margin:20rpx auto 20rpx auto;border-radius:20rpx;width:95%; ">
+		<view style="flex:2;text-align:center;margin-top:20rpx">
+			<image src="/pages/images/icon_user_download.png" style="width:50rpx;height:50rpx"></image>
+		</view>
+		<view style="flex:6">App下载</view>
+		<view style="flex:2;text-align:right;margin-right:20rpx">
+			<image style="width:20rpx;height:30rpx" src="/pages/images/photo_select_mark_arrow.png"></image>
+		</view>
+	</view>
+	<tabBar></tabBar>
+</view>

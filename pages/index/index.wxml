@@ -1,0 +1,21 @@
+
+<view hidden="{{!hiddenName}}">
+	<view class='mask'></view>
+	<view class='modal' style="top:{{height/2.5}}px">
+		<image class="rich_img" bindtap="clicklinqu" src="{{cardbag_img}}" bindload="imageLoad" style="height:{{switerimgHeight}}rpx" mode="widthFix" data-effect_pic='{{richImgLists}}' data-src='{{cardbag_img}}' id="{{index}}"></image>
+		<image class="rich_img" bindtap="gaibi" src="{{canimg}}" style="width:50rpx;height:50rpx;margin-top:30rpx"></image>
+	</view>
+</view>
+<view>
+	<view class="topImg">
+		<image src="/pages/images/banner.png" style="width:100%" mode="widthFix"></image>
+	</view>
+	<view style="width: 90%; border-radius: 20rpx;margin:0 auto;">
+		<scroll-centerList style="box-shadow: 0 0 9px 3px #999;  background: white;position: absolute;width: 90%;border-radius: 20rpx;top: 300rpx;font-size: 35rpx;height:650rpx"></scroll-centerList>
+	</view>
+	<view>
+		<scroll-name wx:if="{{lodaing}}" class="scroll"></scroll-name>
+		<view wx:if="{{lodaing}}" bindtap="clicklinqu" class="headdBtn">X</view>
+	</view>
+	<tabBar tabs="{{tabbalbarstr}}"></tabBar>
+</view>

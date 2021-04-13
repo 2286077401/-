@@ -1,0 +1,214 @@
+<wxs module="numberUtil" src="../../../utils/util.wxs"></wxs>
+
+<view class="container" style="padding:100rpx 0 100rpx 0">
+	<!-- tab导航栏 -->
+	<scroll-view scroll-x="true" class="nav" scroll-left="{{navScrollLeft}}" scroll-with-animation="{{true}}">
+		<block wx:for="{{navData}}" wx:for-index="idx" wx:for-item="navItem" wx:key="idx">
+			<view class="nav-item {{currentTab == idx ?'active':''}}" data-current="{{idx}}" bindtap="switchNav">
+				{{navItem.text}}</view>
+		</block>
+	</scroll-view>
+	<!-- 页面内容 -->
+	<view class="tab-box" data-current="{{currentTab}}" duration="300" bindtouchstart="touchStart"
+		bindtouchmove="touchMove" bindtouchend="touchEnd">
+		<view wx:if="{{toptapnum == 0}}" class="tab-content">
+			<view style="margin:0 auto;width:90%;height:540rpx; background:white;">
+				<!-- <ec-canvas force-use-old-canvas="true" id="mychart1" canvas-id="mychart1" ec="{{ ec1 }}"></ec-canvas> -->
+				<view class="chart-container {{showMap?'container-left':''}}">
+					<ec-canvas force-use-old-canvas="true" wx:if="{{!isDisposed}}" id="mychart-dom-map" canvas-id="mychart-map"
+						ec="{{ ec1 }}"></ec-canvas>
+					<cover-view style="left:{{toolTip.x}}rpx;top:{{toolTip.y}}px;" wx:if="{{showToolTip}}" class="tool-tip">
+						<!-- <cover-view bindtap="show_toolTip" style="left:{{toolTip.x}}px;top:{{toolTip.y}}px" wx:if="{{showToolTip}}" class="tool-tip"> -->
+						<cover-view style="width:100%;text-align:left;padding: 10rpx;font-size:25rpx">提示</cover-view>
+						<cover-view style="width:100%;text-align:center;">{{toolTip.name}}</cover-view>
+						<cover-view style="padding: 20rpx;display:flex">
+							<cover-view style="flex:1">数量:{{getprovincenumlist.totalcountall}}</cover-view>
+							<cover-view style="flex:1">金额:{{getprovincenumlist.totalmoneyall}}</cover-view>
+
+						</cover-view>
+						<cover-view class="tool-detail" style="padding: 10rpx;">
+							<cover-view bindtap="drawChina"
+								style="padding:5rpx;flex:1;text-align:center;border-right:1rpx solid gray">取消</cover-view>
+							<cover-view bindtap="checkoutDetail" style="padding:5rpx;flex:1;text-align:center;color:#22A6FD">详情
+							</cover-view>
+						</cover-view>
+					</cover-view>
+					<cover-view class="tool-back" wx:if="{{showBack}}">
+						<cover-image bindtap="drawChina" style="width:50rpx;height:50rpx;margin-left:10rpx"
+							src="../../../pages/images/shauxin.png"></cover-image>
+					</cover-view>
+				</view>
+				<view class="map-view" style="height:100%" wx:if="{{showMap}}">
+					<map id="map" longitude="{{centerPoint.longitude}}" latitude="{{centerPoint.latitude}}" scale="11"
+						controls="{{controls}}" bindcontroltap="controltap" markers="{{markers}}" bindmarkertap="markertap"
+						polyline="{{polyline}}" bindregionchange="regionchange" show-location style="width: 100%;height:100%"></map>
+					<cover-image bindtap="backChart"
+						style="width:50rpx;height:50rpx;margin-left:10rpx;position: absolute;top: 110rpx;right: 50rpx;"
+						src="../../../pages/images/shauxin.png"></cover-image>
+					<!-- <button bindtap="backChart" style="position: absolute;top: 0rpx;background:rgba(0,0,0,0.2);color:white;width:180rpx;">返回</button> -->
+				</view>
+				<!-- <ec-canvas id="mychart2" canvas-id="mychart2" ec="{{ ec2 }}"></ec-canvas> -->
+			</view>
+			<view style="width:100%;height:500rpx;">
+
+				<ec-canvas force-use-old-canvas="true" id="mychart-dom-multi-bar0" canvas-id="mychart-multi-bar0" ec="{{ ec }}">
+				</ec-canvas>
+			</view>
+			<view style="padding-bottom:120rpx">
+				<view style="display:flex;" bindtap="godetail" data-stat='1'>
+					<view style="flex:2;text-align: right;">
+						<image style="height: 20rpx;width: 20rpx;" src="../../../pages/images/1615280972(1).png"></image>
+					</view>
+					<view style="flex:16; font-weight: bolder;">产品销售区域分析数据统计</view>
+					<view style="flex:2;text-align:right">》</view>
+				</view>
+				<view style="display:flex;margin-top:30rpx">
+					<view class="mapalb">销售区域</view>
+					<view class="mapalb">产品名称</view>
+					<view class="mapalb">销售数量</view>
+					<view class="mapalb">销售金额</view>
+				</view>
+				<view class="topalb" wx:for="{{getmaplist}}" wx:key="index">
+					<!-- <view class="topalb" wx:for="{{getmaplist}}" wx:key="index"> -->
+					<view class="alb">{{item.county}}</view>
+					<view class="alb">{{item.proname}}</view>
+					<view class="alb">{{item.totalcount}}</view>
+					<view class="alb">{{item.totalmoney}}</view>
+				</view>
+			</view>
+		</view>
+		<view wx:if="{{toptapnum == 1}}" class="tab-content">
+			<view class="topale">
+				<ec-canvas force-use-old-canvas="true" id="mychart-dom-multi-bar0" canvas-id="mychart-multi-bar0"
+					ec="{{ ec2 }}"></ec-canvas>
+			</view>
+			<view>
+				<view style="display:flex;" bindtap="godetail" data-stat="2">
+					<view style="flex:2;text-align: right;">
+						<image style="height: 20rpx;width: 20rpx;" src="../../../pages/images/1615280972(1).png"></image>
+					</view>
+					<view style="flex:16; font-weight: bolder;">客户产品销售分析数据统计</view>
+					<view style="flex:2;text-align:right">》</view>
+				</view>
+				<view style="display:flex;margin-top:30rpx">
+					<view class="al">客户名称</view>
+					<view class="al">销售总数量</view>
+					<view class="al">销售总金额</view>
+				</view>
+				<view class="topalb" wx:for="{{custprosaleslist}}" wx:key="index">
+					<view style=" flex:1;text-align:center;line-height: 30rpx;">{{item.custname}}</view>
+					<view class="alb">{{item.allcount}}</view>
+					<view class="alb">{{item.allmoney}}</view>
+				</view>
+			</view>
+
+		</view>
+		<view wx:if="{{toptapnum == 2}}" class="tab-content">
+			<view class="topale">
+				<ec-canvas force-use-old-canvas="true" id="mychart-dom-multi-bar0" canvas-id="mychart-multi-bar0"
+					ec="{{ ec3 }}"></ec-canvas>
+			</view>
+			<view>
+				<view style="display:flex;" bindtap="godetail" data-stat="3">
+					<view style="flex:2;text-align: right;">
+						<image style="height: 20rpx;width: 20rpx;" src="../../../pages/images/1615280972(1).png"></image>
+					</view>
+					<view style="flex:16; font-weight: bolder;">业务员产品销售分析数据统计</view>
+					<view style="flex:2;text-align:right">》</view>
+				</view>
+				<view style="display:flex;margin-top:30rpx">
+					<view class="al">客户名称</view>
+					<view class="al">销售总数量</view>
+					<view class="al">销售总金额</view>
+				</view>
+				<view class="topalb" wx:for="{{salprosalBarlist}}" wx:key="index">
+					<view class="alb">{{item.saler}}</view>
+					<view class="alb">{{item.totalcount}}</view>
+					<view class="alb">{{item.totalmoney}}</view>
+				</view>
+			</view>
+
+		</view>
+		<view wx:if="{{toptapnum == 3}}" class="tab-content">
+			<view class="topale">
+				<ec-canvas force-use-old-canvas="true" id="mychart-dom-multi-bar0" canvas-id="mychart-multi-bar0"
+					ec="{{ ec4 }}"></ec-canvas>
+			</view>
+			<view>
+				<view style="display:flex;" bindtap="godetail" data-stat='4'>
+					<view style="flex:2;text-align: right;">
+						<image style="height: 20rpx;width: 20rpx;" src="../../../pages/images/1615280972(1).png"></image>
+					</view>
+					<view style="flex:16; font-weight: bolder;">产品发货销售分析数据统计</view>
+					<view style="flex:2;text-align:right">》</view>
+				</view>
+				<view style="display:flex;margin-top:30rpx">
+					<view class="al">产品名称</view>
+					<view class="al">发货数量</view>
+					<view class="al">发货金额</view>
+				</view>
+				<view class="topalb" wx:for="{{prodelsalBardatalist}}" wx:key="index">
+					<view class="alb">{{item.proname}}</view>
+					<view class="alb">{{item.totalcount}}</view>
+					<view class="alb">{{item.totalmoney}}</view>
+				</view>
+			</view>
+
+		</view>
+		<view wx:if="{{toptapnum == 4}}" class="tab-content">
+			<view class="topale">
+				<ec-canvas force-use-old-canvas="true" id="mychart-dom-multi-bar0" canvas-id="mychart-multi-bar0"
+					ec="{{ ec5 }}"></ec-canvas>
+			</view>
+			<view>
+				<view style="display:flex;" bindtap="godetail" data-stat='5'>
+					<view style="flex:2;text-align: right;">
+						<image style="height: 20rpx;width: 20rpx;" src="../../../pages/images/1615280972(1).png"></image>
+					</view>
+					<view style="flex:16; font-weight: bolder;">产品发货同期对比数据统计</view>
+					<view style="flex:2;text-align:right">》</view>
+				</view>
+				<view style="display:flex;margin-top:30rpx">
+					<view class="al">产品名称</view>
+					<view class="al">今年发货数量</view>
+					<view class="al">去年发货金额</view>
+				</view>
+				<view class="topalb" wx:for="{{prodelperBardatalist}}" wx:key="index">
+					<view class="alb"> {{item.proname}}</view>
+					<view class="alb"> {{item.totalcount}}</view>
+					<view class="alb"> {{item.uptotalcount}}</view>
+				</view>
+			</view>
+
+		</view>
+		<view wx:if="{{toptapnum == 5}}" class="tab-content">
+			<view class="topale">
+				<ec-canvas force-use-old-canvas="true" id="mychart-dom-multi-bar0" canvas-id="mychart-multi-bar0"
+					ec="{{ ec6 }}"></ec-canvas>
+			</view>
+			<view>
+				<view style="display:flex;" bindtap="godetail" data-stat='6'>
+					<view style="flex:2;text-align: right;">
+						<image style="height: 20rpx;width: 20rpx;" src="../../../pages/images/1615280972(1).png"></image>
+					</view>
+					<view style="flex:16; font-weight: bolder;">客户发货同期对比数据统计</view>
+					<view style="flex:2;text-align:right">》</view>
+				</view>
+				<view style="display:flex;margin-top:30rpx">
+					<view class="al">客户名称</view>
+					<view class="al">今年发货数量</view>
+					<view class="al">去年发货金额</view>
+				</view>
+				<view class="topalb" wx:for="{{cusdelperBardatalist}}" wx:key="index">
+					<view class="alb"> {{item.custname}}</view>
+					<view class="alb"> {{item.totalcount}}</view>
+					<view class="alb"> {{item.uptotalcount}}</view>
+				</view>
+			</view>
+
+		</view>
+	</view>
+</view>
+
+
+<tabBar style="z-index:99999"></tabBar>

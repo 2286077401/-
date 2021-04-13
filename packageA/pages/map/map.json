@@ -1,0 +1,14 @@
+{
+  "usingComponents": {
+    "map-canvas": "../../../packageA/pages/show/show",
+    "mapbar-canvas": "../../../packageA/pages/showBar/showBar",
+    "cusprosalBar-canvas": "../../../packageA/pages/cusprosalBar/cusprosalBar",
+    "salprosalBar-canvas": "../../../packageA/pages/salprosalBar/salprosalBar",
+    "prodelsalBar-canvas": "../../../packageA/pages/prodelsalBar/prodelsalBar",
+    "prodelperBar-canvas": "../../../packageA/pages/prodelperBar/prodelperBar",
+    "cusdelperBar-canvas": "../../../packageA/pages/cusdelperBar/cusdelperBar",
+    "tabBar":"/custom-tab-bar/index",
+    "ec-canvas": "../../../ec-canvas/ec-canvas"
+    
+  }
+}

@@ -1,0 +1,7 @@
+/* pages/inventorymanagement/inventorymanagement.wxss */
+ 
+page{
+  width: 100%;
+  height: 100%;
+  padding-bottom: 120rpx;
+}
